@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismael Corrêa</title>
+	
+    <!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.3/font/bootstrap-icons.css">
+
+	<!-- Bootstrap JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" ></script>
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+	<link href="https://fonts.cdnfonts.com/css/youth-action" rel="stylesheet">
+	
+	<!--script upload foto perfil-->
+	<script type="text/javascript">
+	
+		document.addEventListener('DOMContentLoaded', function() {
+		  const fileInput = document.getElementById('file-input');
+		  const avatar = document.getElementById('avatar');
+
+		  avatar.addEventListener('click', function() {
+			fileInput.click();
+		  });
+
+		  fileInput.addEventListener('change', function(event) {
+			const file = event.target.files[0];
+			const reader = new FileReader();
+
+			reader.onload = function(event) {
+			  avatar.src = event.target.result;
+			}
+
+			reader.readAsDataURL(file);
+		  });
+		});
+
+	
+	</script>
+</head>
+
+<body>
+
+<div class="main ">
+
+	<div class="profileCard cartao conteudo">	
+	
+		<div class="card p-4 bs br-10 b-0 col-lg-5">
+		
+				<header>
+					<div class="avatar-container">
+					  <img src="img/perfil.png" alt="Avatar" id="avatar" onclick="openFile(event)" />
+					</div>
+				</header>
+			
+				<div class="mb-3 mr-3 text-center">
+				  <h2 for="username" class="form-label">Ismael de Oliveira Corrêa</h2>
+				  <h3 for="username" class="form-label">Web designer / Front-end / Ilustrador</h3>
+				</div>
+		
+			<div class="row">
+			
+				<div class="col-12 d-flex flex-wrap">
+				  
+					<a class="flex-fill-custom socialField col-lg-3 col-sm-12 col-xs-12 mb-3"
+					href="https://wa.me/5521980787754" target="_blank">
+						<label for="telefone" class="form-label">
+						  <i class="bi bi-telephone-fill"></i> Whataspp
+						</label>
+					</a>
+
+					<a class="flex-fill-custom socialField col-lg-3 col-sm-12 col-xs-12 mb-3"
+						href="mailto:ismaelcorrea027@gmail.com" target="_blank">
+					  <label for="email" class="form-label">
+						<i class="bi bi-envelope-fill"></i> E-mail
+					  </label>
+					</a>
+	
+				  <a class="flex-fill-custom socialField col-lg-4 col-sm-12 col-xs-12 mb-3 "
+				  href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank">
+					<label for="linkedin" class="form-label">
+					  <i class="bi bi-linkedin"></i> Linkedin
+					</label>
+				  </a>
+				  
+				</div>
+				
+				
+				 <div class="container">
+    <div id="accordion">
+
+      <div class="accordion-item">
+        <h5 class="accordion-header" id="heading1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+            Criação de site/Intranet
+          </button>
+        </h5>
+        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul>
+              <li><a target="_blank" href="https://globalmob.com.br/">Globalmob</a></li>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Mapeyatec/">Mapeyatec</a></li>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Montaury/">Montaury Advogados</a></li>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/carteiraVacinacao/">BRmalls - cartão de vacina</a></li>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/SKAADV.png">SKAADV Advogados</a></li>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/BMA/timesheet.png">BMA Advogados -Intranet</a></li>
+			  <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/BMA/timesheet3.png">BMA Advogados</a></li>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/busca-documentos-2.jpg">Gestão de documentos</a></li>
+			  <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/FQM-INTRANET.png">FQM - Farmoquímica</a></li>
+			  <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/ComplianceLegal">Compliance Legal</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h5 class="accordion-header" id="heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+            Projetos mobile
+          </button>
+        </h5>
+        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/complianceLegal.png">complianceLegal</a></li>
+			  <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/unimed.png">Unimed</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h5 class="accordion-header" id="heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Projeto pessoal (em andamento)
+          </button>
+        </h5>
+        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            Criação de construtor de página em javascript:
+            <ul>
+              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/construtorTemplate/">construtorTemplate</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h5 class="accordion-header" id="heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+            Sites em que presto manutenção atualmente
+          </button>
+        </h5>
+        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul>
+              <li><a target="_blank" href="https://impeto.com.br/">Ímpeto informática</a></li>
+              <li><a target="_blank" href="https://seperj.org.br/">Sepe-rj</a></li>
+              <li><a target="_blank" href="https://www.australholding.com/">Austral holding</a></li>
+              <li><a target="_blank" href="https://australseguradora.com/">Austral seguradora</a></li>
+              <li><a target="_blank" href="https://www.australre.com/">Austral re</a></li>
+              <li><a target="_blank" href="https://www.vincipartners.com/">Vinci partners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h5 class="accordion-header" id="heading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+            Portfólio de ilustrações
+          </button>
+        </h5>
+        <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordion">
+          <div class="accordion-body">
+            <ul>
+              <li><a target="_blank" href="https://www.behance.net/ismaelcorrea027">behance.net/ismaelcorrea027</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+				
+			 </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
