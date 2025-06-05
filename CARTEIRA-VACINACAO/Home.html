@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<meta name="description" content="">
+	<meta name="msapplication-TileColor" content="#a4cb00">
+	<meta name="theme-color" content="#a4cb00" >
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	
+    <title>brMalls - Vacinação</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mask.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+</head>
+
+<body>
+  
+  <div class="bg-carteira-vacinacao">
+  
+    <div class="text-center logo"><img src="img/logo.png" alt="Logo Your Voice" /></div>
+
+    <div class="container column">
+
+			<div class="col-md-9 col-xs-12 header">
+				<h3 class="text-center">Você está pronto para o restart! <br/> <span class="destaque">#</span>VacinaSalvaVidas</h3>
+			</div>
+			
+            <div class="col-lg-8 col-xs-12">
+			
+                <div class="form" >				
+                    <div class="row text-center">
+					
+					 <section class="dados-cpf visible col-lg-12">
+						<h4 class="mb-4">Antes de de responder a pesquisa,<br/> digite o CPF do colaborador:</h4>
+						<div class="mt-4 d-flex flex-wrap  justify-content-center">
+							<label class="mr-2 pt-2">CPF:</label>
+							<input type="text" value="" =""="">
+						</div>
+						<div class="row d-flex justify-content-center flex-wrap">
+							<button type="submit" class="btn btnCPF">Confirmar</button>
+						</div>
+					   </section>
+					   
+						<section class="dados-pessoais col-lg-12">
+						
+							<h4 class="mb-4">Confirme os dados do colaborador abaixo:</h4>
+							
+							<div class="mt-4 d-flex flex-wrap flex-column  justify-content-center">
+							
+								<div class="d-flex flex-wrap  justify-content-center">
+									 <label class="pt-4 pr-4">NOME:</label>
+									 <input type="text" value="Mariana Castro" disabled="">
+								</div>
+							
+								<div class="d-flex flex-wrap justify-content-center">	
+									 <label class="pt-4 pr-4"  style="width: 69px;">CPF:</label>
+									 <input type="text" value="22554477">
+								</div>
+							
+							</div>
+							<div class="row d-flex justify-content-center flex-wrap">
+								<button type="submit" class="mt-4 btn btnDados">Confirmar</button>
+								<button type="submit" class="mt-4 btnClear ">Corrigir</button>
+							</div>
+					   </section> 
+					   
+					    <section class="validacao-vacina col-lg-12">
+							 <h4>Em relação a vacina contra o COVID-19:<BR/><STRONG>Você já foi vacinado?</STRONG></h4>
+							 <div class="d-flex justify-content-center">
+
+								<ul>
+								  <li>
+									<input type="radio" id="vacinado" name="selector">
+									<label for="vacinado">SIM</label>	
+									<div class="check"></div>
+								  </li>
+								  
+								  <li>
+									<input type="radio" id="naoVacinado" name="selector">
+									<label for="naoVacinado">NÃO</label>
+									
+									<div class="check"></div>
+								  </li>
+								  
+								</ul>
+							</div>
+							<div class="row d-flex justify-content-center flex-wrap">
+								<button type="submit" class="mt-4 btn btnVacina">Confirmar</button>
+							</div>
+						</section>
+					
+                        <section class="selecao-vacina col-lg-12">
+							<h4>Selecione qual vacina você tomou:</h4>
+							
+							<ul>
+								  <li>
+									 <input type="radio" id="AstraZeneca" name="vacina" value="AstraZeneca">
+									 <label for="AstraZeneca">AstraZeneca </label>
+									 <div class="check"></div>
+								  </li>
+								  
+								  <li>
+									<input type="radio" id="Coronavac" name="vacina" value="Coronavac">	
+							        <label for="Coronavac">Coronavac</label>
+									<div class="check"></div>
+								  </li>
+								  
+								  <li>
+									 <input type="radio" id="Janssem" name="vacina" value="Janssem">
+									 <label for="Janssem">Janssem</label>
+									 <div class="check"></div>
+								  </li>
+								  
+								  <li>
+									<input type="radio" id="Pfizer" name="vacina" value="Pfizer">	
+							 		<label for="Pfizer">Pfizer</label>
+									<div class="check"></div>
+								  </li>
+								  
+								</ul>
+								<!--div class="row d-flex justify-content-center flex-wrap">
+									<button type="submit" class="mt-4 btn btnTipoVacina">Confirmar</button>
+								</div-->
+							
+
+							<div class="container-Janssem mb-4 col-md-12">
+								<label>Data da Vacinação</label><br/>
+								<input  type="date" />
+								<div class="mt-4 row d-flex justify-content-center flex-wrap">
+									<button class="btn btnDataVacina">Confirmar</button>
+								</div>
+							</div>
+							
+							<div class="container-vacina mb-4 col-md-12">
+								<label>Data da 1ª dose:</label><br/>
+								<input type="date" /><br/>
+								<label class="mt-4 condicao">Já tomou a segunda dose?</label><br/>
+								<ul>
+								  <li>
+									<input type="radio" id="S-2Dose" name="selector">
+									<label for="S-2Dose">SIM</label>
+									
+									<div class="check S-2Dose"></div>
+								  </li>
+								  
+								  <li>
+									<input type="radio" id="N-2Dose" name="selector">
+									<label for="N-2Dose">NÃO</label>
+									
+									<div class="check N-2Dose"></div>
+								  </li>
+								  
+								</ul>
+								
+							<div class="mb-4 tomou-2Dose col-md-12">
+								<label>Data em que tomou a 2ª dose:</label><br/>
+								<input type="date" />
+							</div>
+
+							<div class="mb-4 previsao-2Dose col-md-12">	
+								<label>Previsão para 2ª dose:</label><br/>
+								<input type="date" />
+							</div>
+							
+							<div class="row d-flex justify-content-center flex-wrap">
+								<button class="btn btnDataVacina">Confirmar</button>
+							</div>
+							
+						 </div>
+
+							
+                        </section>
+						
+						<section class="upload col-lg-12">
+						
+							<h4>Faça o upload do seu <strong>cartão de vacinação</strong> <br/>ou certificado do <strong>ConectSus</strong></h4>
+							<!-- actual upload which is hidden -->
+							<input type="file" id="actual-btn" hidden/>
+
+							<!-- our custom upload button -->
+							<label class="fileUpload" for="actual-btn">Escolher Arquivo</label>
+
+							<!-- name of file chosen -->
+							<span id="file-chosen">Nenhum Arquivo Selecionado</span>
+							
+							<div class="d-flex justify-content-center flex-wrap">
+								<button class="mt-4 btn btnFinish ">Enviar e finalizar</button>
+							</div>
+
+						</section>
+						
+						<section class="finish col-md-12 col-xs-12">
+							<img src="img/quiz.png" class="img-quiz img-responsive" alt="Icone Pesquisa" />
+							<h4 class="sucess">Pesquisa enviada com sucesso!</h4>
+						</section>
+						
+                    </div>
+					
+					<hr>
+
+					<p class="text-center nota">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor lectus nibh. <br/>
+					<span class="spanish"><strong>brMalls©</strong> 2021 - Todos os direitos reservados.</span></p>
+
+                </div>
+				<div class="rodape d-flex justify-content-around pt-4">
+					<a class="col-md-2" href="https://canalconfidencial.com.br/lgpdbrmalls/" target="_blank" style="">
+						<img src="img/lgpd-logo.png" alt="Logo de LGPD">
+					</a> 
+					<a class="col-md-3" href="https://www.canalconfidencial.com.br/brmalls/" target="_blank">
+						<img src="img/canal-confidencial.png" alt="Canal Confidencial" class="img-responsive">
+					</a>
+					<a class="col-md-4" href="https://www.brmalls.com.br/politica-de-privacidade" target="_blank" class="-white"><strong>Política de Privacidade</strong></a>
+				</div>
+			</div>
+
+		</div>			
+	</div>
+</body>
+
+<script type="text/javascript">
+	$( document ).ready(function() {
+	
+	  $(".btnCPF").click(function(){
+		 $(".dados-cpf").removeClass("visible");
+		 $(".dados-pessoais").addClass("visible");
+	  });
+	  
+	  $(".btnDados").click(function(){
+		$(".dados-pessoais").removeClass("visible");
+		$(".validacao-vacina").addClass("visible");
+	  });
+	  
+	  $(".btnVacina").click(function(){
+		$(".validacao-vacina").removeClass("visible");
+		$(".selecao-vacina").addClass("visible");
+	  });
+	  
+	  $("#Janssem").click(function(){
+		$(".container-Janssem").addClass("visible");
+		$(".container-vacina").removeClass("visible");
+	  });
+	    
+	  
+	  $("#Pfizer, #Coronavac, #AstraZeneca").click(function(){
+		$(".container-Janssem").removeClass("visible");
+		$(".container-vacina").addClass("visible");
+	  });
+	  
+		  $("#S-2Dose").click(function(){
+			$('.tomou-2Dose').addClass("visible");
+			$('.previsao-2Dose').removeClass("visible");
+		  });
+		  
+		  $("#N-2Dose").click(function(){
+			$('.previsao-2Dose').addClass("visible");
+			$('.tomou-2Dose').removeClass("visible");
+			
+		  });
+		
+	  $(".btnDataVacina").click(function(){
+		$(".selecao-vacina").removeClass("visible");
+		$(".upload").addClass("visible");
+	  });
+		 
+	  
+	  $(".btnFinish").click(function(){
+		$(".upload").removeClass("visible");
+		$(".finish").addClass("visible");
+	  });
+	  
+	});
+
+	const actualBtn = document.getElementById('actual-btn');
+
+	const fileChosen = document.getElementById('file-chosen');
+
+	actualBtn.addEventListener('change', function(){
+	  fileChosen.textContent = this.files[0].name
+	})
+</script>
+
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<meta name="description" content="">
+	<meta name="msapplication-TileColor" content="#a4cb00">
+	<meta name="theme-color" content="#a4cb00" >
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+	
+    <title>MONTAURY</title>
+   
+	<!-- bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap-flex.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+	<!-- custom css -->
+	<link rel="stylesheet" href="assets/css/style.css" />
+
+	<!-- JS -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.mask.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/multiselect.min.js"></script>
+
+</head>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container">
+		<a class="navbar-brand" href="#"><img src="assets/img/logo.png" /></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<li class="nav-item">
+			  <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="escalas-2.html">Escalas</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="cadastro-equipe.html">Cadastrar Equipe</a>
+			</li>
+
+
+		  </ul>
+		  
+		</div>
+	  </div>
+	</nav>
+	<div class="container">
+		<h2>Escalas</h2>
+		<div class="p-0 filtro col-md-12 d-flex flex-wrap justify-content-start">
+			<select class="col-md-6 form-select" aria-label="Default select example">
+			  <option selected>Selecione o Mês</option>
+			  <option value="1">Janeiro</option>
+			  <option value="2">Fevereiro</option>
+			  <option value="3">Março</option>
+			</select>
+			<button type="button" class="btn btn-outline-secondary">Gerar Reservas</button>
+			<div class="float-right">
+				<button type="button" class="btn btn-outline-secondary">Salvar</button>
+			</div>
+		</div>	
+		<div class="container d-flex flex-wrap justify-content-center align-items-center align-self-center">
+			<!--Equipe A-->
+			<div class="col-md-12 col-xs-12 mt-4 container-table container-table-2">
+				<table class="equipe-a tabela-mista" id='tbl'>
+					<thead>
+						<th colspan="2"></th>
+						<th colspan="22">DIAS ÚTEIS</th>
+						<th></th>
+					</thead>
+					<tbody>
+						<tr class="equipe">	
+							<td>COLABORADOR</td>
+							<td>EQUIPE</td>
+							<td>Seg.</br>01</td>
+							<td>Ter.</br>02</td>
+							<td>Qua.</br>03</td>
+							<td>Qui.</br>04</td>
+							<td>Sex.</br>05</td>
+							<td>Seg.</br>06</td>
+							<td>Ter.</br>07</td>
+							<td class="out">Qua.</br>08</td>
+							<td>Qui.</br>09</td>
+							<td>Sex.</br>10</td>
+							<td>Seg.</br>11</td>
+							<td>Ter.</br>12</td>
+							<td>Qua.</br>13</td>
+							<td>Qui.</br>14</td>
+							<td>Sex.</br>15</td>
+							<td class="out">Seg.</br>16</td>
+							<td>Ter.</br>17</td>
+							<td>Qua.</br>18</td>
+							<td>Qui.</br>19</td>
+							<td>Sex.</br>20</td>
+							<td>Seg.</br>21</td>
+							<td>Ter.</br>22</td>
+							<td>Tot.<br/>Dias </td>
+						</tr>   
+						        
+						<tr class="repeat">
+							<td>Nome Sobrenome</td>
+							<td>A</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox" name="" value="" checked>
+								 <label for="checkbox"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox2" name="" value="" checked>
+								 <label for="checkbox2"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox3" name="" value="" >
+								 <label for="checkbox3"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox4" name="" value="" >
+								 <label for="checkbox4"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox5" name="" value="" >
+								 <label for="checkbox5"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox6" name="" value="" checked>
+								 <label for="checkbox6"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox7" name="" value="" checked>
+								 <label for="checkbox7"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox8" name="" value="" checked>
+								 <label for="checkbox8"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox9" name="" value="" >
+								 <label for="checkbox9"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox10" name="" value="" >
+								 <label for="checkbox10"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox11" name="" value="" >
+								 <label for="checkbox11"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox12" name="" value="" checked>
+								 <label for="checkbox12"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox13" name="" value="" checked>
+								 <label for="checkbox13"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox14" name="" value="" checked>
+								 <label for="checkbox14"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox15" name="" value="" >
+								 <label for="checkbox15"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox16" name="" value="" >
+								 <label for="checkbox16"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox17" name="" value="" >
+								 <label for="checkbox17"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox18" name="" value="" checked>
+								 <label for="checkbox18"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox19" name="" value="" >
+								 <label for="checkbox19"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox20" name="" value="" >
+								 <label for="checkbox20"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox21" name="" value="" >
+								 <label for="checkbox21"></label>
+							  </div>
+							</td>
+							<td> 
+							  <div class="checkbox">
+								 <input type="checkbox" id="checkbox22" name="" value="" checked>
+								 <label for="checkbox22"></label>
+							  </div>
+							</td>
+							<td>10 dias</td>
+						</tr>										
+					</tbody>
+					
+					<tfoot>
+						<tr class="totais">
+							<td class="text-right" colspan="2">TOTAIS:</td>
+							<td>21</td>
+							<td>21</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>21</td>
+							<td>21</td>
+							<td>21</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>21</td>
+							<td>21</td>
+							<td>21</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>21</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>21</td>
+							<td></td>
+						</tr><!--fim totais -->				
+					</tfoot>
+				
+				</table>
+			
+			</div><!--fim equipe B-->
+
+		</div>
+
+	</div>
+	
+	<footer id="myFooter" class="mt-4">
+        <div class="container">
+            <div class="row">
+			    <div class="mt-4 col-sm-3 info">
+                    <img src="assets/img/logo.png" />
+				</div>
+                <div class="col-sm-3">
+                    <h5>Inicio</h5>
+                    <ul>
+                        <li><a href="https://programadorviking.com.br/">Home</a></li>
+                        <li><a href="https://bit.ly/front-end-curso-completo-promocao-01">Cursos</a></li>
+                        <li><a href="https://programadorviking.com.br/">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Sobre nós</h5>
+                    <ul>
+                        <li><a href="https://programadorviking.com.br/">Informações da Empresa</a></li>
+                        <li><a href="https://programadorviking.com.br/">Contato</a></li>
+                        <li><a href="https://programadorviking.com.br/">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Suporte</h5>
+                    <ul>
+                        <li><a href="https://programadorviking.com.br/">FAQ</a></li>
+                        <li><a href="https://programadorviking.com.br/">Telefones</a></li>
+                        <li><a href="https://programadorviking.com.br/">Chat</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var row = $("tr.repeat");
+		for (var i = 0; i < 21; i++) {
+			$("tbody").append(row.clone());
+		}
+
+	});
+</script>
+</html>
