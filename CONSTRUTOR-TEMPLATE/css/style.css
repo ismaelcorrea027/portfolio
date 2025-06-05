@@ -22,6 +22,9 @@ html, body {
     border: 0;
     box-shadow: 1px 1px 5px #00000080;
 }
+div#myTabContent {
+    padding: 20px;
+}
 .insertItem {padding:20px; cursor:pointer}
 input, select, date {width:100%;min-height:50px;margin:10px 0;z-index: 80;color: #666;border-radius: 0;}
 #accordion .card .btn-link {
@@ -66,7 +69,7 @@ input, select, date {width:100%;min-height:50px;margin:10px 0;z-index: 80;color:
 	min-width: 100%;
 	background: transparent;
 	justify-content: flex-start;
-	padding: 20px;
+
 }
 
 .card {
@@ -108,7 +111,7 @@ div#accordion {
     padding: 16px 0;
 }
 .Componentes {height: 100VH;POSITION: STICKY;top: 14px;OVERFLOW: AUTO;background: #499ea9!important;}
-.Componentes, .Formulario {background:#fff;margin: 15px;box-shadow: 0px 0px 14px #00000042;border-radius:8px;padding: 0;}
+.Componentes, .Formulario {background:#fff;box-shadow: 0px 0px 14px #00000042;border-radius:8px;padding: 0;}
 .geral select, .geral input, .geral textarea {
     border: 1px solid #f1f2f6;
     box-shadow: 0px 0px 14px #dee2f1b0;
@@ -320,7 +323,7 @@ fieldset {
 .bg-modal{background: #132c4a6e;width:100%;height:100vh;display:none!important;position: fixed;top: 0;z-index: 80;}
 .modal-backdrop{z-index:2}
 .modalDelete, .modalNomeGrupo {display:none;width: 610PX;position: fixed;top: 3em;padding: 12px;bottom:0;color: #201f1f;left:0;height: 188px;margin: 0 auto;text-align: center;right:0;background: #fff;c: 200;border-radius: 5px;box-shadow: 1px 2px 9px 0px #13131387;}
-.modalCreate {display: flex;width: 100%;position: relative;padding: 25px;left:0;height: 100%;z-index: 100;border-radius: 5px;box-shadow: 1px 2px 9px 0px #13131387;background: #079faf;}
+.modalCreate {display: flex;width: 100%;position: relative;padding: 10px;left:0;height: 100%;z-index: 100;border-radius: 5px;box-shadow: 1px 2px 9px 0px #13131387;background: #079faf;}
 .modalDelete {height:250px;background: #fff;color: #6ea8b5;}
 .modalDelete .glyphicon-trash {font-size:50px;    margin-bottom: 15px;}
 .modalDelete h2 {font-size:28px;margin-bottom: 1em;}
@@ -331,12 +334,10 @@ button.btnModalDeleteRow, button.btnSalvar, .AddCampo{
     border: 0;
     padding: 10px 20px;
     float: right;
-    width: 45%;
-    max-width: 300px;
-    margin: 0 15px 0 0;
     box-shadow: 0px 1px 7px #0202023d;
     text-shadow: 1px 1px 2px #00000094;
 }
+.nav-tabs .nav-link {color:#333}
 .modal.newCampo {
     margin: 20px auto;
     background: #ffffff;
@@ -349,10 +350,11 @@ button.btnModalDeleteRow, button.btnSalvar, .AddCampo{
     /* color: #fff; */
     border-radius: 5px;
     box-shadow: 1px 1px 17px 3px #0000008c;
-    position: r;
+    position: absolute;
+	right:0
 }
 .btnInputs {
-    margin: 8px 7px;
+    margin: 8px 5px;
     border: 0;
     padding: 9px 15px;
     border-radius: 2px;
@@ -376,12 +378,12 @@ button.btnModalCancel {
 	color: #fff;
 	border: 0;
 	padding: 10px 20px;
-	width: 199px;
+
 	float: left;
-	margin: 0 0 0 17px;
+
 }
 .currentDelete {background-color:#ff9f9a45}
-.note-editor.note-frame .note-editing-area .note-editable {height: 100%!important;}
+.note-editor.note-frame .note-editing-area .note-editable {height: 100%!important;background:#dbebed}
 .row.new-row:first-child .action-group .btnDelete {
     display: none;
 }
@@ -570,7 +572,12 @@ label {
     height: 195px!important;
 }
 .nav-tabs>li>a {color:#fff;font-size: 17px;}
-.modal.modalRadioButton {height:300px!important}
+.modal.modalRadioButton {
+	height: 300px !important;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+}
 
 button.btnSalvar[disabled] {
     background: #ccc;
