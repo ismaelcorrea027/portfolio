@@ -60,7 +60,7 @@ ul {
 li {
     background: #06060647;
     margin: 5px;
-    padding: 10px;
+    padding: 10px!important;
     width: auto;
 	border-radius: 5px;
     border: 1px solid #00bcd470;
