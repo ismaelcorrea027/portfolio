@@ -1,201 +1,838 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ismael Corrêa</title>
-	
-    <!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.3/font/bootstrap-icons.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ismael Corrêa — Web Designer / Front-end / Ilustrador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Sora:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+:root{
+  --bg:#14181f;
+  --surface:#1b212b;
+  --surface-2:#212836;
+  --line:#2c3341;
+  --ink:#ece9e2;
+  --ink-muted:#9099a8;
+  --brass:#c9a15a;
+  --brass-dim:#8a723f;
+  --steel:#7fa0c4;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Sora',sans-serif;
+  font-size:16px;
+  line-height:1.5;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
 
-	<!-- Bootstrap JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" ></script>
+/* subtle blueprint grid texture on the page background */
+body{
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
 
-	<link rel="stylesheet" href="css/style.css" />
-	<link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
-	<link href="https://fonts.cdnfonts.com/css/youth-action" rel="stylesheet">
-	
-	<!--script upload foto perfil-->
-	<script type="text/javascript">
-	
-		document.addEventListener('DOMContentLoaded', function() {
-		  const fileInput = document.getElementById('file-input');
-		  const avatar = document.getElementById('avatar');
+/* ---------- HERO ---------- */
+header.hero{
+  padding:88px 0 64px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap:56px;
+  align-items:center;
+}
+.hero-name{
+  font-family:'Fraunces',serif;
+  font-size:clamp(38px,5vw,58px);
+  font-weight:500;
+  line-height:1.05;
+  margin:14px 0 6px;
+}
+.hero-role{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:20px;
+  color:var(--steel);
+  margin:0 0 22px;
+}
+.hero-bio{
+  color:var(--ink-muted);
+  font-size:15.5px;
+  max-width:52ch;
+  margin:0 0 26px;
+}
+.stat-row{
+  display:flex;
+  gap:28px;
+  margin:0 0 30px;
+  flex-wrap:wrap;
+}
+.stat b{
+  font-family:'Fraunces',serif;
+  font-size:26px;
+  display:block;
+  color:var(--ink);
+  font-weight:500;
+}
+.stat span{
+  font-size:12px;
+  color:var(--ink-muted);
+  font-family:'Space Mono',monospace;
+  letter-spacing:.04em;
+}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 18px;
+  border-radius:3px;
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  border:1px solid var(--line);
+  transition:.2s;
+  font-family:'Sora',sans-serif;
+}
+.btn-solid{background:var(--brass);color:#14181f;border-color:var(--brass);}
+.btn-solid:hover{background:#ddb46f;transform:translateY(-1px);box-shadow:0 8px 18px -10px rgba(201,161,90,.45);}
+.btn-outline{color:var(--ink);}
+.btn-outline:hover{border-color:var(--brass);color:var(--brass);transform:translateY(-1px);}
 
-		  avatar.addEventListener('click', function() {
-			fileInput.click();
-		  });
+.hero-portrait{
+  position:relative;
+  justify-self:center;
+}
+.portrait-frame{
+  width:100%;
+  max-width:280px;
+  aspect-ratio:1/1;
+  border:1px solid var(--line);
+  padding:10px;
+  position:relative;
+}
+.portrait-frame img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(15%);
+}
+.stamp{
+  position:absolute;
+  top:-14px;
+  right:-22px;
+  width:84px;height:84px;
+  border-radius:50%;
+  border:1.5px dashed var(--brass);
+  display:flex;align-items:center;justify-content:center;
+  transform:rotate(8deg);
+  background:var(--bg);
+}
+.stamp span{
+  font-family:'Space Mono',monospace;
+  font-size:10.5px;
+  color:var(--brass);
+  text-align:center;
+  line-height:1.3;
+  letter-spacing:.03em;
+}
 
-		  fileInput.addEventListener('change', function(event) {
-			const file = event.target.files[0];
-			const reader = new FileReader();
+/* ---------- SECTION SHELL ---------- */
+section{padding:72px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
 
-			reader.onload = function(event) {
-			  avatar.src = event.target.result;
-			}
+/* ---------- ABSTRACT SECTION BACKDROPS ---------- */
+section .backdrop-icon{
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  line-height:1;
+}
 
-			reader.readAsDataURL(file);
-		  });
-		});
+.section-featured{
+  background:
+    radial-gradient(680px 520px at 88% -10%, rgba(201,161,90,.22), transparent 65%),
+    radial-gradient(520px 420px at -10% 108%, rgba(127,160,196,.14), transparent 68%);
+}
+.section-featured .backdrop-icon{
+  top:-40px; right:-30px;
+  font-size:360px;
+  color:rgba(201,161,90,.09);
+  transform:rotate(-10deg);
+}
 
-	
-	</script>
+.section-secondary{
+  background:
+    radial-gradient(560px 440px at 4% -8%, rgba(127,160,196,.18), transparent 68%),
+    radial-gradient(520px 440px at 104% 104%, rgba(201,161,90,.14), transparent 68%);
+}
+.section-secondary .backdrop-icon{
+  bottom:-50px; left:-30px;
+  font-size:320px;
+  color:rgba(127,160,196,.10);
+  transform:rotate(8deg);
+}
+
+.section-personal{
+  background:
+    radial-gradient(560px 440px at 102% -4%, rgba(127,160,196,.19), transparent 68%),
+    radial-gradient(400px 340px at -6% 106%, rgba(201,161,90,.13), transparent 68%);
+}
+.section-personal .backdrop-icon{
+  top:-30px; right:20px;
+  font-size:280px;
+  color:rgba(127,160,196,.11);
+  transform:rotate(-6deg);
+}
+
+.section-maintenance{
+  background:
+    radial-gradient(640px 480px at 6% -8%, rgba(95,191,125,.17), transparent 68%),
+    radial-gradient(520px 420px at 98% 104%, rgba(201,161,90,.14), transparent 68%);
+}
+.section-maintenance .backdrop-icon{
+  bottom:-60px; right:-20px;
+  font-size:340px;
+  color:rgba(95,191,125,.10);
+  transform:rotate(10deg);
+}
+
+.section-illustration{
+  background:
+    radial-gradient(600px 480px at 94% 6%, rgba(201,161,90,.22), transparent 65%),
+    radial-gradient(540px 440px at 2% 102%, rgba(178,111,158,.17), transparent 68%);
+}
+.section-illustration .backdrop-icon{
+  top:10px; left:-40px;
+  font-size:320px;
+  color:rgba(178,111,158,.11);
+  transform:rotate(-8deg);
+}
+
+footer{
+  position:relative;overflow:hidden;
+  background:radial-gradient(680px 340px at 50% 130%, rgba(201,161,90,.19), transparent 68%);
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:34px;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.section-title{
+  font-family:'Fraunces',serif;
+  font-size:28px;
+  font-weight:500;
+  margin:6px 0 0;
+}
+.section-note{color:var(--ink-muted);font-size:14px;max-width:38ch;text-align:right;}
+
+/* ---------- FEATURED PROJECTS ---------- */
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+.case-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+  text-decoration:none;
+  color:var(--ink);
+  display:flex;
+  flex-direction:column;
+  transition:.25s border-color, .25s transform, .25s box-shadow;
+  position:relative;
+}
+.case-card:hover{border-color:var(--brass-dim);transform:translateY(-3px);box-shadow:0 14px 28px -18px rgba(0,0,0,.55);}
+.case-thumb{
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  position:relative;
+  background:var(--surface-2);
+}
+.case-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.4s transform;}
+.case-card:hover .case-thumb img{transform:scale(1.045);}
+.case-tag{
+  position:absolute;top:10px;left:10px;
+  background:#14181fcc;
+  border:1px solid var(--brass-dim);
+  color:var(--brass);
+  font-family:'Space Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:.08em;
+  padding:3px 8px;
+  border-radius:2px;
+  text-transform:uppercase;
+  backdrop-filter:blur(2px);
+}
+.case-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;}
+.case-title{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin:0 0 6px;}
+.case-desc{color:var(--ink-muted);font-size:13.5px;line-height:1.5;margin:0 0 14px;flex:1;}
+.case-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'Space Mono',monospace;font-size:11.5px;color:var(--steel);
+  border-top:1px solid var(--line);padding-top:12px;
+}
+
+/* ---------- COMPACT GRID (secondary projects) ---------- */
+.compact-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.compact-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+  text-decoration:none;
+  color:var(--ink);
+  transition:.2s border-color,.2s transform,.2s box-shadow;
+}
+.compact-card:hover{border-color:var(--brass-dim);transform:translateY(-2px);box-shadow:0 10px 22px -16px rgba(0,0,0,.55);}
+.compact-thumb{aspect-ratio:4/3;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--line);}
+.compact-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.compact-thumb.empty{display:flex;align-items:center;justify-content:center;}
+.compact-thumb.empty i{font-size:26px;color:var(--line);}
+.compact-body{padding:12px 14px 14px;}
+.compact-title{font-size:14px;font-weight:500;margin:0 0 3px;}
+.compact-sub{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--ink-muted);letter-spacing:.03em;}
+
+/* ---------- MAINTENANCE GRID ---------- */
+.maint-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.maint-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  overflow:hidden;
+  text-decoration:none;
+  color:var(--ink);
+  display:flex;
+  flex-direction:column;
+  transition:.25s border-color, .25s transform, .25s box-shadow;
+}
+.maint-card:hover{
+  border-color:var(--brass-dim);
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px -18px rgba(0,0,0,.55);
+}
+.maint-thumb{
+  aspect-ratio:16/10;
+  overflow:hidden;
+  position:relative;
+  background:var(--surface-2);
+  border-bottom:1px solid var(--line);
+}
+.maint-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.4s transform;}
+.maint-card:hover .maint-thumb img{transform:scale(1.045);}
+.live-badge{
+  position:absolute;top:10px;left:10px;
+  display:flex;align-items:center;gap:6px;
+  background:#14181fcc;
+  border:1px solid #2f6b45;
+  color:#7ed99a;
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  letter-spacing:.08em;
+  padding:4px 9px 4px 7px;
+  border-radius:2px;
+  text-transform:uppercase;
+  backdrop-filter:blur(2px);
+}
+.live-dot{
+  width:6px;height:6px;border-radius:50%;background:#5fbf7d;flex-shrink:0;
+  box-shadow:0 0 0 0 rgba(95,191,125,.6);
+  animation:live-pulse 2s infinite;
+}
+@keyframes live-pulse{
+  0%{box-shadow:0 0 0 0 rgba(95,191,125,.55);}
+  70%{box-shadow:0 0 0 6px rgba(95,191,125,0);}
+  100%{box-shadow:0 0 0 0 rgba(95,191,125,0);}
+}
+.maint-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1;}
+.maint-name{font-family:'Fraunces',serif;font-size:17px;font-weight:500;margin:0;}
+.maint-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'Space Mono',monospace;font-size:11.5px;color:var(--steel);
+  border-top:1px solid var(--line);padding-top:11px;margin-top:auto;
+}
+.maint-card:hover .maint-foot{color:var(--brass-dim);}
+.maint-arrow{color:var(--ink-muted);transition:.2s;}
+.maint-card:hover .maint-arrow{color:var(--brass);transform:translate(1px,-1px);}
+
+/* ---------- ILLUSTRATION ---------- */
+.illus-panel{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:40px;
+}
+.illus-panel h3{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+  font-size:24px;margin:0 0 10px;color:var(--ink);
+}
+.illus-panel p{color:var(--ink-muted);font-size:14.5px;max-width:48ch;margin:0;}
+
+.illus-strip{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  margin-top:28px;
+}
+.illus-tile{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  border-radius:4px;
+  border:1px solid var(--line);
+  display:block;
+  background:var(--surface-2);
+}
+.illus-tile img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(15%);
+  transition:.5s transform, .5s filter;
+}
+.illus-tile::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(20,24,31,.92) 100%);
+  opacity:0;transition:.3s;
+}
+.illus-tile-label{
+  position:absolute;left:11px;bottom:10px;right:11px;
+  font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink);
+  opacity:0;transform:translateY(6px);
+  transition:.3s;
+}
+.illus-tile:hover{border-color:var(--brass-dim);}
+.illus-tile:hover img{transform:scale(1.08);filter:grayscale(0%);}
+.illus-tile:hover::after{opacity:1;}
+.illus-tile:hover .illus-tile-label{opacity:1;transform:translateY(0);}
+
+/* ---------- PERSONAL PROJECT ---------- */
+.personal-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px;
+}
+.personal-copy{padding:24px 8px 24px 24px;}
+.personal-copy .eyebrow{margin-bottom:10px;display:block;}
+.personal-copy h3{font-family:'Fraunces',serif;font-size:22px;margin:0 0 10px;}
+.personal-copy p{color:var(--ink-muted);font-size:14px;margin:0 0 18px;}
+.personal-thumb{aspect-ratio:16/11;overflow:hidden;border-radius:3px;background:var(--surface-2);}
+.personal-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
+
+/* ---------- FOOTER ---------- */
+footer{padding:56px 0 40px;}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+.foot-title{font-family:'Fraunces',serif;font-size:24px;margin:0 0 8px;}
+.foot-sub{color:var(--ink-muted);font-size:14px;margin:0;}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;}
+.foot-links a{font-size:14px;text-decoration:none;color:var(--ink-muted);transition:.2s;}
+.foot-links a:hover{color:var(--brass);}
+.copyright{margin-top:40px;font-family:'Space Mono',monospace;font-size:11px;color:#4a5162;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-portrait{order:-1;}
+  .portrait-frame{max-width:180px;margin-bottom:10px;}
+  .featured-grid{grid-template-columns:1fr;}
+  .compact-grid{grid-template-columns:repeat(2,1fr);}
+  .maint-grid{grid-template-columns:repeat(2,1fr);}
+  .illus-strip{grid-template-columns:repeat(3,1fr);}
+  .personal-card{grid-template-columns:1fr;}
+  .personal-copy{padding:20px;}
+  .section-note{text-align:left;}
+}
+@media (max-width:480px){
+  .compact-grid{grid-template-columns:1fr 1fr;}
+  .maint-grid{grid-template-columns:1fr;}
+  .illus-strip{grid-template-columns:repeat(2,1fr);}
+  .wrap{padding:0 18px;}
+}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+</style>
 </head>
-
 <body>
 
-<div class="main ">
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Rio de Janeiro · Disponível para novos projetos</span>
+      <h1 class="hero-name">Ismael de Oliveira Corrêa</h1>
+      <p class="hero-role">Web Designer Sênior — Front-end &amp; Ilustração</p>
+      <p class="hero-bio">13 anos desenhando e construindo intranets, sites institucionais e ferramentas internas para empresas de farmoquímica, jurídico, mídia e óleo &amp; gás. Também ilustrador — estudo de personagem em grafite e pintura digital.</p>
 
-	<div class="profileCard cartao conteudo">	
-	
-		<div class="card p-4 bs br-10 b-0 col-lg-5">
-		
-				<header>
-					<div class="avatar-container">
-					  <img src="img/perfil.jpg" alt="Avatar" id="avatar" onclick="openFile(event)" />
-					</div>
-				</header>
-			
-				<div class="mb-3 mr-3 text-center">
-				  <h2 for="username" class="form-label">Ismael de Oliveira Corrêa</h2>
-				  <h3 for="username" class="form-label">Web designer / Front-end / Ilustrador</h3>
-				</div>
-		
-			<div class="row">
-			
-				<div class="col-12 d-flex flex-wrap">
-				  
-					<a class="flex-fill-custom socialField col-lg-3 col-sm-12 col-xs-12 mb-3"
-					href="https://wa.me/5521983940796" target="_blank">
-						<label for="telefone" class="form-label">
-						  <i class="bi bi-telephone-fill"></i> Whataspp
-						</label>
-					</a>
-
-					<a class="flex-fill-custom socialField col-lg-3 col-sm-12 col-xs-12 mb-3"
-						href="mailto:ismael.oliveira2190@gmail.com" target="_blank">
-					  <label for="email" class="form-label">
-						<i class="bi bi-envelope-fill"></i> E-mail
-					  </label>
-					</a>
-	
-				  <a class="flex-fill-custom socialField col-lg-4 col-sm-12 col-xs-12 mb-3 "
-				  href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank">
-					<label for="linkedin" class="form-label">
-					  <i class="bi bi-linkedin"></i> Linkedin
-					</label>
-				  </a>
-				  
-				</div>
-				
-				
-				 <div class="container">
-    <div id="accordion">
-
-      <div class="accordion-item">
-        <h5 class="accordion-header" id="heading1">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-            Criação de site/Intranet
-          </button>
-        </h5>
-        <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordion">
-          <div class="accordion-body">
-			<ul>
-			  <li><a target="_blank" href="layouts/ARDAGH-SUSTENTABILIDADE.png">Ardagh</a></li>
-			  <li><a target="_blank" href="CARTEIRA-VACINACAO/index.html">Carteira De Vacinação</a></li>
-			  <li><a target="_blank" href="layouts/DFL.png">Dfl</a></li>
-			  <li><a target="_blank" href="layouts/INTRANET-DUTY-COSMETICOS.png">Duty Cosméticos</a></li>
-			  <li><a target="_blank" href="layouts/FQM-1.png">Fqm - Farmoquímica</a></li>
-			  <li><a target="_blank" href="layouts/busca-documentos-2.jpg">Gestão De Documentos</a></li>
-			  <li><a target="_blank" href="https://globalmob.com.br/">Globalmob</a></li>
-			  <li><a target="_blank" href="layouts/InfoGlobo.png">InfoGlobo</a></li>
-			  <li><a target="_blank" href="MAPEYATEC/index.html">Mapeyatec</a></li>
-			  <li><a target="_blank" href="MONTAURY/home.html">Montaury Advogados</a></li>
-			  <li><a target="_blank" href="BAT-YOUR-VOICE/index.html">Pesquisa Souza Cruz</a></li>
-			  <li><a target="_blank" href="layouts/SKAADV.png">Skaadv Advogados</a></li>
-			  <li><a target="_blank" href="layouts/SITE-IMPETO.png">Site Ímpeto</a></li>
-			  <li><a target="_blank" href="layouts/SUBSEA-1.png">Subsea</a></li>
-			</ul>
-
-          </div>
-        </div>
+      <div class="stat-row">
+        <div class="stat"><b>13</b><span>ANOS DE ATUAÇÃO</span></div>
+        <div class="stat"><b>15+</b><span>PROJETOS CORPORATIVOS</span></div>
+        <div class="stat"><b>6</b><span>SITES EM MANUTENÇÃO ATIVA</span></div>
       </div>
 
-      <!--div class="accordion-item">
-        <h5 class="accordion-header" id="heading2">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-            Projetos mobile
-          </button>
-        </h5>
-        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            <ul>
-              <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/complianceLegal.png">complianceLegal</a></li>
-			  <li><a target="_blank" href="https://ismaelcorrea.000webhostapp.com/Layouts/unimed.png">Unimed</a></li>
-            </ul>
-          </div>
-        </div>
-      </div-->
-
-      <div class="accordion-item">
-        <h5 class="accordion-header" id="heading3">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-            Projeto pessoal (em andamento)
-          </button>
-        </h5>
-        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            <ul>
-              <li><a target="_blank" href="CONSTRUTOR-TEMPLATE/index.html">Construtor de Template em Javascript</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="https://wa.me/5521983940796" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        <a class="btn btn-outline" href="mailto:ismael.oliveira2190@gmail.com"><i class="bi bi-envelope"></i> E-mail</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
+        <a class="btn btn-outline" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener"><i class="bi bi-behance"></i> Behance</a>
       </div>
+    </div>
 
-      <div class="accordion-item">
-        <h5 class="accordion-header" id="heading4">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-            Sites em que presto manutenção atualmente
-          </button>
-        </h5>
-        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            <ul>
-              <li><a target="_blank" href="https://impeto.com.br/">Ímpeto informática</a></li>
-              <li><a target="_blank" href="https://seperj.org.br/">Sepe-rj</a></li>
-              <li><a target="_blank" href="https://www.australholding.com/">Austral holding</a></li>
-              <li><a target="_blank" href="https://australseguradora.com/">Austral seguradora</a></li>
-              <li><a target="_blank" href="https://www.australre.com/">Austral re</a></li>
-              <li><a target="_blank" href="https://www.vincipartners.com/">Vinci partners</a></li>
-            </ul>
-          </div>
-        </div>
+    <div class="hero-portrait">
+      <div class="portrait-frame">
+        <img src="thumbs/perfil.jpg" alt="Foto de Ismael Corrêa">
+        <div class="stamp"><span>DESDE<br>2011</span></div>
       </div>
+    </div>
+  </div>
+</header>
 
-      <div class="accordion-item">
-        <h5 class="accordion-header" id="heading5">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-            Portfólio de ilustrações
-          </button>
-        </h5>
-        <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordion">
-          <div class="accordion-body">
-            <ul>
-              <li><a target="_blank" href="https://www.behance.net/ismaelcorrea027">behance.net/ismaelcorrea027</a></li>
-            </ul>
-          </div>
-        </div>
+<!-- FEATURED PROJECTS -->
+<section class="section-featured">
+  <i class="bi bi-compass backdrop-icon" aria-hidden="true"></i>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Portfólio · Dossiê 01</span>
+        <h2 class="section-title">Projetos em destaque</h2>
       </div>
+      <p class="section-note">Sites, intranets e ferramentas internas — do wireframe à entrega.</p>
+    </div>
+
+    <div class="featured-grid">
+
+      <a class="case-card" href="MONTAURY/home.html" target="_blank" rel="noopener">
+        <div class="case-thumb"><span class="case-tag">Jurídico</span><img src="thumbs/montaury.jpg" alt="Site Montaury Advogados"></div>
+        <div class="case-body">
+          <h3 class="case-title">Montaury Advogados</h3>
+          <p class="case-desc">Site institucional completo com área de artigos, cadastro de equipe e escalas — estrutura pensada para um escritório de grande porte.</p>
+          <div class="case-foot"><span>SITE + INTRANET</span><span>Ver projeto →</span></div>
+        </div>
+      </a>
+
+      <a class="case-card" href="MAPEYATEC/index.html" target="_blank" rel="noopener">
+        <div class="case-thumb"><span class="case-tag">Produto</span><img src="thumbs/mapeyatec.jpg" alt="Sistema Mapeyatec"></div>
+        <div class="case-body">
+          <h3 class="case-title">Mapeyatec</h3>
+          <p class="case-desc">Plataforma com fluxo de cadastro, login e termos — interface pensada para onboarding de usuário ponta a ponta.</p>
+          <div class="case-foot"><span>UI + FLUXO DE CADASTRO</span><span>Ver projeto →</span></div>
+        </div>
+      </a>
+
+      <a class="case-card" href="layouts/FQM-1.png" target="_blank" rel="noopener">
+        <div class="case-thumb"><span class="case-tag">Farmoquímica</span><img src="thumbs/fqm-1.jpg" alt="Intranet FQM Farmoquímica"></div>
+        <div class="case-body">
+          <h3 class="case-title">FQM — Farmoquímica</h3>
+          <p class="case-desc">Intranet corporativa para uma farmoquímica — hub de comunicação interna com identidade visual própria.</p>
+          <div class="case-foot"><span>INTRANET</span><span>Ver layout →</span></div>
+        </div>
+      </a>
+
+      <a class="case-card" href="BAT-YOUR-VOICE/index.html" target="_blank" rel="noopener">
+        <div class="case-thumb"><span class="case-tag">Pesquisa interna</span><img src="thumbs/souza-cruz-1.jpg" alt="Pesquisa Souza Cruz - Your Voice"></div>
+        <div class="case-body">
+          <h3 class="case-title">Souza Cruz — Your Voice</h3>
+          <p class="case-desc">Ferramenta de pesquisa interna de clima organizacional, com identidade visual de campanha e canal confidencial.</p>
+          <div class="case-foot"><span>CAMPANHA + FERRAMENTA</span><span>Ver projeto →</span></div>
+        </div>
+      </a>
 
     </div>
   </div>
-				
-			 </div>
-        </div>
+</section>
+
+<!-- SECONDARY PROJECTS -->
+<section class="section-secondary">
+  <i class="bi bi-grid-3x3-gap-fill backdrop-icon" aria-hidden="true"></i>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Portfólio · Dossiê 02</span>
+        <h2 class="section-title">Mais projetos corporativos</h2>
+      </div>
+      <p class="section-note">Sites, intranets e materiais desenvolvidos ao longo dos 13 anos.</p>
     </div>
 
-</div>
+    <div class="compact-grid">
+
+      <a class="compact-card" href="layouts/ARDAGH-SUSTENTABILIDADE.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/ardagh-sustentabilidade.jpg" alt="Ardagh Sustentabilidade"></div>
+        <div class="compact-body"><p class="compact-title">Ardagh</p><p class="compact-sub">SUSTENTABILIDADE</p></div>
+      </a>
+
+      <a class="compact-card" href="CARTEIRA-VACINACAO/index.html" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/carteira-vacinacao.jpg" alt="Carteira de Vacinação"></div>
+        <div class="compact-body"><p class="compact-title">Carteira de Vacinação</p><p class="compact-sub">FERRAMENTA WEB</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/DFL.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/dfl.jpg" alt="DFL"></div>
+        <div class="compact-body"><p class="compact-title">DFL</p><p class="compact-sub">SITE INSTITUCIONAL</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/INTRANET-DUTY-COSMETICOS.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/intranet-duty-cosmeticos.jpg" alt="Intranet Duty Cosméticos"></div>
+        <div class="compact-body"><p class="compact-title">Duty Cosméticos</p><p class="compact-sub">INTRANET</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/busca-documentos-2.jpg" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/busca-documentos-2.jpg" alt="Sistema de gestão de documentos"></div>
+        <div class="compact-body"><p class="compact-title">Gestão de Documentos</p><p class="compact-sub">SISTEMA INTERNO</p></div>
+      </a>
+
+      <a class="compact-card" href="https://globalmob.com.br/" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/globalmob.jpg" alt="Globalmob"></div>
+        <div class="compact-body"><p class="compact-title">Globalmob</p><p class="compact-sub">SITE NO AR</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/InfoGlobo.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/infoglobo.jpg" alt="InfoGlobo"></div>
+        <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">MÍDIA</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/SKAADV.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/skaadv.jpg" alt="Skaadv Advogados"></div>
+        <div class="compact-body"><p class="compact-title">Skaadv Advogados</p><p class="compact-sub">SITE INSTITUCIONAL</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/SITE-IMPETO.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/site-impeto.jpg" alt="Site Ímpeto"></div>
+        <div class="compact-body"><p class="compact-title">Ímpeto</p><p class="compact-sub">SITE INSTITUCIONAL</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/SUBSEA-1.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/subsea-1.jpg" alt="Subsea"></div>
+        <div class="compact-body"><p class="compact-title">Subsea</p><p class="compact-sub">ÓLEO &amp; GÁS</p></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL PROJECT -->
+<section class="section-personal">
+  <i class="bi bi-code-slash backdrop-icon" aria-hidden="true"></i>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Em andamento</span>
+        <h2 class="section-title">Projeto pessoal</h2>
+      </div>
+    </div>
+
+    <div class="personal-card">
+      <div class="personal-copy">
+        <span class="eyebrow">JAVASCRIPT · FERRAMENTA PRÓPRIA</span>
+        <h3>Construtor de Template</h3>
+        <p>Ferramenta própria em JavaScript para montar templates de forma mais rápida — um projeto pessoal para testar ideias fora do escopo do trabalho fixo.</p>
+        <a class="btn btn-outline" href="CONSTRUTOR-TEMPLATE/index.html" target="_blank" rel="noopener"><i class="bi bi-code-slash"></i> Abrir projeto</a>
+      </div>
+      <div class="personal-thumb">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=900&auto=format&fit=crop" alt="" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE -->
+<section class="section-maintenance">
+  <i class="bi bi-broadcast backdrop-icon" aria-hidden="true"></i>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Ao vivo agora</span>
+        <h2 class="section-title">Sites em manutenção ativa</h2>
+      </div>
+      <p class="section-note">No ar hoje, sob minha responsabilidade contínua.</p>
+    </div>
+
+    <div class="maint-grid">
+      <a class="maint-card" href="https://impeto.com.br/" target="_blank" rel="noopener">
+        <div class="maint-thumb">
+          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
+          <img src="thumbs/impeto-live.jpg" alt="Site Ímpeto Informática">
+        </div>
+        <div class="maint-body">
+          <h3 class="maint-name">Ímpeto Informática</h3>
+          <div class="maint-foot"><span>impeto.com.br</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
+        </div>
+      </a>
+
+      <a class="maint-card" href="https://seperj.org.br/" target="_blank" rel="noopener">
+        <div class="maint-thumb">
+          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
+          <img src="thumbs/seperj-live.jpg" alt="Site SEPE-RJ">
+        </div>
+        <div class="maint-body">
+          <h3 class="maint-name">SEPE-RJ</h3>
+          <div class="maint-foot"><span>seperj.org.br</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
+        </div>
+      </a>
+
+      <a class="maint-card" href="https://www.australholding.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb">
+          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
+          <img src="thumbs/australholding-live.jpg" alt="Site Austral Holding">
+        </div>
+        <div class="maint-body">
+          <h3 class="maint-name">Austral Holding</h3>
+          <div class="maint-foot"><span>australholding.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
+        </div>
+      </a>
+
+      <a class="maint-card" href="https://australseguradora.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb">
+          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
+          <img src="thumbs/australseguradora-live.jpg" alt="Site Austral Seguradora">
+        </div>
+        <div class="maint-body">
+          <h3 class="maint-name">Austral Seguradora</h3>
+          <div class="maint-foot"><span>australseguradora.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
+        </div>
+      </a>
+
+      <a class="maint-card" href="https://www.australre.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb">
+          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
+          <img src="thumbs/australre-live.jpg" alt="Site Austral Re">
+        </div>
+        <div class="maint-body">
+          <h3 class="maint-name">Austral Re</h3>
+          <div class="maint-foot"><span>australre.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
+        </div>
+      </a>
+
+      <a class="maint-card" href="https://www.vincipartners.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb">
+          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
+          <img src="thumbs/vincipartners-live.jpg" alt="Site Vinci Partners">
+        </div>
+        <div class="maint-body">
+          <h3 class="maint-name">Vinci Partners</h3>
+          <div class="maint-foot"><span>vincipartners.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ILLUSTRATION -->
+<section class="section-illustration">
+  <i class="bi bi-brush backdrop-icon" aria-hidden="true"></i>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Fora do expediente</span>
+        <h2 class="section-title">Ilustração</h2>
+      </div>
+    </div>
+
+    <div class="illus-panel">
+      <div>
+        <h3>Estudo de personagem, grafite e pintura digital</h3>
+        <p>Ao lado do front-end, mantenho uma prática de ilustração — desenho de personagem em grafite e pintura digital, publicada no Behance.</p>
+        <div style="margin-top:20px;">
+          <a class="btn btn-solid" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener"><i class="bi bi-behance"></i> Ver portfólio no Behance</a>
+        </div>
+      </div>
+
+      <div class="illus-strip">
+        <a class="illus-tile" href="https://www.behance.net/gallery/90220785/Aguia-Grafite" target="_blank" rel="noopener">
+          <img src="thumbs/illustracoes/aguia.jpg" alt="Águia — estudo em grafite">
+          <span class="illus-tile-label">Grafite</span>
+        </a>
+        <a class="illus-tile" href="https://www.behance.net/gallery/64438123/BATMAN-Begins-Grafite" target="_blank" rel="noopener">
+          <img src="thumbs/illustracoes/batman.jpg" alt="Batman — estudo em grafite">
+          <span class="illus-tile-label">Grafite</span>
+        </a>
+        <a class="illus-tile" href="https://www.behance.net/gallery/64436949/Tigre-Pintura-Digital" target="_blank" rel="noopener">
+          <img src="thumbs/illustracoes/tigre.jpg" alt="Tigre — pintura digital">
+          <span class="illus-tile-label">Pintura digital</span>
+        </a>
+        <a class="illus-tile" href="https://www.behance.net/gallery/64437243/Dr-House-(Hugh-Laurie)-Pintura-Digital" target="_blank" rel="noopener">
+          <img src="thumbs/illustracoes/drhouse.jpg" alt="Dr. House — pintura digital">
+          <span class="illus-tile-label">Pintura digital</span>
+        </a>
+        <a class="illus-tile" href="https://www.behance.net/gallery/169873999/Ilustracao-pra-capa-de-livro" target="_blank" rel="noopener">
+          <img src="thumbs/illustracoes/capalivro.jpg" alt="Ilustração para capa de livro">
+          <span class="illus-tile-label">Capa de livro</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap reveal">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-title">Vamos conversar?</p>
+        <p class="foot-sub">Rio de Janeiro, Brasil · Respondo rápido no WhatsApp</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://wa.me/5521983940796" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:ismael.oliveira2190@gmail.com">E-mail</a>
+        <a href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener">Behance</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Ismael de Oliveira Corrêa — Web Designer Sênior</p>
+  </div>
+</footer>
+
+<script>
+  // Subtle fade/slide-in reveal for each section as it enters the viewport.
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+</script>
 
 </body>
 </html>

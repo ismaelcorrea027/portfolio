@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<meta name="description" content="">
+	<meta name="msapplication-TileColor" content="#a4cb00">
+	<meta name="theme-color" content="#a4cb00" >
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	
+    <title>BAT - Your Voice</title>
+   
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mask.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  
+  <div class="bg-your-voice">
+  
+    <div class="text-center logo"><img src="img/logo.png" alt="Logo Your Voice" /></div>
+
+    <div class="container column justify-content-center">
+
+			<div class="col-lg-7 col-xs-12 header">
+				<h3 class="text-center"><strong>Sua<span class="destaque">Voz</span> é importante para <span class="destaque2">nós</span>!</strong><br>
+				<span class="spanish">¡Tu voz es importante para nosotros!</span></h3>
+				<h4 class="text-center"><strong>Gere sua senha e venha responder nossa <span class="destaque">pesquisa!</span></strong><br/> <span class="spanish"> ¡Crea tu contraseña y ven a responder nuestra encuesta</span></h4>
+			</div>
+			
+            <div class="col-lg-6 col-xs-12">
+			
+                <div class="form" >				
+                    <div class="row text-center">
+					    <section class="confirm-id col-lg-12 visible">
+							<h4>Digite o seu One ID abaixo:<br/><span class="spanish">Ingrese su One ID a continuación</span></h4>
+							<input type="text" placeholder="Digite se One ID" />
+							<button type="submit" class="btn btnConfirm btnID">Confirmar</button>
+						</section>
+					
+                        <section class="confirm-nome col-lg-12">
+							<h4>Olá, <strong class="nome">Larissa Duarte</strong>. <br/>Esse é seu nome completo? <br/><span class="spanish">Este es tu nombre completo?</span></h4>
+							<button type="submit" class="btn btnConfirm btnNome">Confirmar</button>
+						</section>
+
+                        <section class="confirm-data col-lg-12">
+							<h4>Confirme a data de seu nascimento: <br/><span class="spanish"> Confirma tu fecha de nacimiento:</span></h4>
+							<input id="campoData" type="text">
+							<button class="btn btnConfirm btnData">Confirmar</button>
+                        </section>
+						
+						<section class="confirm-senha col-lg-12">
+							<h4>Copie sua senha e responda a pesquisa:<br/> <span class="spanish"> Copia tu contraseña y responde la encuesta:</span></h4>
+							<br/>
+							<span class="senha">vwHxy182#& </span></p>
+							<button class="btn btnCopy" onclick="toggleText(this)">Copiar Senha</button>
+						</section>
+						
+						<section class="confirm-quiz col-md-12 col-xs-12">
+							<img src="img/quiz.png" class="img-quiz img-responsive" alt="Icone Pesquisa" />
+							<button class="btn btnQuiz animated ">Responder Pesquisa</button>
+						</section>
+						
+                    </div>
+					
+					<hr>
+
+					<p class="text-center nota">Reforçamos que a pesquisa do <strong>Your Voice</strong> é sigilosa e suas respostas não serão visualizadas de forma individual <br/>
+					<span class="spanish">Reinteramos que la encuesta <strong>Your Voice</strong> es confidencial y tus respuestas no se verán individualmente.</span></p>
+
+                </div>
+				
+			</div>
+
+		</div>			
+	</section>
+</body>
+
+<script type="text/javascript">
+	$( document ).ready(function() {
+
+	  $(".btnID").click(function(){
+		$(".confirm-id").removeClass("visible");
+		$(".confirm-nome").addClass("visible");
+	  });
+	  $(".btnNome").click(function(){
+		$(".confirm-nome").removeClass("visible");
+		$(".confirm-data").addClass("visible");
+		$('#campoData').mask('00/00/0000');
+	  });
+	  $(".btnData").click(function(){
+		$(".confirm-data").removeClass("visible");
+		$(".confirm-senha").addClass("visible");
+	  });
+	  $(".btnCopy").click(function(){
+		$(this).toggleClass("btnCopied");
+		$(".senha").toggleClass("copied");
+			setTimeout(
+				function() {
+					$(".confirm-senha").removeClass("visible");
+					$(".confirm-quiz").addClass("visible");
+				},
+				1600);
+			$(".btnQuiz").addClass("bounce");
+		
+		});
+	  
+	});
+	function toggleText(e) {
+	  let txt = e.innerText;
+	  e.innerText = txt == 'Copiar Senha' ? 'Senha Copiada!' : 'Copiar Senha';
+	}
+</script>
+
+</html>
