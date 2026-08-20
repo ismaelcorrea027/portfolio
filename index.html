@@ -433,6 +433,11 @@ section .backdrop-icon{
 .section-maintenance .ambient-one{left:3%;bottom:18%;}
 .section-illustration .ambient-one{right:5%;bottom:15%;}
 .section-contact .ambient-one{right:3%;top:14%;width:124px;height:124px;font-size:52px;}
+.section-behance-latest .ux-float-one{left:2%;top:13%;width:112px;height:112px;font-size:46px;}
+.section-behance-latest .ux-float-two{right:3%;top:31%;width:132px;height:132px;font-size:56px;--base-rotate:8deg;}
+.section-behance-latest .ux-float-three{left:4%;bottom:8%;width:96px;height:96px;font-size:40px;--base-rotate:5deg;}
+.section-services .ux-float-two{right:3%;top:14%;width:104px;height:104px;font-size:43px;}
+.section-services .ux-float-three{right:4%;bottom:8%;width:130px;height:130px;font-size:54px;--base-rotate:9deg;}
 
 .section-featured{
   background-color:#101522;
@@ -598,6 +603,13 @@ footer{
 .compact-body{padding:12px 14px 14px;}
 .compact-title{font-size:14px;font-weight:500;margin:0 0 3px;}
 .compact-sub{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--ink-muted);letter-spacing:.03em;}
+.corporate-access-note{
+  display:flex;align-items:center;gap:12px;width:fit-content;max-width:100%;margin:-8px 0 24px;
+  padding:12px 16px;border:1px solid rgba(142,188,255,.25);border-radius:10px;
+  background:rgba(142,188,255,.07);color:#cbd9ec;font-size:14px;line-height:1.5;
+}
+.corporate-access-note i{flex:0 0 auto;color:var(--steel);font-size:20px;}
+.corporate-access-note strong{color:#f4f7fb;font-weight:650;}
 
 /* ---------- MAINTENANCE GRID ---------- */
 .maint-grid{
@@ -605,6 +617,12 @@ footer{
   grid-template-columns:repeat(3,1fr);
   gap:22px;
 }
+.maint-card:nth-child(4){order:1;}
+.maint-card:nth-child(5){order:2;}
+.maint-card:nth-child(3){order:3;}
+.maint-card:nth-child(6){order:4;}
+.maint-card:nth-child(1){order:5;}
+.maint-card:nth-child(2){order:6;}
 .maint-card{
   background:var(--surface);
   border:1px solid var(--line);
@@ -667,11 +685,26 @@ footer{
 
 /* ---------- ILLUSTRATION ---------- */
 .illus-panel{
-  background:var(--surface);
+  position:relative;overflow:hidden;
+  background:linear-gradient(110deg,var(--surface) 0%,var(--surface) 58%,rgba(255,202,102,.055) 100%);
   border:1px solid var(--line);
   border-radius:4px;
   padding:48px;
 }
+.illus-panel::before{
+  content:'';position:absolute;width:390px;height:390px;right:-90px;top:50%;transform:translateY(-50%);
+  border-radius:50%;background:radial-gradient(circle,rgba(255,202,102,.14) 0%,rgba(178,111,158,.08) 38%,transparent 70%);
+  filter:blur(2px);pointer-events:none;
+}
+.illus-panel::after{
+  content:'';position:absolute;z-index:1;inset:0 0 0 auto;width:50%;
+  background:url('thumbs/behance/grafite-realista.webp') 12% bottom/210% auto no-repeat;
+  opacity:.24;filter:grayscale(1) contrast(1.12);mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(ellipse at 63% 56%,#000 28%,rgba(0,0,0,.82) 48%,rgba(0,0,0,.28) 66%,transparent 82%);
+  mask-image:radial-gradient(ellipse at 63% 56%,#000 28%,rgba(0,0,0,.82) 48%,rgba(0,0,0,.28) 66%,transparent 82%);
+  pointer-events:none;
+}
+.illus-panel > div{position:relative;z-index:2;}
 .illus-panel h3{
   font-family:'Fraunces',serif;font-style:normal;font-weight:600;
   font-size:clamp(28px,3vw,36px);line-height:1.18;letter-spacing:-.018em;
@@ -743,18 +776,23 @@ footer{
     radial-gradient(520px 360px at 95% 0%,rgba(255,202,102,.20),transparent 65%),
     linear-gradient(180deg,#111724 0%,#0e1420 100%);
 }
-.contact-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:end;}
-.contact-title{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-.035em;margin:10px 0 14px;font-weight:500;}
-.contact-intro{color:var(--ink-muted);font-size:14px;max-width:42ch;margin:0;}
+.contact-shell{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:end;}
+.contact-title{font-family:'Fraunces',serif;font-size:clamp(28px,3.2vw,38px);line-height:1.12;letter-spacing:-.018em;margin:10px 0 14px;font-weight:600;}
+.contact-intro{color:#c6cfdd;font-size:16.5px;font-weight:500;line-height:1.65;max-width:43ch;margin:0;}
 .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .contact-card{
-  min-height:170px;padding:20px;border:1px solid var(--line);border-radius:12px;background:rgba(19,24,35,.72);
-  display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:.25s transform,.25s border-color,.25s background;
+  --contact-rgb:93,177,255;--contact-color:#8bc9ff;
+  min-height:180px;padding:20px;border:1px solid rgba(var(--contact-rgb),.34);border-radius:12px;
+  background:linear-gradient(145deg,rgba(var(--contact-rgb),.15),rgba(19,24,35,.86) 62%);
+  display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;
+  box-shadow:inset 0 1px rgba(255,255,255,.035),0 16px 30px -28px rgba(var(--contact-rgb),.62);
+  transition:.28s transform,.28s border-color,.28s background,.28s box-shadow;
 }
-.contact-card:hover{transform:translateY(-4px);border-color:var(--steel);background:rgba(26,32,45,.94);}
-.contact-icon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:rgba(142,188,255,.11);color:var(--steel);font-size:19px;}
-.contact-card:nth-child(2) .contact-icon{background:rgba(104,220,145,.10);color:#68dc91;}
-.contact-card:nth-child(3) .contact-icon{background:rgba(139,124,255,.13);color:#a99eff;}
+.contact-card:nth-child(2){--contact-rgb:53,211,128;--contact-color:#68e6a4;}
+.contact-card:nth-child(3){--contact-rgb:139,124,255;--contact-color:#b3a8ff;}
+.contact-card:hover{transform:translateY(-6px);border-color:rgba(var(--contact-rgb),.82);background:linear-gradient(145deg,rgba(var(--contact-rgb),.28),rgba(24,30,43,.96) 68%);box-shadow:0 22px 44px -24px rgba(var(--contact-rgb),.9),0 0 28px rgba(var(--contact-rgb),.18),inset 0 1px rgba(255,255,255,.08);}
+.contact-icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:rgba(var(--contact-rgb),.2);border:1px solid rgba(var(--contact-rgb),.24);color:var(--contact-color);font-size:27px;box-shadow:0 10px 24px -18px rgba(var(--contact-rgb),.9);transition:.28s transform,.28s background,.28s box-shadow,.28s color;}
+.contact-card:hover .contact-icon{transform:translateY(-2px) scale(1.08);background:rgba(var(--contact-rgb),.38);color:#fff;box-shadow:0 0 24px rgba(var(--contact-rgb),.46);}
 .contact-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-bottom:5px;}
 .contact-value{font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:8px;}
 
@@ -804,6 +842,7 @@ footer{padding:56px 0 40px;}
   .personal-copy{padding:20px;}
   .section-note{text-align:left;}
   .ambient-icon{opacity:.7;}
+  .illus-panel::after{width:56%;opacity:.18;background-size:225% auto;}
 }
 @media (max-width:480px){
   .topbar{padding:20px 18px;}
@@ -842,6 +881,8 @@ footer{padding:56px 0 40px;}
   .behance-project-title{font-size:16px;}
   .behance-project-type{font-size:10px;}
   .behance-project-arrow{width:32px;height:32px;flex-basis:32px;}
+  .illus-panel{padding:30px 26px;}
+  .illus-panel::after{width:68%;opacity:.11;background-size:240% auto;}
   .wrap{padding:0 18px;}
   .hero-grid{padding-top:106px;padding-bottom:54px;}
   .ambient-icon{display:none;}
@@ -995,6 +1036,9 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 
 <!-- LATEST BEHANCE PROJECTS -->
 <section class="section-behance-latest" id="behance">
+  <i class="bi bi-bounding-box ambient-icon ux-float-one violet" data-motion="rotate" aria-hidden="true"></i>
+  <i class="bi bi-cursor ambient-icon ux-float-two warm" data-motion="float" aria-hidden="true"></i>
+  <i class="bi bi-layout-sidebar ambient-icon ux-float-three motion-glow" data-motion="zoom" aria-hidden="true"></i>
   <div class="wrap reveal">
     <div class="section-head">
       <div>
@@ -1037,6 +1081,8 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 
 <!-- SERVICES -->
 <section class="section-services" id="servicos">
+  <i class="bi bi-ui-checks-grid ambient-icon ux-float-two violet motion-glow" data-motion="glow" aria-hidden="true"></i>
+  <i class="bi bi-cursor-text ambient-icon ux-float-three warm" data-motion="rotate-reverse" aria-hidden="true"></i>
   <div class="wrap reveal">
     <div class="section-head">
       <div>
@@ -1071,6 +1117,48 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <p>Grafite, desenho de personagens e pintura digital criados a partir de processo artístico autoral.</p>
         <span class="manual-badge">Criação humana · sem IA</span>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE -->
+<section class="section-maintenance">
+  <i class="bi bi-broadcast backdrop-icon" data-motion="slide" data-motion-strength="large" aria-hidden="true"></i>
+  <i class="bi bi-cpu ambient-icon ambient-one" data-motion="zoom" aria-hidden="true"></i>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">6 sites no ar · evolução contínua</span>
+        <h2 class="section-title">Projetos em manutenção</h2>
+      </div>
+      <p class="section-note">Sites ativos hoje, acompanhados com manutenção, melhorias e responsabilidade contínua.</p>
+    </div>
+
+    <div class="maint-grid">
+      <a class="maint-card" href="https://impeto.com.br/" target="_blank" rel="noopener">
+        <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/impeto-live.jpg" alt="Site Ímpeto Informática"></div>
+        <div class="maint-body"><h3 class="maint-name">Ímpeto Informática</h3><div class="maint-foot"><span>impeto.com.br</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+      </a>
+      <a class="maint-card" href="https://seperj.org.br/" target="_blank" rel="noopener">
+        <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/seperj-live.jpg" alt="Site SEPE-RJ"></div>
+        <div class="maint-body"><h3 class="maint-name">SEPE-RJ</h3><div class="maint-foot"><span>seperj.org.br</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+      </a>
+      <a class="maint-card" href="https://www.australholding.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/australholding-live.jpg" alt="Site Austral Holding"></div>
+        <div class="maint-body"><h3 class="maint-name">Austral Holding</h3><div class="maint-foot"><span>australholding.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+      </a>
+      <a class="maint-card" href="https://australseguradora.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/australseguradora-live.jpg" alt="Site Austral Seguradora"></div>
+        <div class="maint-body"><h3 class="maint-name">Austral Seguradora</h3><div class="maint-foot"><span>australseguradora.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+      </a>
+      <a class="maint-card" href="https://www.australre.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/australre-live.jpg" alt="Site Austral Re"></div>
+        <div class="maint-body"><h3 class="maint-name">Austral Re</h3><div class="maint-foot"><span>australre.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+      </a>
+      <a class="maint-card" href="https://www.vincipartners.com/" target="_blank" rel="noopener">
+        <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/vincipartners-live.jpg" alt="Site Vinci Partners"></div>
+        <div class="maint-body"><h3 class="maint-name">Vinci Partners</h3><div class="maint-foot"><span>vincipartners.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+      </a>
     </div>
   </div>
 </section>
@@ -1111,16 +1199,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         </div>
       </a>
 
-      <a class="case-card" href="layouts/FQM-1.png" target="_blank" rel="noopener">
-        <div class="case-thumb"><span class="case-tag">Farmoquímica</span><img src="thumbs/fqm-1.jpg" alt="Intranet FQM Farmoquímica"></div>
-        <div class="case-body">
-          <h3 class="case-title">FQM — Farmoquímica</h3>
-          <p class="case-desc">Intranet corporativa para uma farmoquímica — hub de comunicação interna com identidade visual própria.</p>
-          <div class="case-insight"><span><b>Desafio</b>Centralizar comunicação interna</span><span><b>Entrega</b>Arquitetura visual e interface da intranet</span></div>
-          <div class="case-foot"><span>INTRANET</span><span>Ver layout →</span></div>
-        </div>
-      </a>
-
       <a class="case-card" href="BAT-YOUR-VOICE/index.html" target="_blank" rel="noopener">
         <div class="case-thumb"><span class="case-tag">Pesquisa interna</span><img src="thumbs/souza-cruz-1.jpg" alt="Pesquisa Souza Cruz - Your Voice"></div>
         <div class="case-body">
@@ -1128,6 +1206,16 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
           <p class="case-desc">Ferramenta de pesquisa interna de clima organizacional, com identidade visual de campanha e canal confidencial.</p>
           <div class="case-insight"><span><b>Desafio</b>Criar uma experiência clara e confiável</span><span><b>Entrega</b>Campanha visual e ferramenta web</span></div>
           <div class="case-foot"><span>CAMPANHA + FERRAMENTA</span><span>Ver projeto →</span></div>
+        </div>
+      </a>
+
+      <a class="case-card" href="https://globalmob.com.br/" target="_blank" rel="noopener">
+        <div class="case-thumb"><span class="case-tag">Mobilidade</span><img src="thumbs/globalmob.jpg" alt="Site institucional Globalmob"></div>
+        <div class="case-body">
+          <h3 class="case-title">Globalmob</h3>
+          <p class="case-desc">Site institucional desenvolvido para apresentar soluções e serviços de mobilidade em uma experiência direta e responsiva.</p>
+          <div class="case-insight"><span><b>Desafio</b>Organizar soluções e proposta comercial</span><span><b>Entrega</b>Design responsivo e publicação web</span></div>
+          <div class="case-foot"><span>SITE NO AR</span><span>Visitar site →</span></div>
         </div>
       </a>
 
@@ -1165,16 +1253,18 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     <div class="section-head">
       <div>
         <span class="eyebrow">Portfólio · Dossiê 02</span>
-        <h2 class="section-title">Mais projetos corporativos</h2>
+        <h2 class="section-title">Intranets e projetos corporativos</h2>
       </div>
-      <p class="section-note">Sites, intranets e materiais desenvolvidos ao longo dos 13 anos.</p>
+      <p class="section-note">Interfaces internas e projetos desenvolvidos para empresas ao longo dos 13 anos.</p>
     </div>
+
+    <p class="corporate-access-note"><i class="bi bi-shield-lock" aria-hidden="true"></i><span><strong>Acesso corporativo restrito:</strong> as intranets reais exigem autenticação. Por isso, os cards apresentam apenas uma prévia visual dos projetos.</span></p>
 
     <div class="compact-grid">
 
-      <a class="compact-card" href="layouts/ARDAGH-SUSTENTABILIDADE.png" target="_blank" rel="noopener">
-        <div class="compact-thumb"><img src="thumbs/ardagh-sustentabilidade.jpg" alt="Ardagh Sustentabilidade"></div>
-        <div class="compact-body"><p class="compact-title">Ardagh</p><p class="compact-sub">SUSTENTABILIDADE</p></div>
+      <a class="compact-card" href="layouts/FQM-1.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/fqm-1.jpg" alt="Intranet corporativa FQM Farmoquímica"></div>
+        <div class="compact-body"><p class="compact-title">FQM — Farmoquímica</p><p class="compact-sub">INTRANET CORPORATIVA · ACESSO RESTRITO</p></div>
       </a>
 
       <a class="compact-card" href="CARTEIRA-VACINACAO/index.html" target="_blank" rel="noopener">
@@ -1197,11 +1287,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="compact-body"><p class="compact-title">Gestão de Documentos</p><p class="compact-sub">SISTEMA INTERNO</p></div>
       </a>
 
-      <a class="compact-card" href="https://globalmob.com.br/" target="_blank" rel="noopener">
-        <div class="compact-thumb"><img src="thumbs/globalmob.jpg" alt="Globalmob"></div>
-        <div class="compact-body"><p class="compact-title">Globalmob</p><p class="compact-sub">SITE NO AR</p></div>
-      </a>
-
       <a class="compact-card" href="layouts/InfoGlobo.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/infoglobo.jpg" alt="InfoGlobo"></div>
         <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">MÍDIA</p></div>
@@ -1210,11 +1295,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       <a class="compact-card" href="layouts/SKAADV.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/skaadv.jpg" alt="Skaadv Advogados"></div>
         <div class="compact-body"><p class="compact-title">Skaadv Advogados</p><p class="compact-sub">SITE INSTITUCIONAL</p></div>
-      </a>
-
-      <a class="compact-card" href="layouts/SITE-IMPETO.png" target="_blank" rel="noopener">
-        <div class="compact-thumb"><img src="thumbs/site-impeto.jpg" alt="Site Ímpeto"></div>
-        <div class="compact-body"><p class="compact-title">Ímpeto</p><p class="compact-sub">SITE INSTITUCIONAL</p></div>
       </a>
 
       <a class="compact-card" href="layouts/SUBSEA-1.png" target="_blank" rel="noopener">
@@ -1250,89 +1330,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     </div
   </div>
 </section-->
-
-<!-- MAINTENANCE -->
-<section class="section-maintenance">
-  <i class="bi bi-broadcast backdrop-icon" data-motion="slide" data-motion-strength="large" aria-hidden="true"></i>
-  <i class="bi bi-cpu ambient-icon ambient-one" data-motion="zoom" aria-hidden="true"></i>
-  <div class="wrap reveal">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Ao vivo agora</span>
-        <h2 class="section-title">Sites em manutenção ativa</h2>
-      </div>
-      <p class="section-note">No ar hoje, sob minha responsabilidade contínua.</p>
-    </div>
-
-    <div class="maint-grid">
-      <a class="maint-card" href="https://impeto.com.br/" target="_blank" rel="noopener">
-        <div class="maint-thumb">
-          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
-          <img src="thumbs/impeto-live.jpg" alt="Site Ímpeto Informática">
-        </div>
-        <div class="maint-body">
-          <h3 class="maint-name">Ímpeto Informática</h3>
-          <div class="maint-foot"><span>impeto.com.br</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
-        </div>
-      </a>
-
-      <a class="maint-card" href="https://seperj.org.br/" target="_blank" rel="noopener">
-        <div class="maint-thumb">
-          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
-          <img src="thumbs/seperj-live.jpg" alt="Site SEPE-RJ">
-        </div>
-        <div class="maint-body">
-          <h3 class="maint-name">SEPE-RJ</h3>
-          <div class="maint-foot"><span>seperj.org.br</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
-        </div>
-      </a>
-
-      <a class="maint-card" href="https://www.australholding.com/" target="_blank" rel="noopener">
-        <div class="maint-thumb">
-          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
-          <img src="thumbs/australholding-live.jpg" alt="Site Austral Holding">
-        </div>
-        <div class="maint-body">
-          <h3 class="maint-name">Austral Holding</h3>
-          <div class="maint-foot"><span>australholding.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
-        </div>
-      </a>
-
-      <a class="maint-card" href="https://australseguradora.com/" target="_blank" rel="noopener">
-        <div class="maint-thumb">
-          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
-          <img src="thumbs/australseguradora-live.jpg" alt="Site Austral Seguradora">
-        </div>
-        <div class="maint-body">
-          <h3 class="maint-name">Austral Seguradora</h3>
-          <div class="maint-foot"><span>australseguradora.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
-        </div>
-      </a>
-
-      <a class="maint-card" href="https://www.australre.com/" target="_blank" rel="noopener">
-        <div class="maint-thumb">
-          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
-          <img src="thumbs/australre-live.jpg" alt="Site Austral Re">
-        </div>
-        <div class="maint-body">
-          <h3 class="maint-name">Austral Re</h3>
-          <div class="maint-foot"><span>australre.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
-        </div>
-      </a>
-
-      <a class="maint-card" href="https://www.vincipartners.com/" target="_blank" rel="noopener">
-        <div class="maint-thumb">
-          <span class="live-badge"><span class="live-dot"></span>Ao vivo</span>
-          <img src="thumbs/vincipartners-live.jpg" alt="Site Vinci Partners">
-        </div>
-        <div class="maint-body">
-          <h3 class="maint-name">Vinci Partners</h3>
-          <div class="maint-foot"><span>vincipartners.com</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ILLUSTRATION -->
 <section class="section-illustration" id="ilustracao">
