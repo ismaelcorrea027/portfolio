@@ -582,6 +582,33 @@ label {
 button.btnSalvar[disabled] {
     background: #ccc;
 }
+
+/* Interface 2026 */
+:root{--app-bg:#0d111b;--panel:#151c29;--panel-2:#1c2535;--line:#2f3b50;--text:#edf2f8;--muted:#9daabe;--accent:#68d8cf;--accent-2:#8ebcff;--danger:#ff7c83}
+*{box-sizing:border-box}
+html,body{min-height:100%;background:var(--app-bg);background-image:none;color:var(--text);font-family:Inter,"Segoe UI",sans-serif}
+body{margin:0}
+.app-header{min-height:116px;padding:24px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(125deg,#121925,#1a2232);border-bottom:1px solid var(--line)}
+.app-header h1{font-size:clamp(24px,3vw,38px);line-height:1.1;margin:3px 0 6px}.app-header p{margin:0;color:var(--muted)}
+.app-kicker{color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.13em}.back-portfolio{color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:11px 16px;white-space:nowrap}.back-portfolio:hover{color:var(--accent);border-color:var(--accent)}
+.bg-editor{padding:24px clamp(16px,3vw,42px)}.group-card{max-width:1500px;margin:0 auto!important;gap:24px}.card{margin:0;box-shadow:none}
+.Componentes,.Formulario{border:1px solid var(--line);border-radius:14px!important;box-shadow:0 22px 70px rgba(0,0,0,.22)!important}
+.Componentes{height:calc(100vh - 164px);top:24px;background:var(--panel)!important;overflow:auto;padding:0!important;flex:0 0 360px;max-width:360px}
+.Formulario{background:#fff!important;flex:1;min-width:0;padding:24px!important}.container.container-construtor{min-height:calc(100vh - 164px)}
+.nav-tabs{border-bottom:1px solid var(--line);padding:10px 10px 0}.nav-tabs .nav-link{color:var(--muted);border:0;border-radius:8px 8px 0 0;padding:12px 16px}.nav-tabs .nav-link.active{background:var(--panel-2)!important;color:var(--text)!important}
+div#myTabContent{padding:20px 20px 100px}.modalCreate{background:transparent;box-shadow:none;padding:0;color:var(--text)}.modalCreate h3{font-size:18px;text-align:left;color:var(--text);margin:12px 0 4px}.panel-help{font-size:13px;color:var(--muted);margin:0 0 12px}
+.btnInputs{width:calc(50% - 10px)!important;margin:5px;background:var(--panel-2);border:1px solid var(--line);box-shadow:none;border-radius:8px;padding:11px 8px;font-size:13px}.btnInputs:hover{background:#263348;border-color:var(--accent-2)}
+.modalCreate .note-editor,.modalCreate .note-editing-area{height:270px;position:static;border-radius:8px;overflow:hidden}.note-editor.note-frame .note-editing-area .note-editable{background:#fff;color:#263142}
+.blockControl{background:rgba(13,17,27,.65);border-radius:10px;backdrop-filter:blur(2px)}
+.menu{position:sticky;bottom:0;background:rgba(21,28,41,.96);border-top:1px solid var(--line);box-shadow:0 -10px 30px rgba(0,0,0,.18);padding:12px 16px;gap:10px}.btnShow{margin:0;width:auto;flex:1;min-height:44px;border-radius:8px;box-shadow:none;text-transform:none;font-weight:700;background:var(--accent-2);color:#0d111b}.btnPreview{background:#ffd27a}.btnReadOnly{background:var(--accent);color:#0d111b}.btnShow:hover{transform:translateY(-2px);box-shadow:none;color:#0d111b}
+.titleForm{color:#1d2735;font-size:clamp(24px,3vw,36px);padding:6px 14px 18px;border-bottom:1px solid #e6eaf0}.full-template{padding:18px}.geral .card fieldset{margin:12px 8px 26px;padding:24px 10px;border-width:1px}.container-empty{min-height:90px;border-color:#9aa8ba;background:#f7f9fc}.container-empty:hover{background:#eef6ff;box-shadow:inset 0 0 0 2px #8ebcff}
+.create-group{right:4px;top:-18px;width:auto;min-width:156px;border:1px solid #dce3ed;box-shadow:0 6px 20px rgba(30,44,64,.14);padding:0 6px}.createFieldset.action-group{left:-8px;top:-8px;bottom:auto;width:auto;height:38px;flex-direction:row;border-radius:8px;background:#1c7891;padding:0 5px}.btnAction{min-width:30px;color:#167b92}.createFieldset .btnAction{color:#fff}.btnAction:hover{color:#d99d00}
+.bg-modal{display:none;position:fixed;inset:0;width:100%;height:100%;z-index:900;background:rgba(5,9,15,.72);backdrop-filter:blur(5px)}.bg-modal.is-open{display:block!important}
+.modalDelete,.modalNomeGrupo,.modal.newCampo{display:none;position:fixed!important;z-index:910;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(520px,calc(100vw - 32px))!important;max-width:520px;height:auto!important;min-height:0!important;margin:0;padding:26px;border-radius:14px;background:#fff;color:#263142;box-shadow:0 30px 90px rgba(0,0,0,.45);overflow:auto}.modal.is-open{display:block!important}.modalDelete h2{font-size:21px}.modal input{border:1px solid #d7dfeb;box-shadow:none}.modal.newCampo button{width:auto}.modalCombo .newSelect{width:100%}
+button.btnSalvar,.AddCampo,button.btnModalDeleteRow,button.btnModalCancel{float:none;border-radius:8px;box-shadow:none;text-shadow:none}.modalCreate button.btnSalvar,.modalCreate button.btnModalCancel{margin-top:12px}.modalCreate button.btnSalvar{background:var(--accent);color:#0d111b}.modalCreate button.btnModalCancel{background:#344155}.currentDelete{outline:3px solid var(--danger)}
+.preview-mode .Formulario{box-shadow:0 22px 70px rgba(0,0,0,.3)!important}.preview-mode .container-empty{display:none}.preview-mode .btnPreview label:after{content:" edição"}
+@media(max-width:980px){.app-header{align-items:flex-start}.group-card{flex-direction:column}.Componentes{position:relative;height:auto;top:0;max-width:none;flex-basis:auto;width:100%}.Formulario{width:100%}.bg-editor{padding:16px}.new-row{display:flex!important}.menu{position:relative}.container.container-construtor{min-height:600px}}
+@media(max-width:600px){.app-header{flex-direction:column}.back-portfolio{padding:9px 13px}.new-row{display:block!important}.btnInputs{width:100%!important;margin:4px 0}.Formulario{padding:10px!important}.full-template{padding:6px}.create-group{position:relative;top:auto;right:auto;margin:8px 5px;width:calc(100% - 10px)}.createFieldset.action-group{position:relative;left:auto;top:auto;width:max-content}.modalCreate .note-editor,.modalCreate .note-editing-area{height:230px}}
 .labelRadio {margin:0 20px 0 0}
 .Componentes li a.nav-link.active, .Componentes li.active {
     background: #26737c!important;
@@ -606,3 +633,25 @@ button.btnSalvar[disabled] {
     position: absolute;
 
 }
+
+/* Fluxo de seleção e feedback — mantido ao final para prevalecer sobre o CSS legado */
+.selection-status{display:flex;align-items:center;gap:11px;padding:12px 13px;margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--panel-2)}
+.selection-status .status-dot{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:#738096;box-shadow:0 0 0 4px rgba(115,128,150,.12)}
+.selection-status div{display:flex;min-width:0;flex-direction:column}.selection-status strong{font-size:13px;color:var(--text)}.selection-status small{font-size:11px;color:var(--muted);line-height:1.4}
+.selection-status.has-selection{border-color:rgba(104,216,207,.48);background:rgba(104,216,207,.08)}.selection-status.has-selection .status-dot{background:var(--accent);box-shadow:0 0 0 4px rgba(104,216,207,.15)}
+.blockControl{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;background:rgba(13,17,27,.82);border:1px dashed #43516a;border-radius:10px;backdrop-filter:blur(3px)}
+.blockControl i{font-size:26px;color:var(--accent-2)}.blockControl strong{color:var(--text);font-size:15px}.blockControl span{max-width:25ch;color:var(--muted);font-size:12px}
+.btnInputs{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:calc(50% - 10px)!important;min-height:44px;text-align:left}.btnInputs i{width:18px;color:var(--accent-2);font-size:15px}
+.cl{border-radius:9px;outline:2px solid transparent;outline-offset:2px}.cl.is-selected{outline-color:#277cae;background:rgba(39,124,174,.08);box-shadow:0 0 0 5px rgba(39,124,174,.09)}
+.btnCreateEdit{padding:0;border:0;background:transparent;color:inherit;appearance:none}
+.btnCreateEdit .area{display:flex;align-items:center;justify-content:center;width:100%;height:100%;opacity:1;background:transparent}.btnCreateEdit:hover .area,.btnCreateEdit:focus-visible .area{background:rgba(19,67,99,.10);border-radius:8px}
+.empty-action,.filled-action{display:none;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;color:#174e70;background:#fff;border:1px solid #80b8d9;box-shadow:0 6px 20px rgba(20,65,94,.16);font-size:12px}.container-empty+.btnCreateEdit .empty-action{display:flex}.has-content .empty-action{display:none}
+.has-content .btnCreateEdit:hover .filled-action,.has-content .btnCreateEdit:focus-visible .filled-action,.has-content.is-selected .filled-action{display:flex}
+.has-content.is-selected .btnCreateEdit:not(:hover):not(:focus-visible) .area{background:transparent}.has-content.is-selected .btnCreateEdit:not(:hover):not(:focus-visible) .filled-action{opacity:.88}
+.is-selected .empty-action,.is-selected .filled-action{background:#174e70;color:#fff;border-color:#174e70}.btnCreateEdit .material-symbols-outlined{font-size:18px}
+.app-toast{position:fixed;right:24px;bottom:24px;z-index:1000;display:flex;align-items:center;gap:10px;max-width:min(380px,calc(100vw - 32px));padding:13px 17px;border:1px solid rgba(104,216,207,.45);border-radius:10px;color:var(--text);background:#172332;box-shadow:0 18px 50px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(14px);transition:.25s}.app-toast i{color:var(--accent)}.app-toast.is-visible{opacity:1;visibility:visible;transform:none}
+.btnSalvar:not([disabled]){font-weight:800;box-shadow:0 0 0 3px rgba(104,216,207,.12)}
+@media(max-width:1480px){.btnInputs{width:calc(50% - 10px)!important}}
+@media(max-width:980px){.blockControl{min-height:240px}.app-toast{right:16px;bottom:16px}}
+@media(max-width:600px){.btnInputs{width:100%!important}.selection-status{position:sticky;top:0;z-index:110}.empty-action,.filled-action{font-size:11px}}
+.appearance-feedback{display:flex;align-items:center;gap:8px;margin:4px 0 0;padding:11px 12px;border:1px solid rgba(104,216,207,.28);border-radius:8px;color:#b9d9d5!important;background:rgba(104,216,207,.07);font-size:12px!important}.appearance-feedback i{color:var(--accent)}

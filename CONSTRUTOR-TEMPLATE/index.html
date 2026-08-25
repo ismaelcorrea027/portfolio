@@ -1,8 +1,10 @@
 ﻿<!DOCTYPE html>
-<html dir="ltr" lang="en-US-x-Hixie">
+<html dir="ltr" lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>CONTRUTOR DE HTML</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Construtor visual de templates HTML com colunas, campos e estilos personalizáveis.">
+  <title>Construtor de Templates HTML</title>
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -37,44 +39,49 @@
 </head>
 
 <body>
+<header class="app-header">
+	<div><span class="app-kicker">PROJETO EM JAVASCRIPT</span><h1>Construtor de Templates</h1><p>Monte, edite, visualize e exporte seu layout HTML.</p></div>
+	<a href="../index.html" class="back-portfolio"><i class="bi bi-arrow-left"></i> Voltar ao portfólio</a>
+</header>
 <div class="geral">
 	<div class="bg-editor">
 
 		<div class="flex row col-md-12 group-card my-4">
 		
-			<div class="w-20-p Componentes col-md-3 card d-xl-block Componentes">
+			<aside class="w-20-p Componentes col-md-3 card d-xl-block">
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 				  <li class="nav-item" role="presentation">
-					<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Elementos do Template</button>
+					<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Conteúdo</button>
 				  </li>
 				  <li class="nav-item" role="presentation">
-					<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Estilo do Template</button>
+					<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Aparência</button>
 				  </li>
 				</ul>
 			<div class="tab-content" id="myTabContent">
 			
 			  <div class="tab-pane fade show active in" id="home" role="tabpanel" aria-labelledby="home-tab">
 				  <div class="editMode modalCreate flex column">
-						<div class="blockControl"></div>
-						<h3>Opções de campos</h3>
+						<div class="selection-status" aria-live="polite"><span class="status-dot"></span><div><strong>Nenhuma coluna selecionada</strong><small>Clique em uma coluna do template para começar.</small></div></div>
+						<div class="blockControl"><i class="bi bi-cursor"></i><strong>Selecione uma coluna</strong><span>Depois escolha os componentes que deseja adicionar.</span></div>
+						<h3>Adicionar componentes</h3><p class="panel-help">Inclua componentes na coluna selecionada e ajuste o conteúdo antes de aplicar.</p>
 						<div class="flex flex-wrap">
 							
 							<!--Botões de input-->
-							<button class="btnInputs btnAddCombo">Combo Box</button>
-							<button class="btnInputs btnInputText">Input Text</button>
-							<button class="btnInputs btnTextArea">Text Area</button>
-							<button class="btnInputs btnInputDate">Campo Data</button>
-							<button class="btnInputs btnRadioButton">Radio Button</button>
-							<button class="btnInputs btnCheckBox">Check Box</button>
-							<button class="btnInputs btnInputFile">Input File</button>
+							<button class="btnInputs btnAddCombo"><i class="bi bi-menu-button-wide"></i> Lista de opções</button>
+							<button class="btnInputs btnInputText"><i class="bi bi-input-cursor-text"></i> Campo de texto</button>
+							<button class="btnInputs btnTextArea"><i class="bi bi-textarea-resize"></i> Texto longo</button>
+							<button class="btnInputs btnInputDate"><i class="bi bi-calendar3"></i> Data</button>
+							<button class="btnInputs btnRadioButton"><i class="bi bi-record-circle"></i> Escolha única</button>
+							<button class="btnInputs btnCheckBox"><i class="bi bi-check-square"></i> Caixa de seleção</button>
+							<button class="btnInputs btnInputFile"><i class="bi bi-paperclip"></i> Anexo</button>
 							<input type="file" id="image-upload" style="display: none;">
-							<button class="btnInputs btnInputImage"id="btnAddImage">Imagem</button>
+							<button class="btnInputs btnInputImage" id="btnAddImage"><i class="bi bi-image"></i> Imagem</button>
 							<!--div que monta o componente de editor-->
-							<h3>Preview da edição</h3>
+							<h3>Conteúdo da coluna</h3>
 							<div class="summernote container-cl"></div>
 							<div class="w-100-p">
-								<button class="btnModalCancel cancelCreate">CANCELAR</button>
-								<button class="btnSalvar">Incluir</button>
+								<button type="button" class="btnModalCancel cancelCreate">Cancelar</button>
+								<button type="button" class="btnSalvar">Aplicar na coluna</button>
 							</div>	
 						</div>
 						
@@ -87,7 +94,7 @@
 						<div class="colorPicker">
 						<br/>
 							<label class="form-label">Título do Formulário</label>
-							<input id="titleForm" type="text">
+							<input id="titleForm" type="text" placeholder="Ex.: Formulário de contato">
 							<label class="form-label">Tipo da Fonte</label>
 							<select id="font-family">
 								<option value="Arial">Arial</option>
@@ -98,7 +105,7 @@
 								<option value="Garamond">Garamond</option>
 								<option value="Bookman">Bookman</option>
 								<option value="Georgia">Georgia</option>
-								<option value="Georgia">Helvetica</option>
+								<option value="Helvetica">Helvetica</option>
 								<option value="Comic Sans MS">Comic Sans MS</option>
 								<option value="Trebuchet MS">Trebuchet MS</option>
 								<option value="Impact">Impact</option>
@@ -113,7 +120,6 @@
 								<option>18px</option>
 								<option>19px</option>
 								<option>20px</option>
-								<option>22px</option>
 								<option>22px</option>
 								<option>23px</option>
 								<option>24px</option>
@@ -132,7 +138,7 @@
 							<label class="form-label">Cor dos textos</label>
 							<input id="color-picker3" value='#666' />
 							
-							<button class="addStyleTemplate">Aplicar estilo</button>
+							<p class="appearance-feedback" role="status"><i class="bi bi-lightning-charge-fill"></i> Alterações aplicadas automaticamente</p>
 						</div>
 
 					</div>		
@@ -142,18 +148,18 @@
 			</div>
 				
 			<div class="menu editMode">
-				<a class="btnShow btnPreview">
+				<button type="button" class="btnShow btnPreview" aria-pressed="false">
 					<span class="glyphicon glyphicon-eye-open"></span>
-					<label>Editar/Visualizar</label>
-				</a>
+					<label>Visualizar</label>
+				</button>
 									
-				<a class="btnShow btnReadOnly" download="somente-leitura.html">
+				<a class="btnShow btnReadOnly" download="template.html">
 					<span class="glyphicon glyphicon-floppy-save"></span>
-					<label>Salvar</label>
+					<label>Exportar HTML</label>
 				</a>
 			</div><!--fim menu-->	
 
-			</div>
+			</aside>
 			
 			<!--Div que deve ser salva no banco de dados-->
 			<div class="w-80-p card container-construtor Formulario"> 
@@ -234,28 +240,11 @@
 	
 </div>
 
-<div class="editMode modal modalCheckBox newCampo">
-	<label class="TituloCampo">Adicionar Imagem</label>
-
-	<div class="comboItem">
-		<div>
-		
-			<input type="file" id="image-upload" style="display: none;">
-			<button id="btnAddImage">Image</button>
-			<div>
-				<button class="closeModal">Fechar</button>
-				<button class="btnItens plusItem">Adicionar</button>
-			</div>
-		</div>
-	</div>
-	
-</div>
-
-
 <div class="editMode bg-modal"></div>
+<div class="app-toast" role="status" aria-live="polite"><i class="bi bi-check-circle-fill"></i><span></span></div>
 
 <!-- custom js -->
-<script src="js/construtor-bootstrap.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 
