@@ -1043,6 +1043,30 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .service-card.manual .service-destination{color:var(--brass);}
 .service-card:focus-visible{outline:2px solid var(--brass);outline-offset:5px;}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.service-card.card-scroll.is-card-visible:is(:hover,:focus-visible),.service-card.card-scroll.is-card-visible:is(:hover,:focus-visible) .service-icon{transform:none;}}
+
+/* Visual technology directory: informational rows, with entrance motion only. */
+.tech-heading{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:48px;margin-bottom:36px;}
+.tech-intro{margin:0;color:#b7c3d5;font-size:15px;line-height:1.8;max-width:47ch;}
+.tech-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
+.tech-group{min-width:0;padding:24px;background:rgba(19,24,35,.85);border:1px solid var(--line);border-top:2px solid var(--steel);border-radius:12px;}
+.tech-group:nth-child(2){border-top-color:var(--electric);}
+.tech-group:nth-child(3){border-top-color:var(--brass);}
+.tech-group-heading{display:flex;align-items:center;gap:10px;}
+.tech-number{color:var(--ink-muted);font-size:11px;letter-spacing:.06em;}
+.tech-group h3{font-size:17px;margin:0;color:var(--ink);font-weight:600;}
+.tech-group-description{font-size:12px;color:var(--ink-muted);margin:9px 0 20px;}
+.tech-list{list-style:none;padding:0;margin:0;}
+.tech-item{display:flex;align-items:center;gap:13px;padding:16px 0;border-top:1px solid rgba(255,255,255,.07);}
+.tech-icon{display:grid;place-items:center;width:50px;height:50px;flex:0 0 50px;border-radius:11px;background:#f7f8fa;}
+.tech-icon img{width:34px;height:34px;object-fit:contain;}
+.tech-item h4{font-size:14px;font-weight:600;margin:0 0 4px;}
+.tech-item p{font-size:12px;line-height:1.55;color:#aeb9cc;margin:0;}
+.tech-notes{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);}
+.tech-notes p{margin:0;color:var(--ink-muted);font-size:12px;line-height:1.7;}
+.tech-notes strong{color:#d9e2f0;font-weight:600;margin-right:6px;}
+.tech-notes i{color:var(--brass);margin-right:8px;}
+@media(max-width:960px){.tech-heading{grid-template-columns:1fr;gap:18px;}.tech-groups{grid-template-columns:1fr;}.tech-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;}.tech-intro{max-width:65ch;}}
+@media(max-width:540px){.tech-list{grid-template-columns:1fr;}.tech-group{padding:20px;}.tech-heading{margin-bottom:26px;}}
 </style>
 </head>
 <body>
@@ -1364,18 +1388,48 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 </section>
 
 <!-- EXPERTISE -->
-<section class="section-expertise">
-  <div class="wrap reveal expertise-shell">
-    <div class="expertise-copy">
-      <span class="eyebrow">Experiência aplicada</span>
-      <h2 class="section-title">Ferramentas são meios.<br>O resultado vem primeiro.</h2>
-      <p>Combino design e código para acompanhar o projeto com visão integral: estrutura, interface, implementação, publicação e manutenção.</p>
+<section class="section-expertise" id="ferramentas" aria-labelledby="tools-title">
+  <div class="wrap">
+    <div class="tech-heading">
+      <div class="expertise-copy">
+        <span class="eyebrow">Experiência aplicada</span>
+        <h2 class="section-title" id="tools-title">Ferramentas são meios.<br>O resultado vem primeiro.</h2>
+      </div>
+      <p class="tech-intro">Combino design e código para acompanhar cada etapa: da estrutura e do visual à implementação, publicação e manutenção.</p>
     </div>
-    <div class="tool-groups">
-      <div class="tool-group"><h3>Design &amp; interface</h3><div class="tool-list"><span class="tool-chip">UI Design</span><span class="tool-chip">Web Design</span><span class="tool-chip">Wireframes</span><span class="tool-chip">Design responsivo</span></div></div>
-      <div class="tool-group"><h3>Front-end</h3><div class="tool-list"><span class="tool-chip">HTML</span><span class="tool-chip">CSS</span><span class="tool-chip">JavaScript</span><span class="tool-chip">Bootstrap</span><span class="tool-chip">jQuery</span></div></div>
-      <div class="tool-group"><h3>Sites &amp; conteúdo</h3><div class="tool-list"><span class="tool-chip">WordPress</span><span class="tool-chip">Sites institucionais</span><span class="tool-chip">Landing pages</span><span class="tool-chip">Manutenção</span></div></div>
-      <div class="tool-group"><h3>Arte autoral</h3><div class="tool-list"><span class="tool-chip">Grafite</span><span class="tool-chip">Desenho manual</span><span class="tool-chip">Pintura digital</span><span class="tool-chip">Sem IA generativa</span></div></div>
+    <div class="tech-groups">
+      <div class="tech-group">
+        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">01</span><h3>Plataformas &amp; conteúdo</h3></div>
+        <p class="tech-group-description">Sites e colaboração no dia a dia.</p>
+        <ul class="tech-list">
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/microsoft-symbol.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Microsoft</h4><p>Soluções para ambientes corporativos.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/sharepoint.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>SharePoint</h4><p>Intranets e portais de colaboração.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/wordpress.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>WordPress</h4><p>Sites, conteúdo e manutenção contínua.</p></div></li>
+        </ul>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">02</span><h3>Front-end</h3></div>
+        <p class="tech-group-description">Do layout à interface responsiva.</p>
+        <ul class="tech-list">
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/html5.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>HTML5</h4><p>Estrutura e semântica das páginas.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/css3.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>CSS3</h4><p>Layouts responsivos e efeitos visuais.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/bootstrap.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Bootstrap</h4><p>Componentes e grids para a web.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/angularmaterial.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Angular Material</h4><p>Interfaces para sistemas corporativos.</p></div></li>
+        </ul>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">03</span><h3>Design &amp; interface</h3></div>
+        <p class="tech-group-description">Da ideia ao acabamento visual.</p>
+        <ul class="tech-list">
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/figma.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Figma</h4><p>Layouts, protótipos e interfaces.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/illustrator.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Illustrator</h4><p>Vetores e elementos gráficos.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/photoshop.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Photoshop</h4><p>Tratamento de imagens e peças visuais.</p></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tech-notes">
+      <p><strong>Também no repertório</strong> JavaScript, jQuery, wireframes e design responsivo.</p>
+      <p><i class="bi bi-pencil" aria-hidden="true"></i><strong>Arte autoral</strong> Grafite, desenho manual e pintura digital, sem IA generativa.</p>
     </div>
   </div>
 </section>
@@ -1739,7 +1793,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       { selector:'.section-services .service-card', direction:'right' },
       { selector:'.section-featured .case-card', direction:'left' },
       { selector:'.section-featured .mid-cta', direction:'right' },
-      { selector:'.section-expertise .tool-group', direction:'left' },
+      { selector:'.section-expertise .tech-group', direction:'left' },
       { selector:'.section-secondary .compact-card', direction:'right' },
       { selector:'.section-companies .company-card', direction:'left' },
       { selector:'.section-maintenance .maint-card', direction:'left' },
