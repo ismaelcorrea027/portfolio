@@ -1017,7 +1017,16 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 }
 
 /* ---------- EMPRESAS ATENDIDAS PELA ÍMPETO ---------- */
-.section-companies{background:radial-gradient(ellipse at 0 0,rgba(142,188,255,.07),transparent 60%),var(--bg);}
+.section-companies{
+  background:
+    radial-gradient(640px 520px at 100% 0,rgba(139,124,255,.25),transparent 68%),
+    radial-gradient(480px 560px at 0 48%,rgba(142,188,255,.17),transparent 70%),
+    radial-gradient(600px 460px at 95% 100%,rgba(255,202,102,.18),transparent 68%),
+    var(--bg);
+}
+.section-companies .backdrop-icon{top:10px;right:-50px;font-size:320px;color:rgba(169,158,255,.10);--base-rotate:12deg;}
+.section-companies .ambient-one{left:2%;top:38%;width:112px;height:112px;font-size:46px;}
+.section-companies .ambient-two{right:3%;bottom:9%;width:124px;height:124px;font-size:52px;animation-delay:-2.3s;}
 .section-companies .section-title{max-width:650px;font-size:clamp(26px,3.5vw,36px);line-height:1.2;}
 .companies-intro{max-width:65ch;color:var(--ink-muted);margin:16px 0 0;font-size:15px;}
 .companies-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0;}
@@ -1435,6 +1444,9 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 <!-- ILLUSTRATION -->
 <!-- Empresas e escopos informados por Ismael. Logos: imagens/empresas/fontes.json. -->
 <section class="section-companies" id="empresas" aria-labelledby="companies-title">
+  <i class="bi bi-buildings backdrop-icon" data-motion="rotate" aria-hidden="true"></i>
+  <i class="bi bi-briefcase ambient-icon ambient-one violet motion-glow" data-motion="float" aria-hidden="true"></i>
+  <i class="bi bi-diagram-3 ambient-icon ambient-two warm motion-glow" data-motion="zoom" aria-hidden="true"></i>
   <div class="wrap">
     <div class="section-head">
       <div>
