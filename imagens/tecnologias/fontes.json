@@ -9,5 +9,8 @@
   "figma": "https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg",
   "sharepoint": "https://upload.wikimedia.org/wikipedia/commons/2/28/Microsoft_Office_SharePoint_%282025%E2%80%93present%29.svg",
   "microsoft": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
-  "microsoft-symbol": "microsoft.svg, viewport do símbolo; nome exibido em texto ao lado"
+  "microsoft-symbol": "microsoft.svg, viewport do símbolo; nome exibido em texto ao lado",
+  "javascript": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+  "jquery": "https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original.svg",
+  "xd": "https://raw.githubusercontent.com/devicons/devicon/master/icons/xd/xd-original.svg"
 }
