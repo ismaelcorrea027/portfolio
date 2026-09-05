@@ -1002,6 +1002,22 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   .social-rail,.rail-link,.rail-label{transition:none;}
   header.hero::after{animation:none;}
 }
+
+/* ---------- EMPRESAS ATENDIDAS PELA ÍMPETO ---------- */
+.section-companies{background:radial-gradient(ellipse at 0 0,rgba(142,188,255,.07),transparent 60%),var(--bg);}
+.section-companies .section-title{max-width:650px;font-size:clamp(26px,3.5vw,36px);line-height:1.2;}
+.companies-intro{max-width:65ch;color:var(--ink-muted);margin:16px 0 0;font-size:15px;}
+.companies-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0;}
+.company-card{min-width:0;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;}
+.company-logo{height:88px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:14px;margin-bottom:18px;}
+.company-logo-dark{background:#172938;}
+.company-logo img{width:100%;height:100%;object-fit:contain;}
+.company-logo img[src$="brmalls.png"]{object-fit:cover;}
+.company-card h3{font-size:15px;line-height:1.4;margin:0 0 7px;font-weight:600;}
+.company-card p{font-size:13px;line-height:1.6;color:var(--ink-muted);margin:0;}
+@media(max-width:1000px){.companies-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:700px){.companies-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}.company-card{padding:14px;}.company-logo{height:78px;padding:10px;}}
+@media(max-width:360px){.companies-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -1383,6 +1399,96 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 </section>
 
 <!-- ILLUSTRATION -->
+<!-- Empresas e escopos informados por Ismael. Logos: imagens/empresas/fontes.json. -->
+<section class="section-companies" id="empresas" aria-labelledby="companies-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Experiência em projetos corporativos</span>
+        <h2 class="section-title" id="companies-title">Empresas que atendi pela Ímpeto Informática</h2>
+        <p class="companies-intro">Uma seleção de empresas para as quais contribuí com sites, intranets e interfaces de sistemas, em projetos realizados pela Ímpeto Informática.</p>
+      </div>
+    </div>
+    <ul class="companies-grid">
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/concremat.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Concremat</h3>
+        <p>Intranet</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo company-logo-dark"><img src="imagens/empresas/irb.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>IRB</h3>
+        <p>Sistema de precificação</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/allos.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>ALLOS</h3>
+        <p>Intranet</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/brmalls.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>brMalls</h3>
+        <p>Manutenção dos sites dos shoppings do Rio de Janeiro</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/vinci.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Vinci Partners</h3>
+        <p>Manutenção do site e da intranet</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo company-logo-dark"><img src="imagens/empresas/fqm-centered.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>FQM Farmoquímica</h3>
+        <p>Criação de intranets</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/ardagh.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Ardagh</h3>
+        <p>Criação de intranets corporativas</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/redley.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Redley</h3>
+        <p>Manutenção do site</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/cantao.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Cantão</h3>
+        <p>Manutenção do site</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/light.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Light</h3>
+        <p>Criação de site para denúncias de furto de energia</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/sepe.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>SEPE-RJ</h3>
+        <p>Manutenção do site</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/montaury.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Montaury Advogados</h3>
+        <p>Criação de intranet para reserva de salas</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/bma.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>BMA Advogados</h3>
+        <p>Criação das telas do sistema de timesheet</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/frm.jpg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Fundação Roberto Marinho</h3>
+        <p>Criação de telas de sistema interno</p>
+      </li>
+      <li class="company-card">
+        <div class="company-logo"><img src="imagens/empresas/subsea7.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <h3>Subsea7</h3>
+        <p>Manutenção do layout do sistema interno de carregamento de barris de petróleo nos navios</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <section class="section-illustration" id="ilustracao">
   <i class="bi bi-brush backdrop-icon" data-motion="float" data-motion-strength="large" aria-hidden="true"></i>
   <i class="bi bi-vector-pen ambient-icon ambient-one warm" data-motion="float" aria-hidden="true"></i>
