@@ -1089,6 +1089,20 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .tech-notes i{color:var(--brass);margin-right:8px;}
 @media(max-width:960px){.tech-heading{grid-template-columns:1fr;gap:18px;}.tech-groups{grid-template-columns:1fr;}.tech-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;}.tech-intro{max-width:65ch;}}
 @media(max-width:540px){.tech-list{grid-template-columns:1fr;}.tech-group{padding:20px;}.tech-heading{margin-bottom:26px;}}
+
+.project-lightbox{width:min(1100px,calc(100% - 24px));max-width:none;height:fit-content;max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);}
+.project-lightbox::backdrop{background:rgba(0,0,0,.85);backdrop-filter:blur(5px);}
+.project-lightbox[open]{display:flex;flex-direction:column;}
+.project-lightbox-head{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1px solid var(--line);}
+.project-lightbox-title{font-size:18px;margin:0;}
+.project-lightbox button{flex-shrink:0;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);color:var(--ink);font-size:15.5px;cursor:pointer;}
+.project-lightbox button:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+.project-lightbox-view{overflow:auto;min-height:0;flex:0 1 auto;background:#0b0e14;}
+.project-lightbox-open{flex-shrink:0;}
+.project-lightbox-view img{display:block;width:100%;height:auto;}
+.project-lightbox-nav{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--line);font-size:15.5px;}
+.project-lightbox-nav button{padding:8px 12px;}
+
 </style>
 </head>
 <body>
@@ -1217,28 +1231,36 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     </div>
     <div class="behance-projects">
       <a class="behance-project" href="https://www.behance.net/gallery/254527349/Site-para-advogados" target="_blank" rel="noopener">
-        <img src="thumbs/behance/site-advogados.webp" alt="Template de site para advogados" loading="lazy">
+        <img src="thumbs/behance/site-advogados.webp" data-full="imagens/behance/site-advogados.png" alt="Template de site para advogados" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Site para advogados</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
       <a class="behance-project" href="https://www.behance.net/gallery/254526901/Clinica-veterinaria" target="_blank" rel="noopener">
-        <img src="thumbs/behance/clinica-veterinaria.webp" alt="Template de site para clínica veterinária" loading="lazy">
+        <img src="thumbs/behance/clinica-veterinaria.webp" data-full="imagens/behance/clinica-veterinaria.png" alt="Template de site para clínica veterinária" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Clínica veterinária</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
       <a class="behance-project" href="https://www.behance.net/gallery/254526531/Site-para-clinica-de-esttica" target="_blank" rel="noopener">
-        <img src="thumbs/behance/clinica-estetica.webp" alt="Template de site para clínica de estética" loading="lazy">
+        <img src="thumbs/behance/clinica-estetica.webp" data-full="imagens/behance/clinica-estetica.png" alt="Template de site para clínica de estética" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Clínica de estética</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
       <a class="behance-project" href="https://www.behance.net/gallery/254526259/Site-para-academia" target="_blank" rel="noopener">
-        <img src="thumbs/behance/site-academia.webp" alt="Template de site para academia" loading="lazy">
+        <img src="thumbs/behance/site-academia.webp" data-full="imagens/behance/site-academia.png" alt="Template de site para academia" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Site para academia</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
       <a class="behance-project" href="https://www.behance.net/gallery/254525429/Site-para-nutricionista" target="_blank" rel="noopener">
-        <img src="thumbs/behance/site-nutricionista.webp" alt="Template de site para nutricionista" loading="lazy">
+        <img src="thumbs/behance/site-nutricionista.webp" data-full="imagens/behance/site-nutricionista.png" alt="Template de site para nutricionista" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Site para nutricionista</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
-      <a class="behance-project" href="https://www.behance.net/gallery/254483659/Desenhos-realistas-em-grafite" target="_blank" rel="noopener">
-        <img src="thumbs/behance/grafite-realista.webp" alt="Desenhos realistas feitos em grafite" loading="lazy">
-        <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual · sem IA</span><span class="behance-project-title">Desenhos realistas em grafite</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      <a class="behance-project" href="https://www.behance.net/gallery/254630155/Site-para-hotelaria" target="_blank" rel="noopener">
+        <img src="imagens/behance/site-hotelaria.png" data-full="imagens/behance/site-hotelaria.png" alt="Site para hotelaria" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Site para hotelaria</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
+      <a class="behance-project" href="https://www.behance.net/gallery/254630105/Corretor-de-seguros" target="_blank" rel="noopener">
+        <img src="imagens/behance/corretora-seguros.png" data-full="imagens/behance/corretora-seguros.png" alt="Corretora de seguros" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Corretora de seguros</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
+      <a class="behance-project" href="https://www.behance.net/gallery/254630569/Site-de-medicina-e-esporte" target="_blank" rel="noopener">
+        <img src="imagens/behance/medicina-esporte.png" data-full="imagens/behance/medicina-esporte.png" alt="Medicina e esporte" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Medicina e esporte</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
     </div>
     <div class="behance-all-row">
@@ -1629,15 +1651,19 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       </div>
     </div>
 
-    <div class="illus-panel">
-      <div>
-        <h3>Tecnologia no trabalho. Processo humano na arte.</h3>
-        <p>Minha produção de ilustração nasce do desenho, da observação e da prática — estudos de personagem, grafite e pintura digital feitos manualmente, sem imagens geradas por inteligência artificial.</p>
-        <span class="authentic-note"><i class="bi bi-pencil"></i> Processo manual · 0% IA generativa</span>
-        <div style="margin-top:20px;">
-          <a class="btn btn-solid" href="https://www.behance.net/gallery/254483659/Desenhos-realistas-em-grafite" target="_blank" rel="noopener"><i class="bi bi-pencil"></i> Ver ilustrações manuais</a>
-        </div>
-      </div>
+    <div class="behance-projects">
+      <a class="behance-project" href="https://www.behance.net/gallery/254483097/Ilustracao-de-capa-de-livro" target="_blank" rel="noopener">
+        <img src="imagens/behance/capa-livro.png" data-full="imagens/behance/capa-livro.png" alt="Ilustração de capa de livro" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual</span><span class="behance-project-title">Ilustração de capa de livro</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
+      <a class="behance-project" href="https://www.behance.net/gallery/254483281/Ilustracao-para-capa-de-livro" target="_blank" rel="noopener">
+        <img src="imagens/behance/capa-livro-2.png" data-full="imagens/behance/capa-livro-2.png" alt="Arte para capa de livro" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual</span><span class="behance-project-title">Arte para capa de livro</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
+      <a class="behance-project" href="https://www.behance.net/gallery/254483659/Desenhos-realistas-em-grafite" target="_blank" rel="noopener">
+        <img src="imagens/behance/grafite-realista.png" data-full="imagens/behance/grafite-realista.png" alt="Desenhos realistas em grafite" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual</span><span class="behance-project-title">Desenhos realistas em grafite</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -1824,7 +1850,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       { selector:'.section-secondary .compact-card', direction:'right' },
       { selector:'.section-companies .company-card', direction:'left' },
       { selector:'.section-maintenance .maint-card', direction:'left' },
-      { selector:'.section-illustration .illus-panel', direction:'right' },
+      { selector:'.section-illustration .behance-project', direction:'right' },
       { selector:'.section-behance-latest .behance-project', direction:'left' },
       { selector:'.section-contact .contact-card', direction:'left' }
     ];
@@ -1871,6 +1897,41 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
+</script>
+
+
+<dialog class="project-lightbox" aria-labelledby="project-lightbox-title">
+  <div class="project-lightbox-head"><h2 class="project-lightbox-title" id="project-lightbox-title"></h2><button type="button" data-gallery-close aria-label="Fechar galeria">✕</button></div>
+  <div class="project-lightbox-view" tabindex="0" aria-label="Imagem do projeto"><img alt=""></div>
+  <div class="project-lightbox-nav"><button type="button" data-gallery-prev aria-label="Imagem anterior">← Anterior</button><span data-gallery-count aria-live="polite"></span><button type="button" data-gallery-next aria-label="Próxima imagem">Próxima →</button></div>
+  <a class="project-lightbox-open" hidden target="_blank" rel="noopener" style="padding:10px 18px;color:var(--steel);font-size:15.5px">Abrir projeto ↗</a>
+</dialog>
+<script>
+(function(){
+  const groups=[ [...document.querySelectorAll('#intranets .compact-card')], [...document.querySelectorAll('.section-behance-latest .behance-project')], [...document.querySelectorAll('#ilustracao .behance-project')] ];
+  let links=groups[0];
+  const dialog=document.querySelector('.project-lightbox'), picture=dialog.querySelector('img'), viewer=dialog.querySelector('.project-lightbox-view');
+  let current=0,trigger=null,previousOverflow='';
+  function show(index){
+    current=(index+links.length)%links.length;
+    const link=links[current];
+    const isImage=/\.(png|jpe?g|webp)(?:[?#]|$)/i.test(link.getAttribute('href'));
+    picture.src=isImage?link.href:(link.querySelector('img').dataset.full||link.querySelector('img').src);picture.alt=link.querySelector('img').alt;
+    const openLink=dialog.querySelector('.project-lightbox-open');openLink.hidden=isImage;openLink.href=link.href;openLink.textContent=link.matches('.behance-project')?'Ver no Behance ↗':'Abrir projeto ↗';
+    dialog.querySelector('h2').textContent=link.querySelector('.compact-title, .behance-project-title').textContent;
+    dialog.querySelector('[data-gallery-count]').textContent=(current+1)+' / '+links.length;
+    viewer.scrollTop=0;
+  }
+  groups.forEach(group=>group.forEach((link,index)=>{link.removeAttribute('target');link.setAttribute('aria-haspopup','dialog');link.addEventListener('click',event=>{
+    event.preventDefault();links=group;trigger=link;show(index);previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('[data-gallery-close]').focus();
+  });}));
+  dialog.querySelector('[data-gallery-close]').onclick=()=>dialog.close();
+  dialog.querySelector('[data-gallery-prev]').onclick=()=>show(current-1);
+  dialog.querySelector('[data-gallery-next]').onclick=()=>show(current+1);
+  dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();show(current+(event.key==='ArrowRight'?1:-1));}});
+  dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+  dialog.addEventListener('close',()=>{document.body.style.overflow=previousOverflow;if(trigger)trigger.focus({preventScroll:true});});
+})();
 </script>
 
 </body>
