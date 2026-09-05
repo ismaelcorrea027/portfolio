@@ -178,7 +178,7 @@ body.resume-modal-open{overflow:hidden;}
   backdrop-filter:blur(12px);cursor:pointer;
 }
 .resume-dialog{
-  position:relative;width:min(1120px,100%);height:min(88vh,900px);
+  position:relative;width:min(1120px,100%);height:min(88vh,900px);height:min(88dvh,900px);
   display:flex;flex-direction:column;overflow:hidden;
   background:linear-gradient(145deg,rgba(24,30,43,.99),rgba(11,14,20,.99));
   border:1px solid rgba(142,188,255,.25);border-radius:20px;
@@ -192,8 +192,8 @@ body.resume-modal-open{overflow:hidden;}
 }
 .resume-modal-title{margin:0;font-size:20px;line-height:1.2;}
 .resume-modal-subtitle{margin:4px 0 0;color:var(--ink-muted);font-size:14px;}
-.resume-modal-actions{display:flex;align-items:center;gap:10px;}
-.resume-download,.resume-close{
+.resume-modal-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.resume-open,.resume-download,.resume-close{
   min-height:44px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
 }
@@ -201,15 +201,28 @@ body.resume-modal-open{overflow:hidden;}
 .resume-download:hover{background:#ffdb91;}
 .resume-close{width:44px;padding:0;color:var(--ink);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);}
 .resume-close:hover{background:rgba(255,255,255,.12);}
-.resume-viewer{flex:1;width:100%;border:0;background:#e8e8e8;}
-.resume-fallback{display:none;margin:0;padding:14px 20px;color:var(--ink-muted);font-size:14px;}
+.resume-open{padding:0 14px;color:var(--ink);border:1px solid var(--line);background:var(--surface-2);font-size:14px;}
+.resume-open:hover{border-color:var(--steel);}
+.resume-modal-head{flex-shrink:0;}
+.resume-viewer{flex:1;min-height:0;width:100%;overflow:auto;overscroll-behavior:contain;background:#e8e8e8;padding:16px;}
+.resume-page{max-width:850px;margin:0 auto 16px;}
+.resume-page:last-child{margin-bottom:0;}
+.resume-page img{width:100%;height:auto;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.12);}
+.resume-page figcaption{color:#374151;font-size:12px;text-align:center;padding-top:8px;}
+.resume-viewer:focus-visible,.resume-modal-actions :focus-visible{outline:2px solid var(--brass);outline-offset:-3px;}
+
+.resume-fallback{margin:0;padding:14px 20px;color:var(--ink-muted);font-size:14px;}
 @media (max-width:700px){
   .resume-modal{padding:10px;}
-  .resume-dialog{height:94vh;border-radius:15px;}
-  .resume-modal-head{align-items:flex-start;padding:14px;}
+  .resume-dialog{height:calc(100vh - 20px);height:calc(100dvh - 20px);border-radius:15px;}
+  .resume-modal-head{align-items:stretch;flex-direction:column;gap:12px;padding:12px;}
+  .resume-modal-title{font-size:18px;}
+  .resume-modal-actions{gap:8px;}
+  .resume-close{margin-left:auto;flex-shrink:0;}
+  .resume-viewer{padding:8px;}
   .resume-modal-subtitle{display:none;}
-  .resume-download span{display:none;}
-  .resume-download{width:44px;padding:0;}
+  .resume-download{padding:0 12px;font-size:13px;}
+  .resume-open{padding:0 12px;font-size:13px;}
 }
 .availability{display:inline-flex;align-items:center;gap:8px;}
 .availability::before{content:'';width:6px;height:6px;border-radius:50%;background:#68dc91;box-shadow:0 0 0 4px rgba(104,220,145,.10);}
@@ -1009,14 +1022,13 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .companies-intro{max-width:65ch;color:var(--ink-muted);margin:16px 0 0;font-size:15px;}
 .companies-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0;}
 .company-card{min-width:0;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;}
-.company-logo{height:88px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:14px;margin-bottom:18px;}
-.company-logo-dark{background:#172938;}
+.company-logo{height:100px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:14px;margin-bottom:18px;}
 .company-logo img{width:100%;height:100%;object-fit:contain;}
 .company-logo img[src$="brmalls.png"]{object-fit:cover;}
 .company-card h3{font-size:15px;line-height:1.4;margin:0 0 7px;font-weight:600;}
 .company-card p{font-size:13px;line-height:1.6;color:var(--ink-muted);margin:0;}
 @media(max-width:1000px){.companies-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
-@media(max-width:700px){.companies-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}.company-card{padding:14px;}.company-logo{height:78px;padding:10px;}}
+@media(max-width:700px){.companies-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}.company-card{padding:14px;}.company-logo{height:90px;padding:10px;}}
 @media(max-width:360px){.companies-grid{grid-template-columns:1fr;}}
 .service-destination{margin-top:auto;padding-top:22px;font-size:12px;font-weight:600;color:var(--steel);display:flex;justify-content:space-between;gap:8px;}
 .service-card.manual .service-destination{color:var(--brass);}
@@ -1036,7 +1048,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       <a class="nav-projects" href="#behance">Projetos</a>
       <a class="nav-contact" href="#contato">Contato</a>
       <a class="nav-linkedin" href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i><span> LinkedIn</span></a>
-      <a class="nav-resume js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf" aria-haspopup="dialog" aria-controls="resume-modal" aria-label="Visualizar currículo em PDF"><i class="bi bi-file-earmark-text"></i><span> Currículo</span></a>
+      <a class="nav-resume js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" aria-haspopup="dialog" aria-controls="resume-modal" aria-label="Visualizar currículo em PDF"><i class="bi bi-file-earmark-text"></i><span> Currículo</span></a>
       <a class="nav-behance" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener">Behance ↗</a>
     </div>
   </nav>
@@ -1074,7 +1086,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   <a class="rail-link" href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener" aria-label="Abrir LinkedIn">
     <span class="rail-icon"><i class="bi bi-linkedin"></i></span><span class="rail-label">LinkedIn</span>
   </a>
-  <a class="rail-link rail-resume js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf" aria-haspopup="dialog" aria-controls="resume-modal" aria-label="Visualizar currículo em PDF">
+  <a class="rail-link rail-resume js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" aria-haspopup="dialog" aria-controls="resume-modal" aria-label="Visualizar currículo em PDF">
     <span class="rail-icon"><i class="bi bi-file-earmark-text"></i></span><span class="rail-label">Ver currículo</span>
   </a>
   <a class="rail-link rail-whatsapp" href="https://wa.me/5521983940796" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
@@ -1089,20 +1101,34 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 </aside>
 
 <div class="resume-modal" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title" aria-hidden="true">
-  <button class="resume-modal-backdrop" type="button" data-resume-close aria-label="Fechar visualização do currículo"></button>
+  <button class="resume-modal-backdrop" type="button" data-resume-close tabindex="-1" aria-label="Fechar visualização do currículo"></button>
   <div class="resume-dialog" role="document">
     <div class="resume-modal-head">
       <div>
         <h2 class="resume-modal-title" id="resume-modal-title">Currículo — Ismael Corrêa</h2>
-        <p class="resume-modal-subtitle">Visualize o documento ou faça o download quando preferir.</p>
+        <p class="resume-modal-subtitle">3 páginas · Role para ler ou abra o PDF para ampliar e selecionar o texto.</p>
       </div>
       <div class="resume-modal-actions">
-        <a class="resume-download" id="resume-download" href="output/pdf/curriculo-ismael-correa.download" download="curriculo-ismael-correa.pdf"><i class="bi bi-download"></i><span>Baixar currículo</span></a>
+        <a class="resume-open" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" target="_blank" rel="noopener">Abrir PDF <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+        <a class="resume-download" id="resume-download" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" download="curriculo-ismael-correa.pdf" aria-label="Baixar currículo em PDF"><i class="bi bi-download" aria-hidden="true"></i><span>Baixar PDF</span></a>
         <button class="resume-close" type="button" data-resume-close aria-label="Fechar"><i class="bi bi-x-lg"></i></button>
       </div>
     </div>
-    <iframe class="resume-viewer" src="output/pdf/curriculo-ismael-correa.pdf#view=FitH&toolbar=0" title="Currículo de Ismael Corrêa em PDF"></iframe>
-    <p class="resume-fallback">Se a prévia não abrir no seu navegador, use o botão “Baixar currículo”.</p>
+    <div class="resume-viewer" tabindex="0" role="region" aria-label="Prévia do currículo, 3 páginas">
+      <figure class="resume-page">
+        <img src="output/pdf/previa-curriculo-54f3fd11c325-1.jpg" width="1132" height="1600" loading="lazy" decoding="async" alt="Página 1 de 3: Resumo profissional e experiência na Ímpeto Informática. Para acessar o texto completo, use Abrir PDF.">
+        <figcaption>Página 1 de 3</figcaption>
+      </figure>
+      <figure class="resume-page">
+        <img src="output/pdf/previa-curriculo-54f3fd11c325-2.jpg" width="1132" height="1600" loading="lazy" decoding="async" alt="Página 2 de 3: Experiência profissional na BMA, Biblioteca Nacional e como freelancer. Para acessar o texto completo, use Abrir PDF.">
+        <figcaption>Página 2 de 3</figcaption>
+      </figure>
+      <figure class="resume-page">
+        <img src="output/pdf/previa-curriculo-54f3fd11c325-3.jpg" width="1132" height="1600" loading="lazy" decoding="async" alt="Página 3 de 3: Formação, cursos e competências técnicas. Para acessar o texto completo, use Abrir PDF.">
+        <figcaption>Página 3 de 3</figcaption>
+      </figure>
+    </div>
+    <p class="resume-fallback" hidden>Não foi possível carregar uma página da prévia. Use “Abrir PDF” ou “Baixar PDF” acima.</p>
   </div>
 </div>
 
@@ -1444,22 +1470,22 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <p>Manutenção do site</p>
       </li>
       <li class="company-card">
-        <div class="company-logo"><img src="imagens/empresas/concremat.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/concremat-nome-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>Concremat</h3>
         <p>Intranet</p>
       </li>
       <li class="company-card">
-        <div class="company-logo company-logo-dark"><img src="imagens/empresas/fqm-centered.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/fqm-color-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>FQM Farmoquímica</h3>
         <p>Criação de intranets</p>
       </li>
       <li class="company-card">
-        <div class="company-logo"><img src="imagens/empresas/frm.jpg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/frm-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>Fundação Roberto Marinho</h3>
         <p>Criação de telas de sistema interno</p>
       </li>
       <li class="company-card">
-        <div class="company-logo company-logo-dark"><img src="imagens/empresas/irb.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/irb-color.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>IRB</h3>
         <p>Sistema de precificação</p>
       </li>
@@ -1469,7 +1495,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <p>Criação de site para denúncias de furto de energia</p>
       </li>
       <li class="company-card">
-        <div class="company-logo"><img src="imagens/empresas/montaury.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/montaury-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>Montaury Advogados</h3>
         <p>Criação de intranet para reserva de salas</p>
       </li>
@@ -1479,12 +1505,12 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <p>Manutenção do site</p>
       </li>
       <li class="company-card">
-        <div class="company-logo"><img src="imagens/empresas/sepe.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/sepe-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>SEPE-RJ</h3>
         <p>Manutenção do site</p>
       </li>
       <li class="company-card">
-        <div class="company-logo"><img src="imagens/empresas/souza-cruz.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/souza-cruz-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>Souza Cruz</h3>
         <p>Criação de intranet</p>
       </li>
@@ -1494,7 +1520,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <p>Manutenção do layout do sistema interno de carregamento de barris de petróleo nos navios</p>
       </li>
       <li class="company-card">
-        <div class="company-logo"><img src="imagens/empresas/vinci.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
+        <div class="company-logo"><img src="imagens/empresas/vinci-atual-fit.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>Vinci Partners</h3>
         <p>Manutenção do site e da intranet</p>
       </li>
@@ -1563,7 +1589,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <a href="https://wa.me/5521983940796" target="_blank" rel="noopener">WhatsApp</a>
         <a href="mailto:ismael.oliveira2190@gmail.com">E-mail</a>
         <a href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="resume-link js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf" aria-haspopup="dialog" aria-controls="resume-modal"><i class="bi bi-file-earmark-text"></i> Currículo</a>
+        <a class="resume-link js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" aria-haspopup="dialog" aria-controls="resume-modal"><i class="bi bi-file-earmark-text"></i> Currículo</a>
         <a href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener">Behance</a>
         <a href="campanhas-instagram/index.html">Campanhas para Instagram</a>
       </div>
@@ -1578,7 +1604,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     var modal = document.getElementById('resume-modal');
     var openers = document.querySelectorAll('.js-resume-preview');
     var closers = modal ? modal.querySelectorAll('[data-resume-close]') : [];
-    var downloadButton = document.getElementById('resume-download');
     var lastFocused = null;
     if (!modal || !openers.length) return;
 
@@ -1588,6 +1613,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('resume-modal-open');
+      modal.querySelector('.resume-viewer').scrollTop = 0;
       window.setTimeout(function () { modal.querySelector('.resume-close').focus(); }, 40);
     }
 
@@ -1600,44 +1626,14 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 
     openers.forEach(function (opener) { opener.addEventListener('click', openResume); });
     closers.forEach(function (closer) { closer.addEventListener('click', closeResume); });
-    if (downloadButton) {
-      downloadButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        var pdfUrl = downloadButton.getAttribute('href');
-        var fileName = downloadButton.getAttribute('download') || 'curriculo-ismael-correa.pdf';
-
-        fetch(pdfUrl)
-          .then(function (response) {
-            if (!response.ok) throw new Error('Não foi possível carregar o currículo.');
-            return response.blob();
-          })
-          .then(function (blob) {
-            var objectUrl = URL.createObjectURL(blob);
-            var temporaryLink = document.createElement('a');
-            temporaryLink.href = objectUrl;
-            temporaryLink.download = fileName;
-            temporaryLink.style.display = 'none';
-            document.body.appendChild(temporaryLink);
-            temporaryLink.click();
-            temporaryLink.remove();
-            window.setTimeout(function () { URL.revokeObjectURL(objectUrl); }, 1500);
-          })
-          .catch(function () {
-            var temporaryLink = document.createElement('a');
-            temporaryLink.href = pdfUrl;
-            temporaryLink.download = fileName;
-            temporaryLink.style.display = 'none';
-            document.body.appendChild(temporaryLink);
-            temporaryLink.click();
-            temporaryLink.remove();
-          });
-      });
-    }
+    modal.querySelectorAll('.resume-page img').forEach(function (image) {
+      image.addEventListener('error', function () { modal.querySelector('.resume-fallback').hidden = false; });
+    });
     document.addEventListener('keydown', function (event) {
       if (!modal.classList.contains('is-open')) return;
       if (event.key === 'Escape') closeResume();
       if (event.key === 'Tab') {
-        var focusable = modal.querySelectorAll('a[href], button:not([disabled]), iframe');
+        var focusable = modal.querySelectorAll('a[href], button:not([disabled]):not([tabindex="-1"]), [tabindex="0"]');
         var first = focusable[0];
         var last = focusable[focusable.length - 1];
         if (event.shiftKey && document.activeElement === first) {
