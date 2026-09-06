@@ -68,8 +68,8 @@ a{color:inherit;}
 /* subtle blueprint grid texture on the page background */
 body{
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -119,6 +119,8 @@ header.hero::after{
   display:flex;justify-content:space-between;align-items:center;
   padding:24px 28px;max-width:1176px;margin:0 auto;
 }
+@media(min-width:1440px){.wrap{max-width:1320px;}.topbar{max-width:1376px;}}
+@media(min-width:1920px){.wrap{max-width:1600px;}.topbar{max-width:1656px;}}
 .monogram{font-family:'Space Mono',monospace;font-weight:700;text-decoration:none;font-size:15.5px;letter-spacing:.08em;}
 .monogram span{color:var(--brass);}
 .topnav{
@@ -157,7 +159,7 @@ body.show-social-rail .back-to-top{opacity:1;visibility:visible;pointer-events:a
 .back-to-top:focus-visible{outline:3px solid var(--ink);outline-offset:4px;}
 @media(prefers-reduced-motion:reduce){.back-to-top{transition:none;}}
 .rail-link{
-  width:auto;min-width:48px;height:48px;overflow:hidden;border-radius:999px;
+  width:auto;min-width:54px;height:54px;overflow:hidden;border-radius:999px;
   display:flex;flex-direction:row-reverse;align-items:center;justify-content:flex-start;
   background:rgba(19,24,35,.91);border:1px solid rgba(255,255,255,.13);
   color:var(--ink);text-decoration:none;backdrop-filter:blur(14px);
@@ -165,16 +167,23 @@ body.show-social-rail .back-to-top{opacity:1;visibility:visible;pointer-events:a
   transition:.25s border-color,.25s background,.25s box-shadow,.25s transform;
 }
 .rail-link:hover,.rail-link:focus-visible{border-color:rgba(142,188,255,.55);background:rgba(22,29,42,.97);box-shadow:0 16px 34px -20px rgba(142,188,255,.72);transform:translateX(-2px);}
-.rail-icon{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;color:var(--steel);font-size:18px;}
+.rail-icon{width:52px;height:52px;flex:0 0 52px;display:grid;place-items:center;color:var(--steel);font-size:20px;transition:.25s color;}
 .rail-label{
   white-space:nowrap;max-width:0;overflow:hidden;padding:0;
   font-size:15.5px;font-weight:600;color:#f1f4f9;opacity:0;transform:translateX(8px);
-  transition:.25s max-width cubic-bezier(.2,.72,.18,1),.22s opacity,.3s transform,.25s padding;
+  transition:.25s max-width cubic-bezier(.2,.72,.18,1),.22s opacity,.3s transform,.25s padding,.25s color;
 }
 .rail-link:hover .rail-label,.rail-link:focus-visible .rail-label{max-width:180px;padding-left:15px;padding-right:5px;opacity:1;transform:translateX(0);}
 .rail-link.rail-whatsapp .rail-icon{color:#68dc91;}
 .rail-link.rail-resume .rail-icon{color:var(--brass);}
 .rail-link.rail-behance .rail-icon{color:#a99eff;}
+.rail-link:hover .rail-icon,.rail-link:focus-visible .rail-icon{color:#0b0e14;}
+.rail-link:hover .rail-label,.rail-link:focus-visible .rail-label{color:#0b0e14;}
+.rail-link.rail-linkedin:hover,.rail-link.rail-linkedin:focus-visible{background:#0a66c2;border-color:#0a66c2;box-shadow:0 0 30px rgba(10,102,194,.7),0 16px 34px -20px rgba(10,102,194,.75);}
+.rail-link.rail-resume:hover,.rail-link.rail-resume:focus-visible{background:var(--brass);border-color:var(--brass);box-shadow:0 0 30px rgba(255,202,102,.7),0 16px 34px -20px rgba(255,202,102,.75);}
+.rail-link.rail-whatsapp:hover,.rail-link.rail-whatsapp:focus-visible{background:#25d366;border-color:#25d366;box-shadow:0 0 30px rgba(37,211,102,.7),0 16px 34px -20px rgba(37,211,102,.75);}
+.rail-link.rail-email:hover,.rail-link.rail-email:focus-visible{background:var(--steel);border-color:var(--steel);box-shadow:0 0 30px rgba(142,188,255,.7),0 16px 34px -20px rgba(142,188,255,.75);}
+.rail-link.rail-behance:hover,.rail-link.rail-behance:focus-visible{background:#a99eff;border-color:#a99eff;box-shadow:0 0 30px rgba(169,158,255,.7),0 16px 34px -20px rgba(169,158,255,.75);}
 
 /* ---------- RESUME PREVIEW MODAL ---------- */
 body.resume-modal-open{overflow:hidden;}
@@ -273,7 +282,6 @@ body.resume-modal-open{overflow:hidden;}
 .hero-proof{font-family:'Space Mono',monospace;font-size:15.5px;letter-spacing:normal;color:var(--ink-muted);text-transform:none;text-align:right;max-width:34ch;}
 .hero-proof strong{display:block;color:var(--ink);font-family:'Fraunces',serif;font-size:21px;letter-spacing:0;font-weight:600;margin-bottom:5px;white-space:nowrap;}
 .hero-proof strong span{display:block;margin-top:3px;font-size:15.5px;font-weight:500;color:var(--ink-muted);}
-.scroll-cue{position:absolute;right:28px;bottom:24px;font-family:'Space Mono',monospace;font-size:15.5px;letter-spacing:.15em;color:#657087;writing-mode:vertical-rl;}
 .hero-grid{
   display:block;
   width:100%;
@@ -375,7 +383,6 @@ body.resume-modal-open{overflow:hidden;}
 section{padding:72px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;}
 
 /* ---------- BEHANCE SPOTLIGHT ---------- */
-.behance-spotlight{padding:28px 0;border-bottom:1px solid var(--line);background:#0e121a;}
 .behance-card{
   position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
   padding:26px 30px;border:1px solid rgba(142,188,255,.35);border-radius:14px;text-decoration:none;
@@ -387,7 +394,7 @@ section{padding:72px 0;border-bottom:1px solid var(--line);position:relative;ove
 .behance-icon{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;background:var(--steel);color:#0b0e14;font-size:22px;}
 .behance-copy{position:relative;z-index:1;}
 .behance-copy .eyebrow{color:var(--steel);}
-.behance-copy h2{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);line-height:1.1;margin:5px 0 6px;font-weight:500;}
+.behance-copy h3{font-family:'Fraunces',serif;font-size:clamp(22px,3vw,32px);line-height:1.1;margin:5px 0 6px;font-weight:500;}
 .behance-copy p{margin:0;color:var(--ink-muted);font-size:15.5px;}
 .behance-arrow{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);font-size:18px;transition:.25s;}
 .behance-card:hover .behance-arrow{background:var(--ink);color:var(--bg);transform:rotate(45deg);}
@@ -602,7 +609,7 @@ footer{
 /* ---------- FEATURED PROJECTS ---------- */
 .featured-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:24px;
 }
 .case-card{
@@ -625,8 +632,8 @@ footer{
   position:relative;
   background:var(--surface-2);
 }
-.case-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.4s transform;}
-.case-card:hover .case-thumb img{transform:scale(1.045);}
+.case-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;filter:brightness(.5);transition:.4s transform,.4s filter;}
+.case-card:hover .case-thumb img{transform:scale(1.045);filter:brightness(1);}
 .case-tag{
   position:absolute;top:10px;left:10px;
   background:#14181fcc;
@@ -666,7 +673,8 @@ footer{
 }
 .compact-card:hover{border-color:var(--brass-dim);transform:translateY(-2px);box-shadow:0 10px 22px -16px rgba(0,0,0,.55);}
 .compact-thumb{aspect-ratio:4/3;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--line);}
-.compact-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.compact-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;filter:brightness(.5);transition:.4s filter;}
+.compact-card:hover .compact-thumb img{filter:brightness(1);}
 .compact-thumb.empty{display:flex;align-items:center;justify-content:center;}
 .compact-thumb.empty i{font-size:26px;color:var(--line);}
 .compact-body{padding:12px 14px 14px;}
@@ -715,8 +723,8 @@ footer{
   background:var(--surface-2);
   border-bottom:1px solid var(--line);
 }
-.maint-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:.4s transform;}
-.maint-card:hover .maint-thumb img{transform:scale(1.045);}
+.maint-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;filter:brightness(.5);transition:.4s transform,.4s filter;}
+.maint-card:hover .maint-thumb img{transform:scale(1.045);filter:brightness(1);}
 .live-badge{
   position:absolute;top:10px;left:10px;
   display:flex;align-items:center;gap:6px;
@@ -786,18 +794,16 @@ footer{
   background:var(--surface);text-decoration:none;box-shadow:0 16px 30px -26px rgba(0,0,0,.9);
   transition:.3s border-color,.3s box-shadow;
 }
-.behance-project img{width:100%;height:100%;object-fit:cover;transition:.55s transform,.4s filter;}
+.behance-project img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);transition:.55s transform,.4s filter;}
 .behance-project::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(9,12,18,.95) 100%);transition:.3s background;}
 .behance-project-copy{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;display:flex;align-items:end;justify-content:space-between;gap:12px;}
 .behance-project-title{font-size:16px;font-weight:600;line-height:1.25;color:#fff;}
 .behance-project-type{display:block;margin-bottom:5px;font-family:'Space Mono',monospace;font-size:15.5px;font-weight:700;letter-spacing:.07em;color:#ffda91;text-transform:uppercase;}
 .behance-project-arrow{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.32);font-size:15.5px;transition:.3s transform,.3s background,.3s color;}
 .behance-project.card-scroll.is-card-visible:hover{transform:translate3d(0,-7px,0) scale(1.012);border-color:rgba(255,202,102,.58);box-shadow:0 26px 50px -28px rgba(178,111,158,.76),0 18px 38px -30px rgba(255,202,102,.72);}
-.behance-project:hover img{transform:scale(1.065);filter:saturate(1.1) contrast(1.03);}
+.behance-project:hover img{transform:scale(1.065);filter:brightness(1) saturate(1.1) contrast(1.03);}
 .behance-project:hover .behance-project-arrow{transform:rotate(45deg);background:var(--brass);color:#0b0e14;border-color:var(--brass);}
-.behance-all-row{display:flex;justify-content:center;margin-top:28px;}
-.behance-all-btn{font-size:15.5px;padding:13px 22px;border-color:rgba(255,202,102,.46);background:rgba(255,202,102,.07);}
-.behance-all-btn:hover{background:var(--brass);color:#0b0e14;border-color:var(--brass);box-shadow:0 18px 34px -22px rgba(255,202,102,.72);}
+.behance-all-row{margin-top:28px;}
 
 .illus-strip{
   display:grid;
@@ -899,7 +905,7 @@ footer{padding:56px 0 40px;}
   .hero-avatar{width:189px;height:189px;}
   .behance-card{grid-template-columns:auto 1fr;}
   .behance-arrow{display:none;}
-  .featured-grid{grid-template-columns:1fr;}
+  .featured-grid{grid-template-columns:repeat(2,1fr);}
   .compact-grid{grid-template-columns:repeat(2,1fr);}
   .maint-grid{grid-template-columns:repeat(2,1fr);}
   .illus-strip{grid-template-columns:repeat(3,1fr);}
@@ -929,7 +935,6 @@ footer{padding:56px 0 40px;}
   .hero-proof{text-align:left;margin:0;}
   .hero-proof strong{font-size:18px;}
   .hero-proof strong span{font-size:15.5px;}
-  .scroll-cue{display:none;}
   .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
   .stat b{font-size:23px;}
   .stat span{font-size:15.5px;line-height:1.3;display:block;}
@@ -945,6 +950,7 @@ footer{padding:56px 0 40px;}
   .compact-grid{grid-template-columns:1fr 1fr;}
   .maint-grid{grid-template-columns:1fr;}
   .illus-strip{grid-template-columns:repeat(2,1fr);}
+  .featured-grid{grid-template-columns:1fr;}
   .behance-projects{grid-template-columns:1fr;gap:12px;}
   .behance-project-copy{left:16px;right:16px;bottom:14px;}
   .behance-project-title{font-size:16px;}
@@ -1046,14 +1052,18 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 }
 .companies-intro{max-width:none;margin:0;font-size:15.5px;color:var(--ink-muted);text-align:right;}
 @media(max-width:700px){.section-companies .section-head{grid-template-columns:1fr;gap:16px;}.companies-intro{text-align:left;}}
-.companies-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0;}
+.companies-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0;}
 .company-card{min-width:0;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;}
-.company-logo{height:100px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:14px;margin-bottom:18px;}
+.company-logo{height:100px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:14px;margin-bottom:18px;overflow:hidden;}
 .company-logo img{width:100%;height:100%;object-fit:contain;}
 .company-logo img[src$="brmalls.png"]{object-fit:cover;}
+.company-logo img[src$="concremat-nome-fit.svg"]{transform:scale(1.1);}
+.company-logo img[src$="souza-cruz-fit.svg"]{transform:scale(1.25);}
+.company-logo img[src$="vinci-atual-fit.svg"]{transform:scale(1.15);}
 .company-card h3{font-size:15.5px;line-height:1.4;margin:0 0 7px;font-weight:600;}
 .company-card p{font-size:15.5px;line-height:1.6;color:var(--ink-muted);margin:0;}
-@media(max-width:1000px){.companies-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:1200px){.companies-grid{grid-template-columns:repeat(4,minmax(0,1fr));}}
+@media(max-width:900px){.companies-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:700px){.companies-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}.company-card{padding:14px;}.company-logo{height:90px;padding:10px;}}
 @media(max-width:360px){.companies-grid{grid-template-columns:1fr;}}
 .service-destination{margin-top:auto;padding-top:22px;font-size:15.5px;font-weight:600;color:var(--steel);display:flex;justify-content:space-between;gap:8px;}
@@ -1076,8 +1086,8 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .tech-item{display:flex;align-items:center;gap:13px;padding:16px 0;border-top:1px solid rgba(255,255,255,.07);}
 .tech-icon{display:grid;place-items:center;width:50px;height:50px;flex:0 0 50px;border-radius:11px;background:#f7f8fa;}
 .tech-icon img{width:34px;height:34px;object-fit:contain;}
-.tech-item h4{font-size:15.5px;font-weight:600;margin:0 0 4px;}
-.tech-item p{font-size:15.5px;line-height:1.55;color:#aeb9cc;margin:0;}
+.tech-item h4{font-size:17.5px;font-weight:600;margin:0 0 4px;}
+.tech-item p{font-size:14px;line-height:1.55;color:#aeb9cc;margin:0;}
 .tech-notes{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line);}
 .tech-notes p{margin:0;color:var(--ink-muted);font-size:15.5px;line-height:1.7;}
 .tech-notes strong{color:#d9e2f0;font-weight:600;margin-right:6px;}
@@ -1132,7 +1142,15 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .tech-group-header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:18px;}
 .tech-group-header .tech-group-heading{margin:0;}
 .tech-group-header .tech-group-description{margin:0;text-align:right;}
-@media(max-width:700px){.tech-group-header{align-items:flex-start;flex-direction:column;gap:8px;}.tech-group-header .tech-group-description{text-align:left;}}
+.tech-accordion-icon{display:none;}
+@media(max-width:700px){
+  .tech-group-header{align-items:flex-start;flex-direction:column;gap:8px;cursor:pointer;}
+  .tech-group-header .tech-group-description{text-align:left;}
+  .tech-group-heading{width:100%;justify-content:space-between;}
+  .tech-accordion-icon{display:inline-flex;margin-left:auto;font-size:15.5px;color:var(--ink-muted);transition:.3s transform;}
+  .tech-group.is-open .tech-accordion-icon{transform:rotate(180deg);}
+  .tech-group:not(.is-open) .tech-list{display:none;}
+}
 
 </style>
 </head>
@@ -1162,7 +1180,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
           <p class="hero-bio">Transformo necessidades complexas em experiências digitais claras, sólidas e memoráveis — de sites e interfaces em WordPress a intranets e ferramentas internas. Fora da tela, também crio ilustrações manuais, sem uso de IA.</p>
 
           <div class="stat-row">
-            <div class="stat"><b>13</b><span>Anos de atuação</span></div>
+            <div class="stat"><b>16</b><span>Anos de atuação</span></div>
             <div class="stat"><b>15+</b><span>Projetos corporativos</span></div>
             <div class="stat"><b>6</b><span>Sites em manutenção ativa</span></div>
           </div>
@@ -1179,12 +1197,12 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       </div>
     </div>
   </div>
-  <span class="scroll-cue" aria-hidden="true">ROLE PARA EXPLORAR ↓</span>
+
 </header>
 
 <button class="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
 <aside class="social-rail" aria-label="Atalhos de contato">
-  <a class="rail-link" href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener" aria-label="Abrir LinkedIn">
+  <a class="rail-link rail-linkedin" href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener" aria-label="Abrir LinkedIn">
     <span class="rail-icon"><i class="bi bi-linkedin"></i></span><span class="rail-label">LinkedIn</span>
   </a>
   <a class="rail-link rail-resume js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" aria-haspopup="dialog" aria-controls="resume-modal" aria-label="Visualizar currículo em PDF">
@@ -1193,7 +1211,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   <a class="rail-link rail-whatsapp" href="https://wa.me/5521983940796" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
     <span class="rail-icon"><i class="bi bi-whatsapp"></i></span><span class="rail-label">WhatsApp</span>
   </a>
-  <a class="rail-link" href="mailto:ismael.oliveira2190@gmail.com" aria-label="Enviar e-mail">
+  <a class="rail-link rail-email" href="mailto:ismael.oliveira2190@gmail.com" aria-label="Enviar e-mail">
     <span class="rail-icon"><i class="bi bi-envelope"></i></span><span class="rail-label">Enviar e-mail</span>
   </a>
   <a class="rail-link rail-behance" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener" aria-label="Abrir Behance">
@@ -1233,19 +1251,53 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   </div>
 </div>
 
-<aside class="behance-spotlight" aria-label="Novidades no Behance">
+<section class="section-services" id="servicos">
+  <i class="bi bi-ui-checks-grid ambient-icon ux-float-two violet motion-glow" data-motion="glow" aria-hidden="true"></i>
+  <i class="bi bi-cursor-text ambient-icon ux-float-three warm" data-motion="rotate-reverse" aria-hidden="true"></i>
   <div class="wrap reveal">
-    <a class="behance-card" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener">
-      <span class="behance-icon"><i class="bi bi-behance"></i></span>
-      <span class="behance-copy">
-        <span class="eyebrow">Novidades no Behance</span>
-        <h2>Novos templates web + ilustrações autorais</h2>
-        <p>Explore conceitos de interface, layouts prontos para web e ilustrações feitas manualmente — sem uso de inteligência artificial.</p>
-      </span>
-      <span class="behance-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
-    </a>
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Como posso contribuir</span>
+        <h2 class="section-title">Tecnologia com repertório visual</h2>
+      </div>
+      <p class="section-note">Da estratégia visual à publicação e evolução contínua.</p>
+    </div>
+    <div class="services-grid">
+      <a href="#projetos" class="service-card">
+        <span class="service-heading">
+          <i class="bi bi-window-stack service-icon" aria-hidden="true"></i>
+        </span>
+        <h3>Sites &amp; WordPress</h3>
+        <p>Sites institucionais responsivos, páginas de campanha e estruturas fáceis de administrar.</p>
+      <span class="service-destination">Ver projetos em destaque <span aria-hidden="true">↓</span></span>
+      </a>
+      <a href="#intranets" class="service-card">
+        <span class="service-heading">
+          <i class="bi bi-bezier service-icon" aria-hidden="true"></i>
+        </span>
+        <h3>UI &amp; Web Design</h3>
+        <p>Interfaces claras, sistemas internos e experiências pensadas para objetivos reais de negócio.</p>
+      <span class="service-destination">Ver intranets e interfaces <span aria-hidden="true">↓</span></span>
+      </a>
+      <a href="#ferramentas" class="service-card">
+        <span class="service-heading">
+          <i class="bi bi-code-slash service-icon" aria-hidden="true"></i>
+        </span>
+        <h3>Front-end &amp; Evolução</h3>
+        <p>HTML5, CSS, JavaScript e frameworks modernos aplicados do design ao código.</p>
+      <span class="service-destination">Ver ferramentas e tecnologias <span aria-hidden="true">↓</span></span>
+      </a>
+      <a href="#ilustracao" class="service-card manual">
+        <span class="service-heading">
+          <i class="bi bi-pencil service-icon" aria-hidden="true"></i>
+        </span>
+        <h3>Ilustração manual</h3>
+        <p>Grafite, desenho de personagens e pintura digital criados a partir de processo artístico autoral.</p>
+      <span class="service-destination">Ver ilustrações <span aria-hidden="true">↓</span></span>
+      </a>
+    </div>
   </div>
-</aside>
+</section>
 
 <!-- LATEST BEHANCE PROJECTS -->
 <section class="section-behance-latest" id="behance">
@@ -1293,57 +1345,20 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <img src="imagens/behance/medicina-esporte.png" data-full="imagens/behance/medicina-esporte.png" alt="Medicina e esporte" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Web design</span><span class="behance-project-title">Medicina e esporte</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
+      <a class="behance-project no-lightbox" href="campanhas-instagram/index.html" target="_blank" rel="noopener">
+        <img src="imagens/behance/campanha-creatina.jpg" data-full="imagens/behance/campanha-creatina.jpg" alt="Campanha para Instagram de creatina" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Social media</span><span class="behance-project-title">Campanha de creatina</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
     </div>
     <div class="behance-all-row">
-      <a class="btn btn-outline behance-all-btn" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener"><i class="bi bi-behance"></i> Ver todos os projetos no Behance <i class="bi bi-arrow-up-right"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section-services" id="servicos">
-  <i class="bi bi-ui-checks-grid ambient-icon ux-float-two violet motion-glow" data-motion="glow" aria-hidden="true"></i>
-  <i class="bi bi-cursor-text ambient-icon ux-float-three warm" data-motion="rotate-reverse" aria-hidden="true"></i>
-  <div class="wrap reveal">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Como posso contribuir</span>
-        <h2 class="section-title">Tecnologia com repertório visual</h2>
-      </div>
-      <p class="section-note">Da estratégia visual à publicação e evolução contínua.</p>
-    </div>
-    <div class="services-grid">
-      <a href="#projetos" class="service-card">
-        <span class="service-heading">
-          <i class="bi bi-window-stack service-icon" aria-hidden="true"></i>
+      <a class="behance-card" href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener">
+        <span class="behance-icon"><i class="bi bi-behance"></i></span>
+        <span class="behance-copy">
+          <span class="eyebrow">Novidades no Behance</span>
+          <h3>Novos templates web + ilustrações autorais</h3>
+          <p>Explore conceitos de interface, layouts prontos para web e ilustrações feitas manualmente — sem uso de inteligência artificial.</p>
         </span>
-        <h3>Sites &amp; WordPress</h3>
-        <p>Sites institucionais responsivos, páginas de campanha e estruturas fáceis de administrar.</p>
-      <span class="service-destination">Ver projetos em destaque <span aria-hidden="true">↓</span></span>
-      </a>
-      <a href="#intranets" class="service-card">
-        <span class="service-heading">
-          <i class="bi bi-bezier service-icon" aria-hidden="true"></i>
-        </span>
-        <h3>UI &amp; Web Design</h3>
-        <p>Interfaces claras, sistemas internos e experiências pensadas para objetivos reais de negócio.</p>
-      <span class="service-destination">Ver intranets e interfaces <span aria-hidden="true">↓</span></span>
-      </a>
-      <a href="#manutencao" class="service-card">
-        <span class="service-heading">
-          <i class="bi bi-code-slash service-icon" aria-hidden="true"></i>
-        </span>
-        <h3>Front-end &amp; Evolução</h3>
-        <p>Implementação, manutenção e melhoria contínua de produtos e sites já publicados.</p>
-      <span class="service-destination">Ver sites em manutenção <span aria-hidden="true">↓</span></span>
-      </a>
-      <a href="#ilustracao" class="service-card manual">
-        <span class="service-heading">
-          <i class="bi bi-pencil service-icon" aria-hidden="true"></i>
-        </span>
-        <h3>Ilustração manual</h3>
-        <p>Grafite, desenho de personagens e pintura digital criados a partir de processo artístico autoral.</p>
-      <span class="service-destination">Ver ilustrações <span aria-hidden="true">↓</span></span>
+        <span class="behance-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
       </a>
     </div>
   </div>
@@ -1425,7 +1440,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       </a>
 
       <a class="case-card js-featured-preview" href="layouts/INTRANET-DUTY-DOURADA.png" target="_blank" rel="noopener">
-        <div class="case-thumb"><span class="case-tag">Intranet · SharePoint</span><img src="layouts/INTRANET-DUTY-DOURADA.png" alt="Duty Cosméticos" loading="lazy"></div>
+        <div class="case-thumb"><span class="case-tag">Intranet · SharePoint</span><img src="thumbs/intranet-duty-dourada.jpg" alt="Duty Cosméticos" loading="lazy"></div>
         <div class="case-body">
           <h3 class="case-title">Duty Cosméticos</h3>
           <p class="case-desc">Intranet com comunicados, eventos e serviços para colaboradores.</p>
@@ -1468,64 +1483,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   </div>
 </section>
 
-<!-- EXPERTISE -->
-<section class="section-expertise" id="ferramentas" aria-labelledby="tools-title">
-  <div class="wrap">
-    <div class="tech-heading">
-      <div class="expertise-copy">
-        <span class="eyebrow">Experiência aplicada</span>
-        <h2 class="section-title" id="tools-title">Ferramentas são meios. O resultado vem primeiro.</h2>
-      </div>
-      <p class="tech-intro">Combino design e código para acompanhar cada etapa: da estrutura e do visual à implementação, publicação e manutenção.</p>
-    </div>
-    <div class="tech-groups">
-      <div class="tech-group">
-        <div class="tech-group-header">
-        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">01</span><h3>Plataformas &amp; conteúdo</h3></div>
-        <p class="tech-group-description">Sites e colaboração no dia a dia.</p>
-        </div>
-        <ul class="tech-list">
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/microsoft-symbol.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Microsoft</h4><p>Soluções para ambientes corporativos.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/sharepoint.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>SharePoint</h4><p>Intranets e portais de colaboração.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/wordpress.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>WordPress</h4><p>Sites, conteúdo e manutenção contínua.</p></div></li>
-        </ul>
-      </div>
-      <div class="tech-group">
-        <div class="tech-group-header">
-        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">02</span><h3>Front-end</h3></div>
-        <p class="tech-group-description">Do layout à interface responsiva.</p>
-        </div>
-        <ul class="tech-list">
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/html5.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>HTML5</h4><p>Estrutura e semântica das páginas.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/css3.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>CSS3</h4><p>Layouts responsivos e efeitos visuais.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/sass.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Sass (SCSS)</h4><p>Estilos reutilizáveis e organização do CSS.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/javascript.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>JavaScript</h4><p>Interatividade e comportamento das interfaces.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/typescript.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>TypeScript</h4><p>Componentes de interface em Angular.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/jquery.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>jQuery</h4><p>Manutenção e evolução de sites existentes.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/bootstrap.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Bootstrap</h4><p>Componentes e grids para a web.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/angularmaterial.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Angular Material</h4><p>Interfaces para sistemas corporativos.</p></div></li>
-        </ul>
-      </div>
-      <div class="tech-group">
-        <div class="tech-group-header">
-        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">03</span><h3>Design &amp; interface</h3></div>
-        <p class="tech-group-description">Da ideia ao acabamento visual.</p>
-        </div>
-        <ul class="tech-list">
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/figma.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Figma</h4><p>Layouts, protótipos e interfaces.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/illustrator.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Illustrator</h4><p>Vetores e elementos gráficos.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/photoshop.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Photoshop</h4><p>Tratamento de imagens e peças visuais.</p></div></li>
-          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/xd.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Adobe XD</h4><p>Layouts e protótipos de interfaces.</p></div></li>
-        </ul>
-      </div>
-    </div>
-    <div class="tech-notes">
-      <p><strong>Também no repertório</strong> Wireframes e design responsivo.</p>
-      <p><i class="bi bi-pencil" aria-hidden="true"></i><strong>Arte autoral</strong> Grafite, desenho manual e pintura digital, sem IA generativa.</p>
-    </div>
-  </div>
-</section>
-
 <!-- SECONDARY PROJECTS -->
 <section class="section-secondary" id="intranets">
   <i class="bi bi-grid-3x3-gap-fill backdrop-icon" data-motion="zoom" data-motion-strength="large" aria-hidden="true"></i>
@@ -1560,8 +1517,8 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="compact-body"><p class="compact-title">Duty Cosméticos</p><p class="compact-sub">INTRANET</p></div>
       </a>
 
-      <a class="compact-card" href="layouts/INTRANET-DUTY-DOURADA.png">
-        <div class="compact-thumb"><img src="layouts/INTRANET-DUTY-DOURADA.png" alt="Intranet Duty Cosméticos em preto e dourado" loading="lazy"></div>
+      <a class="compact-card" href="layouts/INTRANET-DUTY-DOURADA.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/intranet-duty-dourada.jpg" alt="Intranet Duty Cosméticos em preto e dourado" loading="lazy"></div>
         <div class="compact-body"><p class="compact-title">Duty Cosméticos — Dourado</p><p class="compact-sub">INTRANET · SHAREPOINT</p></div>
       </a>
 
@@ -1577,12 +1534,12 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 
       <a class="compact-card" href="layouts/InfoGlobo.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/infoglobo.jpg" alt="InfoGlobo"></div>
-        <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">MÍDIA</p></div>
+        <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">INTRANET · PROPOSTA VISUAL</p></div>
       </a>
 
       <a class="compact-card" href="layouts/SKAADV.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/skaadv.jpg" alt="Skaadv Advogados"></div>
-        <div class="compact-body"><p class="compact-title">Skaadv Advogados</p><p class="compact-sub">SITE INSTITUCIONAL</p></div>
+        <div class="compact-body"><p class="compact-title">Skaadv Advogados</p><p class="compact-sub">INTRANET · SHAREPOINT</p></div>
       </a>
 
       <a class="compact-card" href="layouts/SUBSEA-1.png" target="_blank" rel="noopener">
@@ -1590,6 +1547,75 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="compact-body"><p class="compact-title">Subsea</p><p class="compact-sub">ÓLEO &amp; GÁS</p></div>
       </a>
 
+      <a class="compact-card" href="layouts/YOURVOICE-PAINEL.jpg" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/yourvoice-login.jpg" alt="Souza Cruz — Your Voice, tela de login"></div>
+        <div class="compact-body"><p class="compact-title">Souza Cruz — Your Voice</p><p class="compact-sub">PAINEL ADMINISTRATIVO</p></div>
+      </a>
+
+      <a class="compact-card" href="layouts/MONTAURY.png" target="_blank" rel="noopener">
+        <div class="compact-thumb"><img src="thumbs/montaury.jpg" alt="Montaury Advogados"></div>
+        <div class="compact-body"><p class="compact-title">Montaury Advogados</p><p class="compact-sub">INTRANET</p></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="section-expertise" id="ferramentas" aria-labelledby="tools-title">
+  <div class="wrap">
+    <div class="tech-heading">
+      <div class="expertise-copy">
+        <span class="eyebrow">Experiência aplicada</span>
+        <h2 class="section-title" id="tools-title">Ferramentas são meios. O resultado vem primeiro.</h2>
+      </div>
+      <p class="tech-intro">Combino design e código para acompanhar cada etapa: da estrutura e do visual à implementação, publicação e manutenção.</p>
+    </div>
+    <div class="tech-groups">
+      <div class="tech-group is-open">
+        <div class="tech-group-header" role="button" tabindex="0" aria-expanded="true" aria-controls="tech-list-plataformas">
+        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">01</span><h3>Plataformas &amp; conteúdo</h3><i class="bi bi-chevron-down tech-accordion-icon" aria-hidden="true"></i></div>
+        <p class="tech-group-description">Sites e colaboração no dia a dia.</p>
+        </div>
+        <ul class="tech-list" id="tech-list-plataformas">
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/microsoft-symbol.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Microsoft</h4><p>Soluções para ambientes corporativos.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/sharepoint.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>SharePoint</h4><p>Intranets e portais de colaboração.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/wordpress.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>WordPress</h4><p>Sites, conteúdo e manutenção contínua.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/visualstudio.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Visual Studio</h4><p>Ambiente de trabalho para interfaces em sistemas .NET.</p></div></li>
+        </ul>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tech-list-frontend">
+        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">02</span><h3>Front-end</h3><i class="bi bi-chevron-down tech-accordion-icon" aria-hidden="true"></i></div>
+        <p class="tech-group-description">Do layout à interface responsiva.</p>
+        </div>
+        <ul class="tech-list" id="tech-list-frontend">
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/html5.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>HTML5</h4><p>Estrutura e semântica das páginas.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/css3.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>CSS3</h4><p>Layouts responsivos e efeitos visuais.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/sass.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Sass (SCSS)</h4><p>Estilos reutilizáveis e organização do CSS.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/javascript.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>JavaScript</h4><p>Interatividade e comportamento das interfaces.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/typescript.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>TypeScript</h4><p>Componentes de interface em Angular.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/jquery.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>jQuery</h4><p>Manutenção e evolução de sites existentes.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/bootstrap.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Bootstrap</h4><p>Componentes e grids para a web.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/angularmaterial.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Angular Material</h4><p>Interfaces para sistemas corporativos.</p></div></li>
+        </ul>
+      </div>
+      <div class="tech-group">
+        <div class="tech-group-header" role="button" tabindex="0" aria-expanded="false" aria-controls="tech-list-design">
+        <div class="tech-group-heading"><span class="tech-number" aria-hidden="true">03</span><h3>Design &amp; interface</h3><i class="bi bi-chevron-down tech-accordion-icon" aria-hidden="true"></i></div>
+        <p class="tech-group-description">Da ideia ao acabamento visual.</p>
+        </div>
+        <ul class="tech-list" id="tech-list-design">
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/figma.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Figma</h4><p>Layouts, protótipos e interfaces.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/illustrator.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Illustrator</h4><p>Vetores e elementos gráficos.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/photoshop.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Photoshop</h4><p>Tratamento de imagens e peças visuais.</p></div></li>
+          <li class="tech-item"><span class="tech-icon"><img src="imagens/tecnologias/xd.svg" width="34" height="34" alt="" loading="lazy" decoding="async"></span><div><h4>Adobe XD</h4><p>Layouts e protótipos de interfaces.</p></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tech-notes">
+      <p><strong>Também no repertório</strong> Wireframes e design responsivo.</p>
+      <p><i class="bi bi-pencil" aria-hidden="true"></i><strong>Arte autoral</strong> Grafite, desenho manual e pintura digital, sem IA generativa.</p>
     </div>
   </div>
 </section>
@@ -1652,7 +1678,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       <li class="company-card">
         <div class="company-logo"><img src="imagens/empresas/irb-color.svg" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
         <h3>IRB</h3>
-        <p>Sistema de precificação</p>
+        <p>Telas do sistema de precificação</p>
       </li>
       <li class="company-card">
         <div class="company-logo"><img src="imagens/empresas/light.png" alt="" loading="lazy" decoding="async" width="180" height="60"></div>
@@ -1950,6 +1976,19 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
+
+  // Tech groups collapse into an accordion on mobile (CSS gates the visual effect).
+  document.querySelectorAll('.tech-group-header').forEach(function (header) {
+    function toggle() {
+      var group = header.closest('.tech-group');
+      var open = group.classList.toggle('is-open');
+      header.setAttribute('aria-expanded', open);
+    }
+    header.addEventListener('click', toggle);
+    header.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle(); }
+    });
+  });
 </script>
 
 
@@ -1961,7 +2000,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 </dialog>
 <script>
 (function(){
-  const groups=[ [...document.querySelectorAll('.js-featured-preview')], [...document.querySelectorAll('#intranets .compact-card')], [...document.querySelectorAll('.section-behance-latest .behance-project')], [...document.querySelectorAll('#ilustracao .behance-project')] ];
+  const groups=[ [...document.querySelectorAll('.js-featured-preview')], [...document.querySelectorAll('#intranets .compact-card')], [...document.querySelectorAll('.section-behance-latest .behance-project:not(.no-lightbox)')], [...document.querySelectorAll('#ilustracao .behance-project')] ];
   let links=groups[0];
   const dialog=document.querySelector('.project-lightbox'), picture=dialog.querySelector('img'), viewer=dialog.querySelector('.project-lightbox-view');
   let current=0,trigger=null,previousOverflow='';
@@ -1970,7 +2009,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     const link=links[current];
     const isImage=/\.(png|jpe?g|webp)(?:[?#]|$)/i.test(link.getAttribute('href'));
     picture.src=isImage?link.href:(link.querySelector('img').dataset.full||link.querySelector('img').src);picture.alt=link.querySelector('img').alt;
-    const openLink=dialog.querySelector('.project-lightbox-open');openLink.hidden=isImage;openLink.href=link.href;openLink.textContent=link.matches('.behance-project')?'Ver no Behance ↗':'Abrir projeto ↗';
+    const openLink=dialog.querySelector('.project-lightbox-open');openLink.hidden=isImage;openLink.href=link.href;openLink.textContent=link.href.includes('behance.net')?'Ver no Behance ↗':'Abrir projeto ↗';
     dialog.querySelector('h2').textContent=link.querySelector('.compact-title, .behance-project-title, .case-title').textContent;
     dialog.querySelector('[data-gallery-count]').textContent=(current+1)+' / '+links.length;
     viewer.scrollTop=0;
