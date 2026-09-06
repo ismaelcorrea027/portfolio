@@ -12,5 +12,7 @@
   "microsoft-symbol": "microsoft.svg, viewport do símbolo; nome exibido em texto ao lado",
   "javascript": "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
   "jquery": "https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original.svg",
-  "xd": "https://raw.githubusercontent.com/devicons/devicon/master/icons/xd/xd-original.svg"
+  "xd": "https://raw.githubusercontent.com/devicons/devicon/master/icons/xd/xd-original.svg",
+  "sass": "https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg",
+  "typescript": "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
 }
