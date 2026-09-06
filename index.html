@@ -86,31 +86,44 @@ header.hero{
     radial-gradient(700px 520px at 78% 30%, rgba(139,124,255,.28), transparent 68%),
     radial-gradient(560px 420px at 6% 82%, rgba(255,202,102,.17), transparent 65%);
 }
+
+header.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:url('imagens/header/setup-monitores.png') no-repeat left 10vw top 0% / auto 96%;
+  opacity:.27;filter:saturate(.7) brightness(.85);
+  -webkit-mask-image:radial-gradient(ellipse 29% 64% at 36% 44%,#000 20%,rgba(0,0,0,.85) 44%,rgba(0,0,0,.35) 70%,transparent 100%);
+  mask-image:radial-gradient(ellipse 29% 64% at 36% 44%,#000 20%,rgba(0,0,0,.85) 44%,rgba(0,0,0,.35) 70%,transparent 100%);
+  mix-blend-mode:screen;transform:scaleX(-1);
+}
+@media(max-width:700px){header.hero::before{display:none;}}
+
 header.hero::after{
   content:'';position:absolute;width:520px;height:520px;border:1px solid rgba(142,188,255,.13);
-  border-radius:50%;right:-190px;top:-210px;box-shadow:0 0 0 70px rgba(142,188,255,.025),0 0 0 140px rgba(142,188,255,.018);
+  border-radius:50%;right:-190px;top:-210px;box-shadow:inset 0 0 0 70px rgba(142,188,255,.065),0 0 0 70px rgba(142,188,255,.025),0 0 0 140px rgba(142,188,255,.018);
   pointer-events:none;
   transform-origin:center;
-  animation:hero-orbit-pulse 5.6s ease-in-out infinite;
+  animation:hero-orbit-pulse 4.4s ease-in-out infinite;
   will-change:transform,box-shadow,opacity;
 }
 @keyframes hero-orbit-pulse{
   0%,100%{
     transform:scale(.985);
-    border-color:rgba(142,188,255,.13);
+    border-color:rgba(142,188,255,.24);
     box-shadow:
-      0 0 0 70px rgba(142,188,255,.025),
-      0 0 0 140px rgba(142,188,255,.018),
-      0 0 42px rgba(139,124,255,.08);
-    opacity:.82;
+      inset 0 0 0 70px rgba(142,188,255,.065),
+      0 0 0 70px rgba(142,188,255,.065),
+      0 0 0 140px rgba(142,188,255,.045),
+      0 0 42px rgba(139,124,255,.13);
+    opacity:.9;
   }
   50%{
     transform:scale(1.035);
-    border-color:rgba(169,158,255,.28);
+    border-color:rgba(169,158,255,.42);
     box-shadow:
-      0 0 0 82px rgba(142,188,255,.045),
-      0 0 0 158px rgba(139,124,255,.03),
-      0 0 82px rgba(139,124,255,.22);
+      inset 0 0 0 76px rgba(142,188,255,.065),
+      0 0 0 82px rgba(142,188,255,.065),
+      0 0 0 158px rgba(139,124,255,.045),
+      0 0 82px rgba(139,124,255,.30);
     opacity:1;
   }
 }
@@ -502,7 +515,7 @@ section .backdrop-icon{
   50%{filter:drop-shadow(0 0 22px rgba(139,124,255,.42));opacity:1;}
 }
 .hero .ambient-one{left:4%;bottom:15%;}
-.hero .ambient-two{right:34%;top:18%;width:116px;height:116px;font-size:48px;}
+.hero .ambient-two{left:calc(50% - 58px);right:auto;top:auto;bottom:5%;width:116px;height:116px;font-size:48px;}
 .section-featured .ambient-one{left:3%;top:24%;}
 .section-featured .ambient-two{right:4%;bottom:13%;width:116px;height:116px;font-size:48px;}
 .section-secondary .ambient-one{right:3%;top:31%;}
@@ -1033,28 +1046,31 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 /* ---------- EMPRESAS ATENDIDAS PELA ÍMPETO ---------- */
 .section-companies{
   background:
-    radial-gradient(640px 520px at 100% 0,rgba(95,191,145,.40),transparent 68%),
-    radial-gradient(480px 560px at 0 48%,rgba(110,185,150,.30),transparent 70%),
-    radial-gradient(600px 460px at 95% 100%,rgba(151,185,112,.28),transparent 68%),
-    linear-gradient(180deg,#12221c 0%,#101c19 100%);
+    radial-gradient(640px 520px at 100% 0,rgba(139,124,255,.40),transparent 68%),
+    radial-gradient(480px 560px at 0 48%,rgba(142,188,255,.30),transparent 70%),
+    radial-gradient(600px 460px at 95% 100%,rgba(126,142,224,.28),transparent 68%),
+    linear-gradient(180deg,#1b1b30 0%,#141725 100%);
 }
-.section-companies .backdrop-icon{top:10px;right:-50px;font-size:320px;color:rgba(135,205,165,.10);--base-rotate:12deg;}
+.section-companies .backdrop-icon{top:10px;right:-50px;font-size:320px;color:rgba(169,184,255,.10);--base-rotate:12deg;}
 .section-companies .ambient-one{left:2%;top:38%;width:112px;height:112px;font-size:46px;}
 .section-companies .ambient-two{right:3%;bottom:9%;width:124px;height:124px;font-size:52px;animation-delay:-2.3s;}
 .section-companies .ambient-icon{
-  color:rgba(135,205,165,.28);border-color:rgba(135,205,165,.18);
-  box-shadow:0 12px 30px -20px rgba(95,191,145,.7);
+  color:rgba(169,184,255,.28);border-color:rgba(169,184,255,.18);
+  box-shadow:0 12px 30px -20px rgba(139,124,255,.7);
 }
 .section-companies .ambient-icon.motion-glow{animation-name:companies-light-pulse;}
 @keyframes companies-light-pulse{
-  0%,100%{filter:drop-shadow(0 0 3px rgba(95,191,145,.10));opacity:.86;}
-  50%{filter:drop-shadow(0 0 22px rgba(95,191,145,.36));opacity:1;}
+  0%,100%{filter:drop-shadow(0 0 3px rgba(139,124,255,.10));opacity:.86;}
+  50%{filter:drop-shadow(0 0 22px rgba(139,124,255,.36));opacity:1;}
 }
 .companies-intro{max-width:none;margin:0;font-size:15.5px;color:var(--ink-muted);text-align:right;}
 @media(max-width:700px){.section-companies .section-head{grid-template-columns:1fr;gap:16px;}.companies-intro{text-align:left;}}
 .companies-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;list-style:none;padding:0;margin:0;}
-.company-card{min-width:0;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;}
+.company-card{min-width:0;padding:20px;background:#13182361;border:1px solid var(--line);border-radius:12px;}
 .company-logo{height:100px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:6px;padding:14px;margin-bottom:18px;overflow:hidden;}
+ .company-logo{filter:brightness(.72);transition:filter .3s ease,box-shadow .3s ease;}
+.company-card:hover .company-logo,.company-card:focus-within .company-logo{filter:brightness(1);box-shadow:0 0 22px rgba(142,188,255,.16);}
+@media(prefers-reduced-motion:reduce){.company-logo{transition:none;}}
 .company-logo img{width:100%;height:100%;object-fit:contain;}
 .company-logo img[src$="brmalls.png"]{object-fit:cover;}
 .company-logo img[src$="concremat-nome-fit.svg"]{transform:scale(1.1);}
@@ -1158,7 +1174,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 
 <header class="hero">
   <i class="bi bi-braces ambient-icon ambient-one" data-motion="rotate" aria-hidden="true"></i>
-  <i class="bi bi-bezier2 ambient-icon ambient-two violet" data-motion="zoom" aria-hidden="true"></i>
+  <i class="bi bi-bezier2 ambient-icon ambient-two violet" data-motion="rotate" aria-hidden="true"></i>
   <nav class="topbar" aria-label="Navegação principal">
     <a class="monogram" href="#top" aria-label="Início">IC<span>.</span></a>
     <div class="topnav">
