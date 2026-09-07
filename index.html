@@ -258,6 +258,43 @@ body.resume-modal-open{overflow:hidden;}
   .resume-download{padding:0 12px;font-size:15.5px;}
   .resume-open{padding:0 12px;font-size:15.5px;}
 }
+/* ---------- PRESENTATION MODAL ---------- */
+body.presentation-modal-open{overflow:hidden;}
+.presentation-modal{
+  position:fixed;inset:0;z-index:200;
+  display:grid;place-items:center;padding:28px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:.25s opacity,.25s visibility;
+}
+.presentation-modal.is-open{opacity:1;visibility:visible;pointer-events:auto;}
+.presentation-modal-backdrop{
+  position:absolute;inset:0;border:0;background:rgba(4,7,12,.86);
+  backdrop-filter:blur(12px);cursor:pointer;
+}
+.presentation-dialog{
+  position:relative;width:90vw;max-width:none;height:fit-content;max-height:min(90vh,90dvh);
+  display:flex;flex-direction:column;overflow:hidden;
+  background:linear-gradient(145deg,rgba(24,30,43,.99),rgba(11,14,20,.99));
+  border:1px solid rgba(142,188,255,.25);border-radius:20px;
+  box-shadow:0 36px 100px rgba(0,0,0,.62),0 0 42px rgba(139,124,255,.10);
+  transform:translateY(18px) scale(.985);transition:.28s transform;
+}
+.presentation-modal.is-open .presentation-dialog{transform:translateY(0) scale(1);}
+.presentation-close{
+  position:absolute;top:14px;right:14px;z-index:1;
+  width:44px;height:44px;min-height:44px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--ink);background:rgba(11,14,20,.72);border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(6px);
+}
+.presentation-close:hover{background:rgba(255,255,255,.14);}
+.presentation-viewer{flex:1;min-height:0;width:100%;overflow:auto;overscroll-behavior:contain;background:#05070b;}
+.presentation-viewer img{display:block;width:100%;height:auto;}
+@media (max-width:700px){
+  .presentation-modal{padding:10px;}
+  .presentation-dialog{width:100%;max-height:calc(100vh - 20px);max-height:calc(100dvh - 20px);border-radius:15px;}
+}
+
 .availability{display:inline-flex;align-items:center;gap:8px;}
 .availability::before{content:'';width:6px;height:6px;border-radius:50%;background:#68dc91;box-shadow:0 0 0 4px rgba(104,220,145,.10);}
 .hero-kicker{display:flex;align-items:center;gap:12px;}
@@ -271,13 +308,17 @@ body.resume-modal-open{overflow:hidden;}
 .hero-intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:start;}
 .hero-main{position:relative;z-index:1;}
 .hero-aside{display:flex;flex-direction:column;align-items:flex-end;gap:16px;}
+.hero-avatar-btn{border:0;padding:0;background:none;cursor:pointer;border-radius:50%;display:inline-block;}
+.hero-avatar-btn:focus-visible{outline:2px solid var(--brass);outline-offset:4px;}
 .hero-avatar{
   width:234px;height:234px;object-fit:cover;border-radius:50%;
   border:1px solid rgba(255,255,255,.22);padding:10px;
   box-shadow:0 0 0 10px rgba(139,124,255,.07),0 24px 60px -28px rgba(139,124,255,.85);
   animation:avatar-light-pulse 3.8s ease-in-out infinite;
   will-change:box-shadow;
+  transition:.3s transform;
 }
+.hero-avatar-btn:hover .hero-avatar{transform:scale(1.035);}
 @keyframes avatar-light-pulse{
   0%,100%{
     box-shadow:
@@ -1207,7 +1248,9 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
           </div>
         </div>
         <div class="hero-aside">
-          <img class="hero-avatar" src="thumbs/perfil.jpg" alt="Ismael Corrêa">
+          <button type="button" class="hero-avatar-btn js-presentation-preview" aria-haspopup="dialog" aria-controls="presentation-modal" aria-label="Ver apresentação em destaque">
+            <img class="hero-avatar" src="thumbs/perfil.jpg" alt="Ismael Corrêa">
+          </button>
           <p class="hero-proof"><strong>Ismael Corrêa<span>Rio de Janeiro</span></strong>Web design · Front-end · Ilustração</p>
         </div>
       </div>
@@ -1264,6 +1307,16 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       </figure>
     </div>
     <p class="resume-fallback" hidden>Não foi possível carregar uma página da prévia. Use “Abrir PDF” ou “Baixar PDF” acima.</p>
+  </div>
+</div>
+
+<div class="presentation-modal" id="presentation-modal" role="dialog" aria-modal="true" aria-label="Apresentação — Ismael Corrêa" aria-hidden="true">
+  <button class="presentation-modal-backdrop" type="button" data-presentation-close tabindex="-1" aria-label="Fechar apresentação"></button>
+  <div class="presentation-dialog" role="document">
+    <button class="presentation-close" type="button" data-presentation-close aria-label="Fechar"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    <div class="presentation-viewer" tabindex="0" role="region" aria-label="Apresentação em destaque">
+      <img src="layouts/apresentacao.png" alt="Um perfil, quatro frentes: Web Design, UI &amp; UX, WordPress &amp; Front-end e Ilustração autoral.">
+    </div>
   </div>
 </div>
 
@@ -1843,6 +1896,51 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     document.addEventListener('keydown', function (event) {
       if (!modal.classList.contains('is-open')) return;
       if (event.key === 'Escape') closeResume();
+      if (event.key === 'Tab') {
+        var focusable = modal.querySelectorAll('a[href], button:not([disabled]):not([tabindex="-1"]), [tabindex="0"]');
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }());
+
+  // Presentation preview: fluid 90vw modal for the hero avatar.
+  (function () {
+    var modal = document.getElementById('presentation-modal');
+    var openers = document.querySelectorAll('.js-presentation-preview');
+    var closers = modal ? modal.querySelectorAll('[data-presentation-close]') : [];
+    var lastFocused = null;
+    if (!modal || !openers.length) return;
+
+    function openPresentation(event) {
+      if (event) event.preventDefault();
+      lastFocused = document.activeElement;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('presentation-modal-open');
+      modal.querySelector('.presentation-viewer').scrollTop = 0;
+      window.setTimeout(function () { modal.querySelector('.presentation-close').focus(); }, 40);
+    }
+
+    function closePresentation() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('presentation-modal-open');
+      if (lastFocused) lastFocused.focus();
+    }
+
+    openers.forEach(function (opener) { opener.addEventListener('click', openPresentation); });
+    closers.forEach(function (closer) { closer.addEventListener('click', closePresentation); });
+    document.addEventListener('keydown', function (event) {
+      if (!modal.classList.contains('is-open')) return;
+      if (event.key === 'Escape') closePresentation();
       if (event.key === 'Tab') {
         var focusable = modal.querySelectorAll('a[href], button:not([disabled]):not([tabindex="-1"]), [tabindex="0"]');
         var first = focusable[0];
