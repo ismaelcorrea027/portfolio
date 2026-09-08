@@ -143,8 +143,7 @@ header.hero::after{
 }
 .topnav a{font-size:15.5px;font-weight:600;text-decoration:none;color:var(--ink-muted);padding:9px 14px;border-radius:999px;transition:.2s background,.2s color,.2s transform;}
 .topnav a:hover{color:var(--ink);background:rgba(255,255,255,.07);}
-.topnav .nav-contact{color:#0b0e14;background:var(--ink);}
-.topnav .nav-contact:hover{color:#0b0e14;background:#fff;transform:translateY(-1px);}
+.topnav .nav-contact{color:var(--ink-muted);}
 .topnav .nav-linkedin{color:var(--steel);}
 .topnav .nav-resume{color:#0b0e14;background:var(--brass);}
 .topnav .nav-resume:hover{color:#0b0e14;background:#ffdb91;transform:translateY(-1px);}
@@ -638,6 +637,8 @@ section .backdrop-icon{
   color:rgba(178,111,158,.11);
   --base-rotate:-8deg;
 }
+.section-illustration .behance-projects{grid-template-columns:repeat(4,minmax(0,1fr));}
+@media(max-width:700px){.section-illustration .behance-projects{grid-template-columns:repeat(2,minmax(0,1fr));}}
 
 footer{
   position:relative;overflow:hidden;
@@ -703,7 +704,7 @@ footer{
 }
 .case-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;}
 .case-title{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin:0 0 6px;}
-.case-desc{color:var(--ink-muted);font-size:15.5px;line-height:1.5;margin:0 0 14px;flex:1;}
+.case-desc{display:none;color:var(--ink-muted);font-size:15.5px;line-height:1.5;margin:0 0 14px;flex:1;}
 .case-foot{
   display:flex;justify-content:space-between;align-items:center;
   font-family:'Space Mono',monospace;font-size:15.5px;color:var(--steel);
@@ -733,7 +734,7 @@ footer{
 .compact-thumb.empty i{font-size:26px;color:var(--line);}
 .compact-body{padding:12px 14px 14px;}
 .compact-title{font-size:15.5px;font-weight:500;margin:0 0 3px;}
-.compact-sub{overflow-wrap:anywhere;font-family:'Space Mono',monospace;font-size:15.5px;color:var(--ink-muted);letter-spacing:.03em;}
+.compact-sub{display:none;overflow-wrap:anywhere;font-family:'Space Mono',monospace;font-size:15.5px;color:var(--ink-muted);letter-spacing:.03em;}
 .corporate-access-note{
   display:flex;align-items:center;gap:12px;width:fit-content;max-width:100%;margin:-8px 0 24px;
   padding:12px 16px;border:1px solid rgba(142,188,255,.25);border-radius:10px;
@@ -852,7 +853,7 @@ footer{
 .behance-project::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(9,12,18,.95) 100%);transition:.3s background;}
 .behance-project-copy{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;display:flex;align-items:end;justify-content:space-between;gap:12px;}
 .behance-project-title{font-size:16px;font-weight:600;line-height:1.25;color:#fff;}
-.behance-project-type{display:block;margin-bottom:5px;font-family:'Space Mono',monospace;font-size:15.5px;font-weight:700;letter-spacing:.07em;color:#ffda91;text-transform:uppercase;}
+.behance-project-type{display:block;margin-bottom:5px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.07em;color:#ffda91;text-transform:uppercase;}
 .behance-project-arrow{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.32);font-size:15.5px;transition:.3s transform,.3s background,.3s color;}
 .behance-project.card-scroll.is-card-visible:hover{transform:translate3d(0,-7px,0) scale(1.012);border-color:rgba(255,202,102,.58);box-shadow:0 26px 50px -28px rgba(178,111,158,.76),0 18px 38px -30px rgba(255,202,102,.72);}
 .behance-project:hover img{transform:scale(1.065);filter:brightness(1) saturate(1.1) contrast(1.03);}
@@ -913,7 +914,7 @@ footer{
   --contact-rgb:93,177,255;--contact-color:#8bc9ff;
   min-height:180px;padding:20px;border:1px solid rgba(var(--contact-rgb),.34);border-radius:12px;
   background:linear-gradient(145deg,rgba(var(--contact-rgb),.15),rgba(19,24,35,.86) 62%);
-  display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;
+  display:flex;flex-direction:column;justify-content:space-between;gap:16px;text-decoration:none;
   box-shadow:inset 0 1px rgba(255,255,255,.035),0 16px 30px -28px rgba(var(--contact-rgb),.62);
   transition:.28s transform,.28s border-color,.28s background,.28s box-shadow;
 }
@@ -1008,7 +1009,7 @@ footer{padding:56px 0 40px;}
   .behance-projects{grid-template-columns:1fr;gap:12px;}
   .behance-project-copy{left:16px;right:16px;bottom:14px;}
   .behance-project-title{font-size:16px;}
-  .behance-project-type{font-size:15.5px;}
+  .behance-project-type{font-size:11px;}
   .behance-project-arrow{width:32px;height:32px;flex-basis:32px;}
   .illus-panel{padding:30px 26px;}
   .illus-panel::after{width:68%;opacity:.11;background-size:240% auto;}
@@ -1239,6 +1240,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   .behance-project-copy{position:static;padding:12px 10px;display:block;}
   .behance-project-type{letter-spacing:0;}
   .behance-project-arrow{display:none;}
+  .live-badge{font-size:11px;text-transform:none;}
 }
 .nav-toggle{display:none;}
 @media(max-width:700px){
@@ -1868,7 +1870,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     <div class="section-head">
       <div>
         <span class="eyebrow">Expressão autoral</span>
-        <h2 class="section-title">Ilustração manual</h2>
+        <h2 class="section-title">Ilustrações manuais e design gráfico</h2>
       </div>
     </div>
 
@@ -1877,13 +1879,17 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <img src="imagens/behance/capa-livro.png" data-full="imagens/behance/capa-livro.png" alt="Ilustração de capa de livro" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual</span><span class="behance-project-title">Ilustração de capa de livro</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
-      <a class="behance-project" href="https://www.behance.net/gallery/254483281/Ilustracao-para-capa-de-livro" target="_blank" rel="noopener">
-        <img src="imagens/behance/capa-livro-2.png" data-full="imagens/behance/capa-livro-2.png" alt="Arte para capa de livro" loading="lazy">
-        <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual</span><span class="behance-project-title">Arte para capa de livro</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
-      </a>
       <a class="behance-project" href="https://www.behance.net/gallery/254483659/Desenhos-realistas-em-grafite" target="_blank" rel="noopener">
         <img src="imagens/behance/grafite-realista.png" data-full="imagens/behance/grafite-realista.png" alt="Desenhos realistas em grafite" loading="lazy">
         <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração manual</span><span class="behance-project-title">Desenhos realistas em grafite</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
+      <a class="behance-project" href="https://www.behance.net/gallery/254483281/Ilustracao-para-capa-de-livro" target="_blank" rel="noopener">
+        <img src="imagens/behance/capa-livro-2.png" data-full="imagens/behance/capa-livro-2.png" alt="Arte para capa de livro" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Ilustração digital</span><span class="behance-project-title">Arte para capa de livro</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
+      </a>
+      <a class="behance-project" href="https://www.behance.net/gallery/254306933/Diagramacao-de-folder" target="_blank" rel="noopener">
+        <img src="imagens/behance/diagramacao-folder.png" data-full="imagens/behance/diagramacao-folder.png" alt="Criação de logotipo e diagramação de folder" loading="lazy">
+        <span class="behance-project-copy"><span><span class="behance-project-type">Design gráfico</span><span class="behance-project-title">Logotipo e diagramação de folder</span></span><span class="behance-project-arrow"><i class="bi bi-arrow-up-right"></i></span></span>
       </a>
     </div>
   </div>
@@ -1927,8 +1933,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <a href="mailto:ismael.oliveira2190@gmail.com">E-mail</a>
         <a href="https://www.linkedin.com/in/ismaelcorrea027/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="resume-link js-resume-preview" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" aria-haspopup="dialog" aria-controls="resume-modal"><i class="bi bi-file-earmark-text"></i> Currículo</a>
-        <a href="https://www.behance.net/ismaelcorrea027" target="_blank" rel="noopener">Behance</a>
-        <a href="campanhas-instagram/index.html">Campanhas para Instagram</a>
       </div>
     </div>
     <p class="copyright">© 2026 Ismael de Oliveira Corrêa — Web Designer Sênior</p>
