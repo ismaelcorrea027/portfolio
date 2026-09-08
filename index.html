@@ -708,8 +708,9 @@ footer{
 .case-foot{
   display:flex;justify-content:space-between;align-items:center;
   font-family:'Space Mono',monospace;font-size:15.5px;color:var(--steel);
-  border-top:1px solid var(--line);padding-top:12px;
+  border-top:1px solid var(--line);padding-top:12px;margin-top:auto;
 }
+.case-card:hover .case-foot{color:var(--brass-dim);}
 
 /* ---------- COMPACT GRID (secondary projects) ---------- */
 .compact-grid{
@@ -812,8 +813,8 @@ footer{
   border-top:1px solid var(--line);padding-top:11px;margin-top:auto;
 }
 .maint-card:hover .maint-foot{color:var(--brass-dim);}
-.maint-arrow{color:var(--ink-muted);transition:.2s;}
-.maint-card:hover .maint-arrow{color:var(--brass);transform:translate(1px,-1px);}
+.foot-arrow{color:var(--ink-muted);transition:.2s;}
+.maint-card:hover .foot-arrow,.case-card:hover .foot-arrow{color:var(--brass);transform:translate(1px,-1px);}
 
 /* ---------- ILLUSTRATION ---------- */
 .illus-panel{
@@ -1162,7 +1163,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .project-lightbox button{flex-shrink:0;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);color:var(--ink);font-size:15.5px;cursor:pointer;}
 .project-lightbox button:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
 .project-lightbox-view{overflow:auto;min-height:0;flex:0 1 auto;background:#0b0e14;}
-.project-lightbox-open{flex-shrink:0;}
 .project-lightbox-view img{display:block;width:100%;height:auto;}
 .project-lightbox-nav{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--line);font-size:15.5px;}
 .project-lightbox-nav button{padding:8px 12px;}
@@ -1409,21 +1409,21 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       <p class="section-note">Da estratégia visual à publicação e evolução contínua.</p>
     </div>
     <div class="services-grid">
-      <a href="#projetos" class="service-card">
+      <a href="#manutencao" class="service-card">
         <span class="service-heading">
           <i class="bi bi-window-stack service-icon" aria-hidden="true"></i>
         </span>
         <h3>Sites &amp; WordPress</h3>
-        <p>Sites institucionais responsivos, páginas de campanha e estruturas fáceis de administrar.</p>
-      <span class="service-destination">Ver projetos em destaque <span aria-hidden="true">↓</span></span>
+        <p>Criação de sites institucionais, UI/UX design e WordPress, com manutenção e evolução contínua.</p>
+      <span class="service-destination">Ver sites em manutenção <span aria-hidden="true">↓</span></span>
       </a>
       <a href="#intranets" class="service-card">
         <span class="service-heading">
           <i class="bi bi-bezier service-icon" aria-hidden="true"></i>
         </span>
-        <h3>UI &amp; Web Design</h3>
-        <p>Interfaces claras, sistemas internos e experiências pensadas para objetivos reais de negócio.</p>
-      <span class="service-destination">Ver intranets e interfaces <span aria-hidden="true">↓</span></span>
+        <h3>Portais &amp; Intranet</h3>
+        <p>Layouts para portais SharePoint, sistemas .NET e interfaces em Angular para ambientes corporativos.</p>
+      <span class="service-destination">Ver portais e intranets <span aria-hidden="true">↓</span></span>
       </a>
       <a href="#ferramentas" class="service-card">
         <span class="service-heading">
@@ -1526,27 +1526,27 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     <div class="maint-grid">
       <a class="maint-card" href="https://impeto.com.br/" target="_blank" rel="noopener">
         <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/impeto-live.jpg" alt="Site Ímpeto Informática"></div>
-        <div class="maint-body"><h3 class="maint-name">Ímpeto Informática</h3><div class="maint-foot"><span>Visitar site</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+        <div class="maint-body"><h3 class="maint-name">Ímpeto Informática</h3><div class="maint-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
       </a>
       <a class="maint-card" href="https://seperj.org.br/" target="_blank" rel="noopener">
         <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/seperj-live.jpg" alt="Site SEPE-RJ"></div>
-        <div class="maint-body"><h3 class="maint-name">SEPE-RJ</h3><div class="maint-foot"><span>Visitar site</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+        <div class="maint-body"><h3 class="maint-name">SEPE-RJ</h3><div class="maint-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
       </a>
       <a class="maint-card" href="https://www.australholding.com/" target="_blank" rel="noopener">
         <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/australholding-live.jpg" alt="Site Austral Holding"></div>
-        <div class="maint-body"><h3 class="maint-name">Austral Holding</h3><div class="maint-foot"><span>Visitar site</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+        <div class="maint-body"><h3 class="maint-name">Austral Holding</h3><div class="maint-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
       </a>
       <a class="maint-card" href="https://australseguradora.com/" target="_blank" rel="noopener">
         <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/australseguradora-live.jpg" alt="Site Austral Seguradora"></div>
-        <div class="maint-body"><h3 class="maint-name">Austral Seguradora</h3><div class="maint-foot"><span>Visitar site</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+        <div class="maint-body"><h3 class="maint-name">Austral Seguradora</h3><div class="maint-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
       </a>
       <a class="maint-card" href="https://www.australre.com/" target="_blank" rel="noopener">
         <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/australre-live.jpg" alt="Site Austral Re"></div>
-        <div class="maint-body"><h3 class="maint-name">Austral Re</h3><div class="maint-foot"><span>Visitar site</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+        <div class="maint-body"><h3 class="maint-name">Austral Re</h3><div class="maint-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
       </a>
       <a class="maint-card" href="https://www.vincipartners.com/" target="_blank" rel="noopener">
         <div class="maint-thumb"><span class="live-badge"><span class="live-dot"></span>Ao vivo</span><img src="thumbs/vincipartners-live.jpg" alt="Site Vinci Partners"></div>
-        <div class="maint-body"><h3 class="maint-name">Vinci Partners</h3><div class="maint-foot"><span>Visitar site</span><span class="maint-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
+        <div class="maint-body"><h3 class="maint-name">Vinci Partners</h3><div class="maint-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div></div>
       </a>
     </div>
   </div>
@@ -1572,7 +1572,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="case-body">
           <h3 class="case-title">Globalmob</h3>
           <p class="case-desc">Site responsivo para apresentar soluções de mobilidade.</p>
-          <div class="case-foot"><span>Visitar site →</span></div>
+          <div class="case-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
         </div>
       </a>
 
@@ -1581,7 +1581,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="case-body">
           <h3 class="case-title">Austral Holding</h3>
           <p class="case-desc">Trabalho em site corporativo com comunicação visual sóbria.</p>
-          <div class="case-foot"><span>Visitar site →</span></div>
+          <div class="case-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
         </div>
       </a>
 
@@ -1590,7 +1590,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="case-body">
           <h3 class="case-title">Duty Cosméticos</h3>
           <p class="case-desc">Intranet com comunicados, eventos e serviços para colaboradores.</p>
-          <div class="case-foot"><span>Ver layout →</span></div>
+          <div class="case-foot"><span>Ver layout</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
         </div>
       </a>
 
@@ -1599,7 +1599,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="case-body">
           <h3 class="case-title">FQM</h3>
           <p class="case-desc">Criação de intranet para comunicação e conteúdo interno.</p>
-          <div class="case-foot"><span>Ver layout →</span></div>
+          <div class="case-foot"><span>Ver layout</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
         </div>
       </a>
 
@@ -1608,7 +1608,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="case-body">
           <h3 class="case-title">Vinci Partners</h3>
           <p class="case-desc">Manutenção do site e da intranet corporativa.</p>
-          <div class="case-foot"><span>Visitar site →</span></div>
+          <div class="case-foot"><span>Visitar site</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
         </div>
       </a>
 
@@ -1617,7 +1617,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="case-body">
           <h3 class="case-title">Mapeyatec</h3>
           <p class="case-desc">Interfaces de cadastro, login e apresentação de serviços turísticos.</p>
-          <div class="case-foot"><span>Abrir projeto →</span></div>
+          <div class="case-foot"><span>Abrir projeto</span><span class="foot-arrow"><i class="bi bi-arrow-up-right"></i></span></div>
         </div>
       </a>
     </div>
@@ -2189,7 +2189,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   <div class="project-lightbox-head"><h2 class="project-lightbox-title" id="project-lightbox-title"></h2><button type="button" data-gallery-close aria-label="Fechar galeria">✕</button></div>
   <div class="project-lightbox-view" tabindex="0" aria-label="Imagem do projeto"><img alt=""></div>
   <div class="project-lightbox-nav"><button type="button" data-gallery-prev aria-label="Imagem anterior">← Anterior</button><span data-gallery-count aria-live="polite"></span><button type="button" data-gallery-next aria-label="Próxima imagem">Próxima →</button></div>
-  <a class="project-lightbox-open" hidden target="_blank" rel="noopener" style="padding:10px 18px;color:var(--steel);font-size:15.5px">Abrir projeto ↗</a>
 </dialog>
 <script>
 (function(){
@@ -2202,7 +2201,6 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     const link=links[current];
     const isImage=/\.(png|jpe?g|webp)(?:[?#]|$)/i.test(link.getAttribute('href'));
     picture.src=isImage?link.href:(link.querySelector('img').dataset.full||link.querySelector('img').src);picture.alt=link.querySelector('img').alt;
-    const openLink=dialog.querySelector('.project-lightbox-open');openLink.hidden=isImage;openLink.href=link.href;openLink.textContent=link.href.includes('behance.net')?'Ver no Behance ↗':'Abrir projeto ↗';
     dialog.querySelector('h2').textContent=link.querySelector('.compact-title, .behance-project-title, .case-title').textContent;
     dialog.querySelector('[data-gallery-count]').textContent=(current+1)+' / '+links.length;
     viewer.scrollTop=0;
