@@ -1209,6 +1209,75 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   .tech-group:not(.is-open) .tech-list{display:none;}
 }
 
+
+/* Cantos consistentes nos cards de todas as seções. */
+.behance-project,.behance-card,.service-card,.maint-card,.case-card,.compact-card,
+.company-card,.tech-group,.tool-group,.contact-card,.personal-card,.illus-panel,.illus-tile,.mid-cta{border-radius:12px;}
+.maint-card,.case-card,.compact-card,.personal-card,.illus-tile{overflow:hidden;}
+
+/* Miniaturas com luminosidade integral em celulares e dispositivos de toque. */
+@media (max-width:700px), (hover:none), (pointer:coarse){
+  .case-card .case-thumb img,.case-card:hover .case-thumb img,
+  .compact-card .compact-thumb img,.compact-card:hover .compact-thumb img,
+  .maint-card .maint-thumb img,.maint-card:hover .maint-thumb img,
+  .behance-project img,.behance-project:hover img,
+  .illus-tile img,.illus-tile:hover img{filter:none;transform:none;}
+  .company-card .company-logo,.company-card:hover .company-logo,.company-card:focus-within .company-logo{filter:none;box-shadow:none;}
+}
+.presentation-viewer picture{display:block;width:100%;}
+/* Galerias mobile: duas miniaturas por linha, com legendas legíveis. */
+@media(max-width:700px){
+  .featured-grid,.maint-grid,.compact-grid,.behance-projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .case-card,.maint-card,.compact-card,.behance-project{min-width:0;overflow-wrap:anywhere;}
+  .case-body,.maint-body,.compact-body{padding:12px 10px;}
+  .case-title{font-size:16px;line-height:1.3;}
+  .case-foot,.maint-foot{flex-wrap:wrap;gap:6px;}
+  .case-tag{display:none;}
+  .behance-project{aspect-ratio:auto;display:flex;flex-direction:column;}
+  .behance-project img{height:auto;aspect-ratio:4/3;object-fit:cover;}
+  .behance-project::after{display:none;}
+  .behance-project-copy{position:static;padding:12px 10px;display:block;}
+  .behance-project-type{letter-spacing:0;}
+  .behance-project-arrow{display:none;}
+}
+.nav-toggle{display:none;}
+@media(max-width:700px){
+  html{scroll-padding-top:88px;}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:100;max-width:none;flex-wrap:wrap;gap:12px;padding:12px 18px;padding-top:calc(12px + env(safe-area-inset-top,0px));background:rgba(13,17,25,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);}
+
+  .nav-toggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:12px;background:#131823;color:var(--ink);font:inherit;cursor:pointer;}
+  .nav-toggle i{font-size:24px;}
+  .topbar .topnav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:6px;padding:12px;border-radius:14px;background:#131823;max-height:calc(100dvh - 100px);overflow-y:auto;}
+  .topbar .topnav.is-open{display:flex;}
+  .topbar .topnav a{display:flex;align-items:center;justify-content:flex-start;gap:8px;min-height:44px;border-radius:8px;padding:10px 14px;}
+  .topbar{background:radial-gradient(ellipse at 85% 0%,rgba(139,124,255,.22),transparent 70%),radial-gradient(ellipse at 0% 100%,rgba(142,188,255,.12),transparent 65%),rgba(20,26,42,.95);border-bottom-color:rgba(142,188,255,.19);box-shadow:0 8px 24px -12px rgba(0,0,0,.6),0 1px 0 rgba(142,188,255,.05);}
+  .nav-toggle{background:linear-gradient(135deg,rgba(142,188,255,.12),rgba(139,124,255,.12));border-color:rgba(142,188,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 4px 14px -8px rgba(139,124,255,.4);}
+  .nav-toggle[aria-expanded="true"]{border-color:rgba(142,188,255,.48);background:linear-gradient(135deg,rgba(142,188,255,.2),rgba(139,124,255,.18));}
+  .topbar .topnav{background:radial-gradient(ellipse at 100% 0%,rgba(139,124,255,.13),transparent 65%),#171e2e;border-color:rgba(142,188,255,.2);box-shadow:0 12px 28px -14px rgba(0,0,0,.65);}
+  .topbar .monogram{font-size:26.5px;}
+  .nav-toggle,.nav-toggle[aria-expanded="true"]{background:transparent;border-color:rgba(142,188,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.03),0 4px 14px -8px rgba(139,124,255,.25);}
+  .topbar .topnav a span{display:inline;}
+  .topbar .topnav .nav-contact,.topbar .topnav .nav-contact:hover{background:transparent;color:var(--ink);}
+  .topbar .topnav .nav-resume,.topbar .topnav .nav-resume:hover{background:transparent;color:var(--brass);}
+}
+@media(max-width:700px){
+  header.hero{padding-bottom:32px;}
+  .hero-display{font-size:clamp(27px,7.5vw,38px);line-height:1.12;letter-spacing:-.025em;}
+  .hero-grid{padding-bottom:0;}
+  .stat-row{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:24px;}
+  .stat{display:flex;align-items:baseline;gap:12px;}
+  .stat b{flex:0 0 44px;font-size:23px;line-height:1.3;}
+  .stat span{font-size:15.5px;line-height:1.4;letter-spacing:0;}
+}
+@media(max-width:700px){
+  .resume-modal-head{flex-direction:row;align-items:center;gap:8px;padding:10px 12px;}
+  .resume-modal-title{font-size:18px;}
+  .resume-title-name,.resume-open span,.resume-download span{display:none;}
+  .resume-modal-actions{gap:4px;}
+  .resume-modal-actions a,.resume-modal-actions button{width:44px;min-width:44px;padding:0;border-radius:10px;font-size:18px;}
+  .resume-close{margin-left:0;}
+}
+@media(max-width:700px){.back-to-top{width:46px;height:46px;font-size:21px;}}
 </style>
 </head>
 <body>
@@ -1218,7 +1287,8 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   <i class="bi bi-bezier2 ambient-icon ambient-two violet" data-motion="rotate" aria-hidden="true"></i>
   <nav class="topbar" aria-label="Navegação principal">
     <a class="monogram" href="#top" aria-label="Início">IC<span>.</span></a>
-    <div class="topnav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"><i class="bi bi-list" aria-hidden="true"></i><span>Menu</span></button>
+    <div class="topnav" id="primary-menu">
       <a class="nav-services" href="#servicos">Serviços</a>
       <a class="nav-projects" href="#behance">Projetos</a>
       <a class="nav-contact" href="#contato">Contato</a>
@@ -1283,11 +1353,11 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   <div class="resume-dialog" role="document">
     <div class="resume-modal-head">
       <div>
-        <h2 class="resume-modal-title" id="resume-modal-title">Currículo — Ismael Corrêa</h2>
+        <h2 class="resume-modal-title" id="resume-modal-title">Currículo<span class="resume-title-name"> — Ismael Corrêa</span></h2>
         <p class="resume-modal-subtitle">3 páginas · Role para ler ou abra o PDF para ampliar e selecionar o texto.</p>
       </div>
       <div class="resume-modal-actions">
-        <a class="resume-open" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" target="_blank" rel="noopener">Abrir PDF <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+        <a class="resume-open" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" target="_blank" rel="noopener" aria-label="Abrir currículo em PDF" title="Abrir PDF"><span>Abrir PDF</span> <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
         <a class="resume-download" id="resume-download" href="output/pdf/curriculo-ismael-correa.pdf?v=54f3fd11c325" download="curriculo-ismael-correa.pdf" aria-label="Baixar currículo em PDF"><i class="bi bi-download" aria-hidden="true"></i><span>Baixar PDF</span></a>
         <button class="resume-close" type="button" data-resume-close aria-label="Fechar"><i class="bi bi-x-lg"></i></button>
       </div>
@@ -1315,7 +1385,10 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   <div class="presentation-dialog" role="document">
     <button class="presentation-close" type="button" data-presentation-close aria-label="Fechar"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
     <div class="presentation-viewer" tabindex="0" role="region" aria-label="Apresentação em destaque">
-      <img src="layouts/apresentacao.png" alt="Um perfil, quatro frentes: Web Design, UI &amp; UX, WordPress &amp; Front-end e Ilustração autoral.">
+      <picture>
+        <source media="(max-width:700px)" srcset="layouts/apresentacao-mobile.png">
+        <img src="layouts/apresentacao.png" alt="Um perfil, quatro frentes: Web Design, UI &amp; UX, WordPress &amp; Front-end e Ilustração autoral.">
+      </picture>
     </div>
   </div>
 </div>
@@ -1571,59 +1644,59 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 
       <a class="compact-card" href="layouts/FQM-1.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/fqm-1.jpg" alt="Intranet corporativa FQM Farmoquímica"></div>
-        <div class="compact-body"><p class="compact-title">FQM — Farmoquímica</p><p class="compact-sub">INTRANET CORPORATIVA · ACESSO RESTRITO</p></div>
+        <div class="compact-body"><p class="compact-title">FQM — Farmoquímica</p><p class="compact-sub">Intranet corporativa · acesso restrito</p></div>
       </a>
 
       <a class="compact-card" href="CARTEIRA-VACINACAO/index.html" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/carteira-vacinacao.jpg" data-full="layouts/CARTEIRA-VACINACAO.png" alt="Carteira de Vacinação"></div>
-        <div class="compact-body"><p class="compact-title">Carteira de Vacinação</p><p class="compact-sub">FERRAMENTA WEB</p></div>
+        <div class="compact-body"><p class="compact-title">Carteira de Vacinação</p><p class="compact-sub">Ferramenta web</p></div>
       </a>
 
 
 
       <a class="compact-card" href="layouts/INTRANET-DUTY-COSMETICOS.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/intranet-duty-cosmeticos.jpg" alt="Intranet Duty Cosméticos"></div>
-        <div class="compact-body"><p class="compact-title">Duty Cosméticos</p><p class="compact-sub">INTRANET</p></div>
+        <div class="compact-body"><p class="compact-title">Duty Cosméticos</p><p class="compact-sub">Intranet</p></div>
       </a>
 
       <a class="compact-card" href="layouts/INTRANET-DUTY-DOURADA.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/intranet-duty-dourada.jpg" alt="Intranet Duty Cosméticos em preto e dourado" loading="lazy"></div>
-        <div class="compact-body"><p class="compact-title">Duty Cosméticos — Dourado</p><p class="compact-sub">INTRANET · SHAREPOINT</p></div>
+        <div class="compact-body"><p class="compact-title">Duty Cosméticos — Dourado</p><p class="compact-sub">Intranet · SharePoint</p></div>
       </a>
 
       <a class="compact-card" href="layouts/DFL.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/dfl.jpg" alt="DFL"></div>
-        <div class="compact-body"><p class="compact-title">DFL</p><p class="compact-sub">INTRANET</p></div>
+        <div class="compact-body"><p class="compact-title">DFL</p><p class="compact-sub">Intranet</p></div>
       </a>
 
       <a class="compact-card" href="layouts/busca-documentos-2.jpg" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/busca-documentos-2.jpg" alt="Sistema de gestão de documentos"></div>
-        <div class="compact-body"><p class="compact-title">Gestão de Documentos</p><p class="compact-sub">SISTEMA INTERNO</p></div>
+        <div class="compact-body"><p class="compact-title">Gestão de Documentos</p><p class="compact-sub">Sistema interno</p></div>
       </a>
 
       <a class="compact-card" href="layouts/InfoGlobo.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/infoglobo.jpg" alt="InfoGlobo"></div>
-        <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">INTRANET · PROPOSTA VISUAL</p></div>
+        <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">Intranet · proposta visual</p></div>
       </a>
 
       <a class="compact-card" href="layouts/SKAADV.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/skaadv.jpg" alt="Skaadv Advogados"></div>
-        <div class="compact-body"><p class="compact-title">Skaadv Advogados</p><p class="compact-sub">INTRANET · SHAREPOINT</p></div>
+        <div class="compact-body"><p class="compact-title">Skaadv Advogados</p><p class="compact-sub">Intranet · SharePoint</p></div>
       </a>
 
       <a class="compact-card" href="layouts/SUBSEA-1.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/subsea-1.jpg" alt="Subsea"></div>
-        <div class="compact-body"><p class="compact-title">Subsea</p><p class="compact-sub">ÓLEO &amp; GÁS</p></div>
+        <div class="compact-body"><p class="compact-title">Subsea</p><p class="compact-sub">Óleo &amp; gás</p></div>
       </a>
 
       <a class="compact-card" href="layouts/YOURVOICE-PAINEL.jpg" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/yourvoice-login.jpg" alt="Souza Cruz — Your Voice, tela de login"></div>
-        <div class="compact-body"><p class="compact-title">Souza Cruz — Your Voice</p><p class="compact-sub">PAINEL ADMINISTRATIVO</p></div>
+        <div class="compact-body"><p class="compact-title">Souza Cruz — Your Voice</p><p class="compact-sub">Painel administrativo</p></div>
       </a>
 
       <a class="compact-card" href="layouts/MONTAURY.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/montaury.jpg" alt="Montaury Advogados"></div>
-        <div class="compact-body"><p class="compact-title">Montaury Advogados</p><p class="compact-sub">INTRANET</p></div>
+        <div class="compact-body"><p class="compact-title">Montaury Advogados</p><p class="compact-sub">Intranet</p></div>
       </a>
 
     </div>
@@ -2140,5 +2213,18 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 })();
 </script>
 
+<script>
+(()=>{
+  const toggle=document.querySelector('.nav-toggle');
+  const menu=document.getElementById('primary-menu');
+  const mobile=matchMedia('(max-width:700px)');
+  function close(){menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
+  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));});
+  menu.addEventListener('click',event=>{if(event.target.closest('a'))close();});
+  document.addEventListener('click',event=>{if(!event.target.closest('.topbar'))close();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.classList.contains('is-open')){close();toggle.focus();}});
+  mobile.addEventListener('change',close);
+})();
+</script>
 </body>
 </html>
