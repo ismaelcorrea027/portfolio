@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agendamento</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker/dist/datepicker.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/grid_full.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css">
+
+</head>
+<body>
+<div class="flex column center w-100-p">
+  <div class="header h-80 w-100-p"></div>
+  <div class="w-90-p flex vertical-center space-between">
+    <div class="logo"><img class="w-200" src="img/unimed-grey.png" /></div>
+    <h2 class="mb-4 mt-4">Painel do Administrador</h2>
+  </div>
+  <div class="w-90-p mt-0 my-5 bg-white box-shadow p-20">
+    <!-- Tabs principais -->
+    <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="agendamentos-tab" data-bs-toggle="tab" data-bs-target="#agendamentos" type="button" role="tab">Agendamentos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="usuarios-tab" data-bs-toggle="tab" data-bs-target="#usuarios" type="button" role="tab">Usuários</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-4" id="adminTabsContent">
+      <div class="tab-pane fade show active" id="agendamentos" role="tabpanel">
+        <!-- Subabas dentro de Agendamentos -->
+        <ul class="nav nav-pills mb-3" id="subabas-agendamento" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="lista-tab" data-bs-toggle="pill" data-bs-target="#lista-agendamentos" type="button" role="tab">
+				<i class="bi bi-list-task"></i>
+				Lista
+			</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="calendario-tab" data-bs-toggle="pill" data-bs-target="#calendario-agendamentos" type="button" role="tab">
+				<i class="bi bi-calendar-week"></i>				
+				Calendário
+			</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="subabas-agendamento-content">
+          <!-- Conteúdo da subaba Lista -->
+          <div class="tab-pane fade show active" id="lista-agendamentos" role="tabpanel">
+            		<div class="filtro-container mb-3">
+		  
+		  <!-- Botão para mobile -->
+		  <button class="btn btn-filter btn-outline-secondary w-100 mb-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosAccordion" aria-expanded="false" aria-controls="filtrosAccordion">
+			<i class="bi bi-funnel-fill me-1"></i> Filtros
+		  </button>
+
+		  <div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block">
+				<div class="row w-100-p">
+				  <div class="col-12 col-md-3">
+					<label for="filtroEmpresa" class="form-label">Empresa</label>
+					<input type="text" id="filtroEmpresa" class="form-control" placeholder="Empresa">
+				  </div>
+				  <div class="col-6 col-md-2">
+					<label for="filtroData" class="form-label">Data</label>
+					<input type="date" id="filtroData" class="form-control">
+				  </div>
+				  <div class="col-6 col-md-2">
+					<label for="filtroStatus" class="form-label">Status</label>
+					<select id="filtroStatus" class="select-control form-select">
+					  <option>Todos</option>
+					  <option>Confirmado</option>
+					  <option>Cancelado</option>
+					  <option>Rejeitado</option>
+					  <option>Pendente</option>
+					</select>
+				  </div>
+				  <div class="col-12 col-md-2">
+					<label class="form-label d-block invisible">.</label> <!-- Para alinhar com inputs -->
+					<button class="btn btn-filter w-100">
+					  <i class="bi bi-search me-1"></i> Buscar
+					</button>
+				  </div>
+				</div>
+				
+				  <div class="col-12 col-md-2">
+					<label class="form-label d-block invisible">.</label>
+					<button id="addAgendamento" class="btn btn-plus w-100">
+					  <i class="bi bi-plus me-2"></i> Novo Agendamento
+					</button>
+				  </div>
+				  
+			</div>
+		</div>
+	
+
+		<!-- Tabela de Agendamentos -->
+		<table id="tabelaAgendamentos" class="table table-bordered table-striped d-none d-md-table">
+  <thead class="table-light">
+    <tr>
+      <th>Empresa</th>
+      <th>Data</th>
+      <th>Hora ínicio</th>
+	  <th>Hora fim</th>
+      <th>Status</th>
+      <th>Volumes</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td>LogTransportes</td>
+      <td>08/07/2025</td>
+      <td>14:00</td>
+	   <td>15:00</td>
+      <td>
+        <select class="form-select status-select">
+          <option value="pendente">Pendente</option>
+          <option value="confirmado" selected>Confirmado</option>
+          <option value="cancelado">Cancelado</option>
+          <option value="rejeitado" >Rejeitado</option>
+        </select>
+      </td>
+      <td>30</td>
+      <td>
+        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill"></i></button>
+      </td>
+    </tr>
+	    <tr>
+      <td>LogTransportes</td>
+      <td>03/07/2025</td>
+      <td>15:00</td>
+	  <td>16:00</td>
+      <td>
+        <select class="form-select status-select">
+          <option value="pendente" selected>Pendente</option>
+          <option value="confirmado">Confirmado</option>
+          <option value="cancelado">Cancelado</option>
+          <option value="rejeitado">Rejeitado</option>
+        </select>
+      </td>
+      <td>4</td>
+      <td>
+        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill "></i></button>
+      </td>
+    </tr>
+	    <tr>
+      <td>Suply Care</td>
+      <td>23/07/2025</td>
+      <td>10:00</td>
+	  <td>11:00</td>
+      <td>
+        <select class="form-select status-select">
+          <option value="pendente" >Pendente</option>
+          <option value="confirmado" selected>Confirmado</option>
+          <option value="cancelado">Cancelado</option>
+          <option value="rejeitado">Rejeitado</option>
+        </select>
+      </td>
+      <td>5</td>
+      <td>
+        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill "></i></button>
+      </td>
+    </tr>
+    <tr>
+      <td>FLS Express</td>
+      <td>12/07/2025</td>
+      <td>09:00</td>
+	  <td>10:00</td>
+      <td>
+        <select class="form-select status-select">
+          <option value="pendente">Pendente</option>
+          <option value="confirmado">Confirmado</option>
+          <option value="cancelado">Cancelado</option>
+          <option value="rejeitado" selected>Rejeitado</option>
+        </select>
+      </td>
+      <td>2</td>
+      <td>
+        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill "></i></button>
+      </td>
+    </tr>
+	    <tr>
+      <td>LogTransportes</td>
+      <td>03/07/2025</td>
+      <td>11:00</td>
+	  <td>12:00</td>
+      <td>
+        <select class="form-select status-select">
+          <option value="pendente" selected>Pendente</option>
+          <option value="confirmado">Confirmado</option>
+          <option value="cancelado">Cancelado</option>
+          <option value="rejeitado">Rejeitado</option>
+        </select>
+      </td>
+      <td>10</td>
+      <td>
+        <button type="button" class="btn btn-sm fab btn-success"><i class="bi bi-pencil-fill "></i></button>
+      </td>
+    </tr>
+	    <tr>
+      <td>MS Saúde</td>
+      <td>03/07/2025</td>
+      <td>13:00</td>
+	  <td>14:00</td>
+      <td>
+        <select class="form-select status-select">
+          <option value="pendente" >Pendente</option>
+          <option value="confirmado" selected>Confirmado</option>
+          <option value="cancelado">Cancelado</option>
+          <option value="rejeitado">Rejeitado</option>
+        </select>
+      </td>
+      <td>20</td>
+      <td>
+        <button type="button" class="btn btn-sm fab btn-success"><i class="bi bi-pencil-fill "></i></button>
+      </td>
+    </tr>
+	
+    <!-- Outras linhas podem ser adicionadas aqui -->
+  </tbody>
+</table>
+   
+		<!-- CARDS Versão Mobile-->
+		<div class="d-md-none">
+		<div id="cardsAgendamentos" class="d-md-none">
+		  <div class="card-agendamento card mb-3">
+			<div class="card-body">
+			  <h5 class="card-title"><strong>Empresa:</strong> LogTransportes</h5>
+			  <div class="flex">
+				<div class="card-text mr-12"><strong>Data:</strong> 08/07/2025</div>
+				<div class="card-text"><strong>Hora:</strong> 14:00</div>
+			  </div>
+			  <p class="card-text"><strong>Volumes:</strong> 30</p>
+
+			  <p class="card-text">
+				<strong>Status:</strong><br>
+				<select class="form-select status-select select-control">
+				  <option value="pendente">Pendente</option>
+				  <option value="confirmado" selected>Confirmado</option>
+				  <option value="cancelado">Cancelado</option>
+				  <option value="rejeitado">Rejeitado</option>
+				</select>
+			  </p>
+			  <div class="text-end mt-2">
+				<button type="button" class="btn fab btn-sm btn-success btn-editar-agendamento">
+				  <i class="bi bi-pencil-fill"></i>
+				</button>				
+				<button class="btn fab btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+			  </div>
+			</div>
+		  </div>
+		   <div class="card-agendamento card mb-3">
+			<div class="card-body">
+			  <h5 class="card-title"><strong>Empresa:</strong> LogTransportes</h5>
+			  <div class="flex">
+				<div class="card-text mr-12"><strong>Data:</strong> 08/07/2025</div>
+				<div class="card-text"><strong>Hora:</strong> 14:00</div>
+			  </div>
+			  <p class="card-text"><strong>Volumes:</strong> 30</p>
+
+			  <p class="card-text">
+				<strong>Status:</strong><br>
+				<select class="form-select status-select select-control">
+				  <option value="pendente">Pendente</option>
+				  <option value="confirmado" selected>Confirmado</option>
+				  <option value="cancelado">Cancelado</option>
+				  <option value="rejeitado">Rejeitado</option>
+				</select>
+			  </p>
+			  <div class="text-end mt-2">
+				<button type="button" class="btn fab btn-sm btn-success btn-editar-agendamento">
+				  <i class="bi bi-pencil-fill"></i>
+				</button>				
+				<button class="btn fab btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  
+    </div>
+
+
+
+
+
+
+          </div><!--fim tab agendamento lista-->
+
+          <!-- Conteúdo da subaba Calendário -->
+          <div class="tab-pane fade" id="calendario-agendamentos" role="tabpanel">
+			  <div class="flex row w-100-p">
+				<div id="calendar" class="w-50-p"></div>
+				<div class="agendamentos-dia w-50-p" id="agendamentos">
+				  <h3>Agendamentos para 26 de Maio</h3>
+				  <div class="agendamento">
+					<strong>8:00 - Agenda Unimed Recife - CDUR</strong>
+					<span>Com Agendamento TLS | DR Cargo | Armazenna 6</span>
+				  </div>
+				  <div class="agendamento">
+					<strong>8:15 - Agenda Unimed Recife - CDUR</strong>
+					<span>Com Agendamento TLS | B.BRAUN | Armazenna 6</span>
+				  </div>
+				  <div class="agendamento">
+					<strong>8:30 - Agenda Unimed Recife - CDUR</strong>
+					<span>Com Agendamento TLS | B.BRAUN | Armazenna 6</span>
+				  </div>
+				</div>
+			  </div>
+			</div>
+        </div>
+      </div>
+
+      <!-- Aba Usuários -->
+      <div class="tab-pane fade" id="usuarios" role="tabpanel">
+       <!-- Botão para mobile -->
+	  <button class="btn btn-filter btn-outline-secondary w-100 mb-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosAccordion" aria-expanded="false" aria-controls="filtrosAccordion">
+		<i class="bi bi-funnel-fill me-1"></i> Filtros
+	  </button>
+
+	  <div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block mb-20">
+		<div class="row w-100-p">
+			  <div class="col-12 col-md-3">
+				<label class="form-label">Nome do usuário</label>
+				<input type="text" id="filtroNomeUsuario" class="form-control" placeholder="Nome do usuário">
+			  </div>
+			  <div class="col-6 col-md-2">
+				  <label class="form-label">E-mail</label>
+				  <input type="email" class="form-control" placeholder="email@dominio.com">
+			  </div>
+			  <div class="col-6 col-md-2">
+				<label class="form-label">Tipo de usuário</label>
+				<select id="filtroTipoUsuario" class="select-control form-select">
+				  <option value="">Todos os tipos</option>
+				  <option value="admin">Administrador</option>
+				  <option value="editor">Editor</option>
+				</select>
+			  </div>
+						
+			  <div class="col-12 col-md-2">
+				<label class="form-label d-block invisible">.</label> <!-- Para alinhar com inputs -->
+				<button class="btn btn-filter w-100">
+				  <i class="bi bi-search me-1"></i> Buscar
+				</button>
+			  </div>
+		  </div>
+			<div class="col-12 col-md-2">
+				<label class="form-label d-block invisible">.</label>
+				<button id="addUsuario" class="btn btn-plus w-100">
+				  <i class="bi bi-plus me-2"></i> Novo Usuário
+				</button>
+		    </div>
+		  
+
+		</div>
+      <!-- Cards (Mobile) + Tabela (Desktop) -->
+      <div class="d-md-none">
+        <!-- Card usuário -->
+        <div class="card-usuario card mb-3">
+			<div class="card-header">
+			     <h6 class="card-title">João da Silva</h6>
+				<p class="mb-1"><strong>Email:</strong> joao@empresa.com</p>
+				<p class="mb-1"><strong>Tipo:</strong> Fornecedor</p>
+			</div>
+          <div class="card-body">
+
+            <div class="text-end mt-2">
+				<button type="button" class="btn fab btn-sm btn-success btn-editar-usuario" aria-label="Editar usuário">
+				  <i class="bi bi-pencil-fill"></i>
+				</button>                
+				<button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+            </div>
+          </div>
+        </div>
+		<!-- Card usuário -->
+        <div class="card-usuario card mb-3">
+			<div class="card-header">
+			     <h6 class="card-title">João da Silva</h6>
+				<p class="mb-1"><strong>Email:</strong> joao@empresa.com</p>
+				<p class="mb-1"><strong>Tipo:</strong> Fornecedor</p>
+			</div>
+          <div class="card-body">
+
+            <div class="text-end mt-2">
+			  <button type="button" class="btn  fab btn-sm btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+            </div>
+          </div>
+        </div>
+		<!-- Card usuário -->
+        <div class="card-usuario card mb-3">
+			<div class="card-header">
+			     <h6 class="card-title">João da Silva</h6>
+				<p class="mb-1"><strong>Email:</strong> joao@empresa.com</p>
+				<p class="mb-1"><strong>Tipo:</strong> Fornecedor</p>
+			</div>
+          <div class="card-body">
+
+            <div class="text-end mt-2">
+
+				<button type="button" class="btn fab btn-sm btn-success btn-editar-usuario" aria-label="Editar usuário">
+				  <i class="bi bi-pencil-fill"></i>
+				</button>                
+				<button class="btn fab btn-sm btn-danger"><i class="bi bi-trash-fill "></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- Mais cards... -->
+      </div>
+
+      <div class="table-responsive d-none d-md-block">
+        <table class="table  box-shadow table-bordered shadow-sm" id="tabelaUsuarios">
+          <thead class="table-light">
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Tipo</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vanessa Corrêa</td>
+              <td>vcorrea88@empresa.com</td>
+              <td>Fornecedor</td>
+              <td>
+			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+              </td>
+            </tr>
+			<tr>
+              <td>João da Silva</td>
+              <td>joao@empresa.com</td>
+              <td>Editor</td>
+              <td>
+			  <button type="button" class="btn fab btn-sm btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+              </td>
+            </tr>
+			<tr>
+              <td>Eduardo Oliveira</td>
+              <td>ed.oliveira35@empresa.com</td>
+              <td>Administrador</td>
+              <td>
+			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+              </td>
+            </tr>
+			<tr>
+              <td>Paulo Henrique</td>
+              <td>paulo@empresa.com</td>
+              <td>Fornecedor</td>
+              <td>
+			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+              </td>
+            </tr>
+			<tr>
+              <td>Matheus da Costa</td>
+              <td>matheus_costa@empresa.com</td>
+              <td>Administrador</td>
+              <td>
+			  <button type="button" class="btn fab btn-sm btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal edição agendamento-->
+<div class="modal fade" id="modalEdicaoAgendamento" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Editar Agendamento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="modalEmpresa" class="form-label">Empresa</label>
+            <input type="text" id="modalEmpresa" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="modalData" class="form-label">Data</label>
+            <input type="date" id="modalData" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="modalHora" class="form-label">Hora</label>
+            <input type="time" id="modalHora" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="modalStatus" class="form-label">Status</label>
+            <select id="modalStatus" class="select-control form-select">
+              <option value="pendente">Pendente</option>
+              <option value="confirmado">Confirmado</option>
+              <option value="cancelado">Cancelado</option>
+              <option value="rejeitado">Rejeitado</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="modalVolumes" class="form-label">Volumes</label>
+            <input type="number" id="modalVolumes" class="form-control" />
+          </div>
+		  <div class="mb-3 flex column">
+			  <label class="form-label">Chaves de Acesso da NF-e</label>
+			  <ul class="list-group">
+				<li class="list-group-item">35191212345678900123550010001234567890123456</li>
+				<li class="list-group-item">35200278945612300123550010006543210987654321</li>
+			  </ul>
+			</div>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="submit" form="formEdicaoUsuario" class="btn btn-primary">Salvar</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal edição usuários-->
+<div class="modal fade" id="modalEdicaoUsuario" tabindex="-1" aria-labelledby="modalEdicaoUsuarioLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEdicaoUsuarioLabel">Editar Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formEdicaoUsuario">
+          <div class="mb-3">
+            <label for="modalNomeUsuario" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="modalNomeUsuario" required>
+          </div>
+		  <div class="mb-3">
+            <label for="modalNomeUsuario" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="modalCPFUsuario" required>
+          </div>
+          <div class="mb-3">
+            <label for="modalEmailUsuario" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="modalEmailUsuario" required>
+          </div>
+          <div class="mb-3">
+            <label for="modalTipoUsuario" class="form-label">Tipo</label>
+            <select class="form-select select-control" id="modalTipoUsuario" required>
+              <option value="">Selecione...</option>
+              <option value="admin">Administrador</option>
+              <option value="editor">Editor</option>
+              <option value="visualizador">Visualizador</option>
+              <option value="fornecedor">Fornecedor</option>
+            </select>
+          </div>
+
+          <!-- Dados adicionais se tipo = fornecedor -->
+          <div id="dadosFornecedor" style="display: none;">
+            
+			<h6 class="fw-bold mb-3">Dados da Empresa Fornecedora</h6>
+
+            <div class="mb-3">
+              <label for="modalEmpresaFornecedor" class="form-label">Empresa</label>
+              <input type="text" class="form-control" id="modalEmpresaFornecedor">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="modalCNPJFornecedor" class="form-label">CNPJ</label>
+                <input type="text" class="form-control" id="modalCNPJFornecedor" placeholder="00.000.000/0000-00">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="modalTelefoneFornecedor" class="form-label">Telefone</label>
+                <input type="tel" class="form-control" id="modalTelefoneFornecedor" placeholder="(00) 0000-0000">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modalEnderecoFornecedor" class="form-label">Endereço</label>
+              <input type="text" class="form-control" id="modalEnderecoFornecedor" placeholder="Rua, Avenida, etc.">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="modalCidadeFornecedor" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="modalCidadeFornecedor">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="modalEstadoFornecedor" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="modalEstadoFornecedor" maxlength="2" placeholder="UF">
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="modalCepFornecedor" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="modalCepFornecedor" placeholder="00000-000">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="submit" form="formEdicaoUsuario" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.js"></script>
+<script>
+  const calendar = new VanillaCalendar('#calendar', {
+    settings: {
+      lang: 'pt-br',
+      selection: {
+        day: 'single',
+      },
+      visibility: {
+        weekend: true,
+      },
+    },
+    actions: {
+      clickDay(event, date) {
+        const selected = date?.date;
+        if (typeof selected === 'string') {
+          const [year, month, day] = selected.split('-');
+          document.getElementById('agendamentos').querySelector('h3').textContent = `Agendamentos para ${day}/${month}/${year}`;
+        }
+      }
+    }
+  });
+  calendar.init();
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker/dist/datepicker.min.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/calendario.js"></script>
+
+</body>
+</html>

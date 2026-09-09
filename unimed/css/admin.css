@@ -1,0 +1,372 @@
+/* === Cores principais Unimed === */
+:root {
+  --unimed-verde: #007A33;
+  --unimed-verde-claro: #22A652;
+  --unimed-verde-medio: #3CA870;
+  --unimed-cinza-claro: #F5F5F5;
+  --unimed-texto: #2C3E50;
+}
+
+/* === Estilo refinado com identidade visual === */
+
+body {
+  background: #f5faf8;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  color: var(--unimed-texto);
+}
+div#agendamentosDoDia {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.card {
+  box-shadow: 0 4px 14px rgb(0 0 0 / 22%) !important;
+  transition: box-shadow 0.3s;
+  /* background: #f5f5f5; */
+  /* border: 1px solid #cccccc78 !important; */
+  color: #1b5264;
+  font-size: 20px;
+  margin: 0 auto;
+  border-bottom: 5px solid #4CAF50;
+  background: linear-gradient(-180deg, #cdd7d9a6 0%, #ffffff 100%);
+}
+
+.card:hover {
+  box-shadow: 0 8px 28px rgba(0, 122, 51, 0.15);
+}
+
+.btn-primary, .btn-success {
+  background: #00BCD4;
+  border: none;
+  color: white;
+  font-weight: 500;
+  transition: background 0.2s ease-in-out;
+  border-radius: 2px;
+  box-shadow: 2px 4px 9px #00000057;
+}
+
+.btn-primary:hover, .btn-success:hover {
+  background: var(--unimed-verde-claro);
+}
+.box-shadow {box-shadow:0px 1px 8px #1c1c1c30 !important;}
+.bg-white {background-color: #fff!important;}
+.table-bordered>:not(caption)>* {border-width:0}
+.table td {
+	
+    padding: 0;
+    height: 44px;
+    vertical-align: middle;
+}
+.table th {
+    background-color: #40b2ac !important;
+    border: 0;
+    color: #ffffff !important;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+.table td:hover {
+    transition: 0.3s;
+}
+.table td {
+    padding: 0;
+    height: 44px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e7e7e7;
+    border-left: 0;
+    border-right: 0;
+    transition: 0.3s;
+}
+.table .btn-outline-success {
+  /* border: none!important; */
+  color: var(--unimed-verde);
+  background: #f5f5f5;
+  background: none;
+  border-radius: 0!important;
+}
+.table.table-bordered tbody tr:nth-child(even) td {
+    background-color: #93afaf21 !important;
+}
+.btn-outline-success:hover {
+  background-color: var(--unimed-verde);
+  color: white;
+}
+
+.badge.bg-warning {
+  background: #f39c12;
+}
+
+.badge.bg-success {
+  background: var(--unimed-verde);
+}
+
+.table-elegante {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 122, 51, 0.05);
+}
+
+.table-elegante thead {
+  background: linear-gradient(to right, #e6f4ec, #f9fbfc);
+}
+
+.table-elegante th {
+  text-align: center;
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--unimed-verde);
+  font-size: 0.95rem;
+  border-bottom: 1px solid #dcdde1;
+}
+
+.table-elegante td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--unimed-texto);
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.table-elegante tr:hover {
+  background: #f8f9fa;
+  transition: background 0.2s ease-in-out;
+}
+td select.form-select {
+    opacity: 0.9;
+    border-radius: 4px;
+    box-shadow: 0px 1px 9px #0000001c;
+    border: 0;
+}
+.table tbody tr:hover td, .table.table-bordered tbody tr:nth-child(even):hover td {
+    background-color: #0673a821 !important;
+    transition: 0.5s;
+}
+.form-control, .select-control {
+  border-radius: 12px;
+  /* color: green; */
+  padding: 0.75rem 1rem;
+  border: 1px solid #607d8b52 !important;
+  border-radius: 2px!important;
+  background: linear-gradient(-180deg, #ebebeb 0%, #ffffff 100%)!important;
+  border-left: 0!important;
+  border-top: 0!important;
+  border-right: 0!important;
+  height: 50px;
+  box-shadow: -1px 0px 12px #00000014;
+}
+
+input:focus, select:focus {
+  border-color: var(--unimed-verde);
+  box-shadow: 0 0 0 2px rgba(0, 122, 51, 0.2);
+}
+
+/* Tabs estilo Unimed */
+.nav-tabs .nav-link {
+  border: none;
+  color: var(--unimed-texto);
+  font-weight: 500;
+  background-color: transparent;
+  padding: 0.75rem 1.5rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: #004a03;
+  border-radius: 0;
+  background: #f5f5f5;
+  border-bottom: 4px solid #4CAF50;
+  box-shadow: 2px 1px 10px #00000033 !important;
+}
+.header {
+	background: linear-gradient(1deg, #009688 0%, #5e7f8f 100%);
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	min-height: 181px;
+}
+.card-header {
+	/* background: linear-gradient(-180deg, #cdd7d9 0%, #ffffff 100%); */
+	min-height: 80px;
+	padding-top: 20px;
+	/* color: #fff; */
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 19px!important;
+	/* border-bottom: 5px solid #4CAF50; */
+	background-color: white;
+}
+.form-label {
+    margin-bottom: .5rem;
+    float: left;
+    color: #0f9389;
+    font-weight: 500;
+    text-align: left;
+}
+.btn-default {
+    background: linear-gradient(360deg, #607D8B 0%, #94a2d3 100%);
+    color: white;
+    font-size: 20px;
+    border: none;
+}
+input:focus, select:focus {box-shadow:none!important}
+h2 {color: #ffffff; font-size:20px}
+.modal-header {
+    background: linear-gradient(1deg, #009688 0%, #5e7f8f 100%);
+    color: white;
+}
+button.btn {
+    border-radius: 2px;
+    box-shadow: 2px 5px 9px #11111170;
+}
+.btn-plus i {
+    font-size: 20px;
+}
+.btn-plus:hover {
+    background: #8BC34A;
+    transition: 0.2s;
+    color: white;
+}
+.btn-filter:hover {
+    background: #5792af;
+    color: white;
+    transition: 0.2s;
+}
+.btn-plus {
+    border-radius: 2px !important;
+    background: #00BCD4;
+    color: #ffffff;
+    border: 0;
+    height: 50px;
+    font-size: 19px;
+    transition: 0.2s;
+}
+td .btn.btn-success {
+    background: #f5a227;
+}
+td .btn {
+    padding: 8px 14px;
+    margin: 5px;
+}
+.btn-filter {background: #607D8B;color:white;height: 48px;}
+.btn.fab {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.modal-body {
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.vanilla-calendar .vanilla-calendar-day {
+    height: 50px!important;
+}
+.vanilla-calendar .vanilla-calendar-week__day {
+    color: #607D8B;
+    font-size: 20px!important;
+}
+.vanilla-calendar .vanilla-calendar-day__btn {
+    color: #0f172a!important;
+    background: #f6f6f6!important;
+    border-radius: 0!important;
+    margin: 2px!important;
+}
+.nav-link {
+    color: #607d8b;
+    font-weight:600;
+}
+.nav-link:focus, .nav-link:hover {
+    color: #FF9800;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #11a39a;
+    border-radius: 2px;
+}
+    #calendar {
+      /* max-width: 420px; */
+      margin: 0 1em;
+      width: 47%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .agendamentos-dia {
+      /* max-width: 420px; */
+      /* margin: 2rem auto 0; */
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+    .agendamento {
+      border-left: 4px solid #4CAF50;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      box-shadow: 2px 2px 14px #cccc;
+      padding: 15px;
+    }
+    .agendamento strong {
+      display: block;
+      color: #333;
+    }
+    .agendamento span {
+      color: #666;
+      font-size: 0.9rem;
+    }
+@media (min-width: 769px) {
+	.desktop-flex {display:flex!important}
+}
+/* Responsividade - Cards no lugar de tabela */
+@media (max-width: 768px) {
+	
+  .btn-filter {margin:20px 0}
+  .desktop-flex .w-100-p {width:105%}
+  .table-elegante {
+    display: none;
+  }
+
+  .card-list .card {
+    box-shadow: 0 2px 10px rgba(0, 122, 51, 0.08);
+    margin-bottom: 1rem;
+	text-align:left
+  }
+	.card-text, label, p, .card-title {text-align:left;font-size: 18px;}
+  .card-list .card .label {
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+
+  .card-list .card .value {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .filtro-container .btn-filter,
+  .filtro-container #addAgendamento {
+    height: 48px;
+  }
+  .form-label.d-block.invisible {display:none!important}
+}
+@media (max-width: 580px) {
+	.filtro {
+		display: flex;
+		flex-direction: column;
+	}
+    .filtro div {
+        width: 100% !important;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+	.table th {
+		padding: 5px!important;
+		font-size: 14px;
+	}
+	.card {width:100%!important}
+	.nav-tabs .nav-link {padding:15px}
+	.h2, h2 {font-size: 20px !important;}
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendário Mensal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f6f8;
+    }
+
+    #calendar {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .agendamentos-dia {
+      max-width: 420px;
+      margin: 2rem auto 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+
+    .agendamento {
+      border-left: 4px solid #1976d2;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .agendamento strong {
+      display: block;
+      color: #333;
+    }
+
+    .agendamento span {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="calendar"></div>
+
+  <div class="agendamentos-dia" id="agendamentos">
+    <h3>Agendamentos para 26 de Maio</h3>
+    <div class="agendamento">
+      <strong>8:00 - Agenda Unimed Recife - CDUR</strong>
+      <span>Com Agendamento TLS | DR Cargo | Armazenna 6</span>
+    </div>
+    <div class="agendamento">
+      <strong>8:15 - Agenda Unimed Recife - CDUR</strong>
+      <span>Com Agendamento TLS | B.BRAUN | Armazenna 6</span>
+    </div>
+    <div class="agendamento">
+      <strong>8:30 - Agenda Unimed Recife - CDUR</strong>
+      <span>Com Agendamento TLS | B.BRAUN | Armazenna 6</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.js"></script>
+  <script>
+    const calendar = new VanillaCalendar('#calendar', {
+      settings: {
+        lang: 'pt-br',
+        selection: {
+          day: 'single',
+        },
+        visibility: {
+          weekend: true,
+        },
+      },
+      actions: {
+        clickDay(event, date) {
+          console.log('Dia clicado:', date);
+          document.getElementById('agendamentos').querySelector('h3').textContent = `Agendamentos para ${date.split('-').reverse().join('/')}`;
+        }
+      }
+    });
+
+    calendar.init();
+  </script>
+
+</body>
+</html>

@@ -1645,6 +1645,15 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
     <p class="corporate-access-note"><i class="bi bi-shield-lock" aria-hidden="true"></i><span><strong>Prévia ilustrativa:</strong> as intranets reais têm acesso restrito. As informações exibidas nestas imagens são fictícias e servem apenas para demonstrar o design, sem apresentar dados reais dos ambientes internos.</span></p>
 
     <div class="compact-grid">
+      <a class="compact-card no-lightbox" href="unimed/index.html" target="_blank" rel="noopener noreferrer">
+        <div class="compact-thumb"><img src="thumbs/unimed-agendamento.jpg" alt="Protótipo Unimed de agendamento de entregas" loading="lazy"></div>
+        <div class="compact-body"><p class="compact-title">Unimed — Agendamento</p><p class="compact-sub">Sistema de agendamento · Abrir protótipo ↗</p></div>
+      </a>
+      <a class="compact-card no-lightbox" href="fqm/index.html" target="_blank" rel="noopener noreferrer">
+        <div class="compact-thumb"><img src="thumbs/fqm-desenvolvimento.jpg" alt="Home do Portal do Desenvolvimento FQM" loading="lazy"></div>
+        <div class="compact-body"><p class="compact-title">Portal do Desenvolvimento FQM</p><p class="compact-sub">SharePoint Modern · Abrir protótipo ↗</p></div>
+      </a>
+
 
       <a class="compact-card" href="layouts/FQM-1.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/fqm-1.jpg" alt="Intranet corporativa FQM Farmoquímica"></div>
@@ -2192,7 +2201,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 </dialog>
 <script>
 (function(){
-  const groups=[ [...document.querySelectorAll('.js-featured-preview')], [...document.querySelectorAll('#intranets .compact-card')], [...document.querySelectorAll('.section-behance-latest .behance-project:not(.no-lightbox)')], [...document.querySelectorAll('#ilustracao .behance-project')] ];
+  const groups=[ [...document.querySelectorAll('.js-featured-preview')], [...document.querySelectorAll('#intranets .compact-card:not(.no-lightbox)')], [...document.querySelectorAll('.section-behance-latest .behance-project:not(.no-lightbox)')], [...document.querySelectorAll('#ilustracao .behance-project')] ];
   let links=groups[0];
   const dialog=document.querySelector('.project-lightbox'), picture=dialog.querySelector('img'), viewer=dialog.querySelector('.project-lightbox-view');
   let current=0,trigger=null,previousOverflow='';
