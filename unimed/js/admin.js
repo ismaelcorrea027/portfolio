@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
       empresa = cells[0]?.textContent.trim();
       data = cells[1]?.textContent.trim().split("/").reverse().join("-");
       hora = cells[2]?.textContent.trim();
-      status = cells[3]?.textContent.trim();
-      volumes = cells[4]?.textContent.trim();
+      status = origem.querySelector("select")?.value;
+      volumes = cells[5]?.textContent.trim();
     } else if (origem.classList.contains("card-agendamento")) {
       empresa = origem.querySelector(".ag-empresa")?.textContent.trim();
       data = origem.querySelector(".ag-data")?.textContent.trim().split("/").reverse().join("-");
       hora = origem.querySelector(".ag-hora")?.textContent.trim();
-      status = origem.querySelector(".ag-status")?.textContent.trim();
+      status = origem.querySelector(".ag-status")?.value;
       volumes = origem.querySelector(".ag-volumes")?.textContent.trim();
     }
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("modalNomeUsuario").value = nome || "";
     document.getElementById("modalEmailUsuario").value = email || "";
-    document.getElementById("modalTipoUsuario").value = tipo || "";
+    document.getElementById("modalTipoUsuario").value = (tipo === "administrador" ? "admin" : tipo) || "";
 
     atualizarVisibilidadeFornecedor();
 
@@ -193,9 +193,9 @@ document.querySelectorAll(".card-usuario .btn-editar-usuario").forEach(botao => 
     document.querySelectorAll("#tabelaAgendamentos tbody tr").forEach(row => {
       const empresa = row.cells[0].textContent.toLowerCase();
       const data = row.cells[1].textContent;
-      const status = row.cells[3].textContent.toLowerCase();
+      const status = row.querySelector("select")?.value.toLowerCase() || "";
 
-      const dataOK = !dataFiltro || data === new Date(dataFiltro).toLocaleDateString("pt-BR");
+      const dataOK = !dataFiltro || data === dataFiltro.split("-").reverse().join("/");
       const empresaOK = !empresaFiltro || empresa.includes(empresaFiltro);
       const statusOK = !statusFiltro || statusFiltro === "todos" || status.includes(statusFiltro);
 
