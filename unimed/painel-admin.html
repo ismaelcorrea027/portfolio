@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<html lang="pt-br"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agendamento</title>
+  <title>Unimed | Painel administrativo</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker/dist/datepicker.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/grid_full.min.css">
   <link rel="stylesheet" href="css/admin.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css">
+  
 
-</head>
-<body>
+<link rel="stylesheet" href="css/admin-responsive.css"></head>
+<body class="admin-app">
 <div class="flex column center w-100-p">
-  <div class="header h-80 w-100-p"></div>
-  <div class="w-90-p flex vertical-center space-between">
-    <div class="logo"><img class="w-200" src="img/unimed-grey.png" /></div>
-    <h2 class="mb-4 mt-4">Painel do Administrador</h2>
-  </div>
-  <div class="w-90-p mt-0 my-5 bg-white box-shadow p-20">
+  
+  <div class="admin-top"><div class="admin-brand"><img src="img/logo.png" alt="Unimed"><span>SISTEMA DE AGENDAMENTO</span></div><div class="admin-heading"><div><p>GESTÃO E OPERAÇÕES</p><h1>Painel do administrador</h1><span>Organize as entregas e gerencie os acessos em um só lugar.</span></div><span class="admin-profile"><i class="bi bi-person-circle" aria-hidden="true"></i> Administrador</span></div></div>
+  <div class="w-90-p mt-0 my-5 bg-white box-shadow p-20 admin-panel">
     <!-- Tabs principais -->
     <ul class="nav nav-tabs" id="adminTabs" role="tablist">
       <li class="nav-item" role="presentation">
@@ -60,7 +56,9 @@
 			<i class="bi bi-funnel-fill me-1"></i> Filtros
 		  </button>
 
-		  <div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block">
+		  <div class="admin-actions"><button id="addAgendamento" class="btn btn-plus w-100">
+					  <i class="bi bi-plus me-2"></i> Novo Agendamento
+					</button></div><div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block">
 				<div class="row w-100-p">
 				  <div class="col-12 col-md-3">
 					<label for="filtroEmpresa" class="form-label">Empresa</label>
@@ -88,19 +86,14 @@
 				  </div>
 				</div>
 				
-				  <div class="col-12 col-md-2">
-					<label class="form-label d-block invisible">.</label>
-					<button id="addAgendamento" class="btn btn-plus w-100">
-					  <i class="bi bi-plus me-2"></i> Novo Agendamento
-					</button>
-				  </div>
+				  
 				  
 			</div>
 		</div>
 	
 
 		<!-- Tabela de Agendamentos -->
-		<table id="tabelaAgendamentos" class="table table-bordered table-striped d-none d-md-table">
+		<div class="table-responsive"><table id="tabelaAgendamentos" class="table table-bordered table-striped d-none d-md-table">
   <thead class="table-light">
     <tr>
       <th>Empresa</th>
@@ -121,14 +114,14 @@
       <td>
         <select class="form-select status-select">
           <option value="pendente">Pendente</option>
-          <option value="confirmado" selected>Confirmado</option>
+          <option value="confirmado" selected="">Confirmado</option>
           <option value="cancelado">Cancelado</option>
-          <option value="rejeitado" >Rejeitado</option>
+          <option value="rejeitado">Rejeitado</option>
         </select>
       </td>
       <td>30</td>
       <td>
-        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill"></i></button>
+        <button type="button" class="btn fab btn-sm btn-success" aria-label="Editar"><i class="bi bi-pencil-fill"></i></button>
       </td>
     </tr>
 	    <tr>
@@ -138,7 +131,7 @@
 	  <td>16:00</td>
       <td>
         <select class="form-select status-select">
-          <option value="pendente" selected>Pendente</option>
+          <option value="pendente" selected="">Pendente</option>
           <option value="confirmado">Confirmado</option>
           <option value="cancelado">Cancelado</option>
           <option value="rejeitado">Rejeitado</option>
@@ -146,7 +139,7 @@
       </td>
       <td>4</td>
       <td>
-        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill "></i></button>
+        <button type="button" class="btn fab btn-sm btn-success" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
       </td>
     </tr>
 	    <tr>
@@ -156,15 +149,15 @@
 	  <td>11:00</td>
       <td>
         <select class="form-select status-select">
-          <option value="pendente" >Pendente</option>
-          <option value="confirmado" selected>Confirmado</option>
+          <option value="pendente">Pendente</option>
+          <option value="confirmado" selected="">Confirmado</option>
           <option value="cancelado">Cancelado</option>
           <option value="rejeitado">Rejeitado</option>
         </select>
       </td>
       <td>5</td>
       <td>
-        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill "></i></button>
+        <button type="button" class="btn fab btn-sm btn-success" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
       </td>
     </tr>
     <tr>
@@ -177,12 +170,12 @@
           <option value="pendente">Pendente</option>
           <option value="confirmado">Confirmado</option>
           <option value="cancelado">Cancelado</option>
-          <option value="rejeitado" selected>Rejeitado</option>
+          <option value="rejeitado" selected="">Rejeitado</option>
         </select>
       </td>
       <td>2</td>
       <td>
-        <button type="button" class="btn fab btn-sm btn-success"><i class="bi bi-pencil-fill "></i></button>
+        <button type="button" class="btn fab btn-sm btn-success" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
       </td>
     </tr>
 	    <tr>
@@ -192,7 +185,7 @@
 	  <td>12:00</td>
       <td>
         <select class="form-select status-select">
-          <option value="pendente" selected>Pendente</option>
+          <option value="pendente" selected="">Pendente</option>
           <option value="confirmado">Confirmado</option>
           <option value="cancelado">Cancelado</option>
           <option value="rejeitado">Rejeitado</option>
@@ -200,7 +193,7 @@
       </td>
       <td>10</td>
       <td>
-        <button type="button" class="btn btn-sm fab btn-success"><i class="bi bi-pencil-fill "></i></button>
+        <button type="button" class="btn btn-sm fab btn-success" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
       </td>
     </tr>
 	    <tr>
@@ -210,21 +203,21 @@
 	  <td>14:00</td>
       <td>
         <select class="form-select status-select">
-          <option value="pendente" >Pendente</option>
-          <option value="confirmado" selected>Confirmado</option>
+          <option value="pendente">Pendente</option>
+          <option value="confirmado" selected="">Confirmado</option>
           <option value="cancelado">Cancelado</option>
           <option value="rejeitado">Rejeitado</option>
         </select>
       </td>
       <td>20</td>
       <td>
-        <button type="button" class="btn btn-sm fab btn-success"><i class="bi bi-pencil-fill "></i></button>
+        <button type="button" class="btn btn-sm fab btn-success" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
       </td>
     </tr>
 	
     <!-- Outras linhas podem ser adicionadas aqui -->
   </tbody>
-</table>
+</table></div>
    
 		<!-- CARDS Versão Mobile-->
 		<div class="d-md-none">
@@ -242,16 +235,16 @@
 				<strong>Status:</strong><br>
 				<select class="form-select status-select select-control">
 				  <option value="pendente">Pendente</option>
-				  <option value="confirmado" selected>Confirmado</option>
+				  <option value="confirmado" selected="">Confirmado</option>
 				  <option value="cancelado">Cancelado</option>
 				  <option value="rejeitado">Rejeitado</option>
 				</select>
 			  </p>
 			  <div class="text-end mt-2">
-				<button type="button" class="btn fab btn-sm btn-success btn-editar-agendamento">
+				<button type="button" class="btn fab btn-sm btn-success btn-editar-agendamento" aria-label="Editar">
 				  <i class="bi bi-pencil-fill"></i>
 				</button>				
-				<button class="btn fab btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+				<button class="btn fab btn-sm btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill"></i></button>
 			  </div>
 			</div>
 		  </div>
@@ -268,16 +261,16 @@
 				<strong>Status:</strong><br>
 				<select class="form-select status-select select-control">
 				  <option value="pendente">Pendente</option>
-				  <option value="confirmado" selected>Confirmado</option>
+				  <option value="confirmado" selected="">Confirmado</option>
 				  <option value="cancelado">Cancelado</option>
 				  <option value="rejeitado">Rejeitado</option>
 				</select>
 			  </p>
 			  <div class="text-end mt-2">
-				<button type="button" class="btn fab btn-sm btn-success btn-editar-agendamento">
+				<button type="button" class="btn fab btn-sm btn-success btn-editar-agendamento" aria-label="Editar">
 				  <i class="bi bi-pencil-fill"></i>
 				</button>				
-				<button class="btn fab btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+				<button class="btn fab btn-sm btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill"></i></button>
 			  </div>
 			</div>
 		  </div>
@@ -294,9 +287,9 @@
 
           <!-- Conteúdo da subaba Calendário -->
           <div class="tab-pane fade" id="calendario-agendamentos" role="tabpanel">
-			  <div class="flex row w-100-p">
+			  <div class="calendar-layout">
 				<div id="calendar" class="w-50-p"></div>
-				<div class="agendamentos-dia w-50-p" id="agendamentos">
+				<div class="agendamentos-dia w-50-p" id="agendaDia">
 				  <h3>Agendamentos para 26 de Maio</h3>
 				  <div class="agendamento">
 					<strong>8:00 - Agenda Unimed Recife - CDUR</strong>
@@ -319,11 +312,13 @@
       <!-- Aba Usuários -->
       <div class="tab-pane fade" id="usuarios" role="tabpanel">
        <!-- Botão para mobile -->
-	  <button class="btn btn-filter btn-outline-secondary w-100 mb-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosAccordion" aria-expanded="false" aria-controls="filtrosAccordion">
+	  <button class="btn btn-filter btn-outline-secondary w-100 mb-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#filtrosUsuarios" aria-expanded="false" aria-controls="filtrosUsuarios">
 		<i class="bi bi-funnel-fill me-1"></i> Filtros
 	  </button>
 
-	  <div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block mb-20">
+	  <div class="admin-actions"><button id="addUsuario" class="btn btn-plus w-100">
+				  <i class="bi bi-plus me-2"></i> Novo Usuário
+				</button></div><div id="filtrosUsuarios" class="desktop-flex space-between collapse d-md-block mb-20">
 		<div class="row w-100-p">
 			  <div class="col-12 col-md-3">
 				<label class="form-label">Nome do usuário</label>
@@ -331,7 +326,7 @@
 			  </div>
 			  <div class="col-6 col-md-2">
 				  <label class="form-label">E-mail</label>
-				  <input type="email" class="form-control" placeholder="email@dominio.com">
+				  <input type="email" class="form-control" placeholder="email@dominio.com" id="filtroEmailUsuario">
 			  </div>
 			  <div class="col-6 col-md-2">
 				<label class="form-label">Tipo de usuário</label>
@@ -339,7 +334,7 @@
 				  <option value="">Todos os tipos</option>
 				  <option value="admin">Administrador</option>
 				  <option value="editor">Editor</option>
-				</select>
+				<option value="fornecedor">Fornecedor</option></select>
 			  </div>
 						
 			  <div class="col-12 col-md-2">
@@ -349,12 +344,7 @@
 				</button>
 			  </div>
 		  </div>
-			<div class="col-12 col-md-2">
-				<label class="form-label d-block invisible">.</label>
-				<button id="addUsuario" class="btn btn-plus w-100">
-				  <i class="bi bi-plus me-2"></i> Novo Usuário
-				</button>
-		    </div>
+			
 		  
 
 		</div>
@@ -373,7 +363,7 @@
 				<button type="button" class="btn fab btn-sm btn-success btn-editar-usuario" aria-label="Editar usuário">
 				  <i class="bi bi-pencil-fill"></i>
 				</button>                
-				<button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+				<button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
             </div>
           </div>
         </div>
@@ -387,8 +377,8 @@
           <div class="card-body">
 
             <div class="text-end mt-2">
-			  <button type="button" class="btn  fab btn-sm btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
-                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+			  <button type="button" class="btn  fab btn-sm btn-success btn-editar-usuario" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
             </div>
           </div>
         </div>
@@ -406,7 +396,7 @@
 				<button type="button" class="btn fab btn-sm btn-success btn-editar-usuario" aria-label="Editar usuário">
 				  <i class="bi bi-pencil-fill"></i>
 				</button>                
-				<button class="btn fab btn-sm btn-danger"><i class="bi bi-trash-fill "></i></button>
+				<button class="btn fab btn-sm btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
             </div>
           </div>
         </div>
@@ -429,8 +419,8 @@
               <td>vcorrea88@empresa.com</td>
               <td>Fornecedor</td>
               <td>
-			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
-                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
               </td>
             </tr>
 			<tr>
@@ -438,8 +428,8 @@
               <td>joao@empresa.com</td>
               <td>Editor</td>
               <td>
-			  <button type="button" class="btn fab btn-sm btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
-                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+			  <button type="button" class="btn fab btn-sm btn-success btn-editar-usuario" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
               </td>
             </tr>
 			<tr>
@@ -447,8 +437,8 @@
               <td>ed.oliveira35@empresa.com</td>
               <td>Administrador</td>
               <td>
-			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
-                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
               </td>
             </tr>
 			<tr>
@@ -456,8 +446,8 @@
               <td>paulo@empresa.com</td>
               <td>Fornecedor</td>
               <td>
-			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
-                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+			  <button type="button" class="btn btn-sm fab btn-success btn-editar-usuario" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
               </td>
             </tr>
 			<tr>
@@ -465,8 +455,8 @@
               <td>matheus_costa@empresa.com</td>
               <td>Administrador</td>
               <td>
-			  <button type="button" class="btn fab btn-sm btn-success btn-editar-usuario"><i class="bi bi-pencil-fill "></i></button>
-                <button class="btn btn-sm fab btn-danger"><i class="bi bi-trash-fill "></i></button>
+			  <button type="button" class="btn fab btn-sm btn-success btn-editar-usuario" aria-label="Editar"><i class="bi bi-pencil-fill "></i></button>
+                <button class="btn btn-sm fab btn-danger" aria-label="Excluir"><i class="bi bi-trash-fill "></i></button>
               </td>
             </tr>
           </tbody>
@@ -489,15 +479,15 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="modalEmpresa" class="form-label">Empresa</label>
-            <input type="text" id="modalEmpresa" class="form-control" />
+            <input type="text" id="modalEmpresa" class="form-control">
           </div>
           <div class="mb-3">
             <label for="modalData" class="form-label">Data</label>
-            <input type="date" id="modalData" class="form-control" />
+            <input type="date" id="modalData" class="form-control">
           </div>
           <div class="mb-3">
             <label for="modalHora" class="form-label">Hora</label>
-            <input type="time" id="modalHora" class="form-control" />
+            <input type="time" id="modalHora" class="form-control">
           </div>
           <div class="mb-3">
             <label for="modalStatus" class="form-label">Status</label>
@@ -510,7 +500,7 @@
           </div>
           <div class="mb-3">
             <label for="modalVolumes" class="form-label">Volumes</label>
-            <input type="number" id="modalVolumes" class="form-control" />
+            <input type="number" id="modalVolumes" class="form-control">
           </div>
 		  <div class="mb-3 flex column">
 			  <label class="form-label">Chaves de Acesso da NF-e</label>
@@ -542,19 +532,19 @@
         <form id="formEdicaoUsuario">
           <div class="mb-3">
             <label for="modalNomeUsuario" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="modalNomeUsuario" required>
+            <input type="text" class="form-control" id="modalNomeUsuario" required="">
           </div>
 		  <div class="mb-3">
-            <label for="modalNomeUsuario" class="form-label">CPF</label>
-            <input type="text" class="form-control" id="modalCPFUsuario" required>
+            <label for="modalCPFUsuario" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="modalCPFUsuario" required="">
           </div>
           <div class="mb-3">
             <label for="modalEmailUsuario" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="modalEmailUsuario" required>
+            <input type="email" class="form-control" id="modalEmailUsuario" required="">
           </div>
           <div class="mb-3">
             <label for="modalTipoUsuario" class="form-label">Tipo</label>
-            <select class="form-select select-control" id="modalTipoUsuario" required>
+            <select class="form-select select-control" id="modalTipoUsuario" required="">
               <option value="">Selecione...</option>
               <option value="admin">Administrador</option>
               <option value="editor">Editor</option>
@@ -615,36 +605,15 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.js"></script>
-<script>
-  const calendar = new VanillaCalendar('#calendar', {
-    settings: {
-      lang: 'pt-br',
-      selection: {
-        day: 'single',
-      },
-      visibility: {
-        weekend: true,
-      },
-    },
-    actions: {
-      clickDay(event, date) {
-        const selected = date?.date;
-        if (typeof selected === 'string') {
-          const [year, month, day] = selected.split('-');
-          document.getElementById('agendamentos').querySelector('h3').textContent = `Agendamentos para ${day}/${month}/${year}`;
-        }
-      }
-    }
-  });
-  calendar.init();
-</script>
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker/dist/datepicker.min.js"></script>
-<script src="js/admin.js"></script>
-<script src="js/calendario.js"></script>
+<script src="js/admin-responsive.js"></script><script src="js/admin.js"></script>
 
-</body>
-</html>
+
+
+
+</body></html>
