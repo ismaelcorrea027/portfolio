@@ -64,9 +64,9 @@
 			  <option value="2">Fevereiro</option>
 			  <option value="3">Março</option>
 			</select>
-			<button type="button" class="btn btn-outline-secondary">Gerar Reservas</button>
+			<button type="button" class="btn btn-montaury-outline">Gerar Reservas</button>
 			<div class="float-right">
-				<button type="button" class="btn btn-outline-secondary">Salvar</button>
+				<button type="button" class="btn btn-montaury-solid">Salvar</button>
 			</div>
 		</div>	
 		<div class="container d-flex flex-wrap justify-content-center align-items-center align-self-center">
@@ -323,9 +323,39 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var row = $("tr.repeat");
-		for (var i = 0; i < 21; i++) {
-			$("tbody").append(row.clone());
+		var nomes = [
+			"Ana Beatriz Ramos", "Bruno Carvalho Lima", "Camila Duarte Souza", "Diego Ferreira Alves",
+			"Elisa Martins Rocha", "Fabio Andrade Costa", "Gabriela Pinto Nunes", "Henrique Barros Teixeira",
+			"Isabela Cunha Moreira", "Joao Pedro Farias", "Karina Lopes Vieira", "Leonardo Nogueira Dias",
+			"Mariana Castro Freitas", "Nicolas Azevedo Reis", "Olivia Correia Pires", "Paulo Henrique Matos",
+			"Renata Siqueira Brito", "Sergio Monteiro Batista", "Tatiane Oliveira Guedes", "Vinicius Almeida Rezende",
+			"Wagner Cardoso Peixoto", "Yasmin Tavares Fonseca"
+		];
+		var equipes = ["A", "B"];
+		var $linhaBase = $("tr.repeat");
+		var $tbody = $linhaBase.closest("tbody");
+
+		function preencherLinha($linha, indice, aleatorio) {
+			$linha.find("td").eq(0).text(nomes[indice] || ("Colaborador " + (indice + 1)));
+			$linha.find("td").eq(1).text(equipes[indice % 2]);
+
+			var diasTrabalhados = 0;
+			$linha.find("input[type=checkbox]").each(function(i) {
+				var novoId = "checkbox_" + indice + "_" + i;
+				var marcado = aleatorio ? (Math.random() < 0.55) : $(this).prop("checked");
+				$(this).attr("id", novoId).prop("checked", marcado);
+				$(this).next("label").attr("for", novoId);
+				if (marcado) diasTrabalhados++;
+			});
+			$linha.find("td").last().text(diasTrabalhados + " dias");
+		}
+
+		preencherLinha($linhaBase, 0, false);
+
+		for (var i = 1; i < 22; i++) {
+			var $clone = $linhaBase.clone();
+			preencherLinha($clone, i, true);
+			$tbody.append($clone);
 		}
 
 	});
