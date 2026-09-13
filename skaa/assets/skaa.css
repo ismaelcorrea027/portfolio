@@ -16,3 +16,12 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}:root{--red:#b40832;--navy:#
 @media(max-width:760px){.hero .tile-title{font-size:24px;}.hero .primary .caption h2{font-size:36px;}}
 
 .people .portrait{height:auto;aspect-ratio:1;overflow:hidden}.people .portrait img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s}.people article:hover .portrait img{transform:scale(1.035)}
+
+/* Keep the content canvas distinct from the outer SharePoint gutters. */
+body{background:#e7eaf0;}
+.page{background:#fff;box-shadow:0 0 0 1px #dce1e8;}
+.workspace,#links,.birthdays{background:#fff;}
+.birthdays{border-top:1px solid #e5e8ed;}
+.event,.resources button{background:#f8f9fb;}
+.event.featured{background:#fff;}
+.people article{border:1px solid #e7eaf0;}
