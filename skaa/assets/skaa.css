@@ -25,3 +25,5 @@ body{background:#e7eaf0;}
 .event,.resources button{background:#f8f9fb;}
 .event.featured{background:#fff;}
 .people article{border:1px solid #e7eaf0;}
+
+.page{padding:0;max-width:1700px;}
