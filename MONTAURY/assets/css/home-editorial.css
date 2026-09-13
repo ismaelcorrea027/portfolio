@@ -20,7 +20,7 @@
 .quick-card{position:relative;height:420px;overflow:hidden;border-radius:4px;background:#221b16;box-shadow:0 10px 25px #382a1512;transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s;isolation:isolate;}
 .quick-card .image-hover{position:absolute!important;inset:0;height:100%;overflow:hidden;}
 .quick-card .image-hover img{width:100%;height:100%;object-fit:cover;filter:none;transition:transform 1.2s cubic-bezier(.22,1,.36,1),filter .7s;}
-.quick-card .image-hover::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#17120ff5, #17120f80 43%,transparent 80%);}
+.quick-card .image-hover::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.98) 0%,rgba(0,0,0,.90) 22%,rgba(0,0,0,.65) 40%,rgba(0,0,0,.16) 65%,transparent 85%);pointer-events:none;}
 .quick-card .thumb-title{left:24px;bottom:155px;padding:0;background:none;color:#f0d4a6;font-size:12px;letter-spacing:.15em;}
 .quick-card p{position:absolute;bottom:57px;left:24px;right:24px;color:#fff!important;font-size:16px!important;line-height:1.55;margin:0!important;padding:0!important;}
 .quick-card>.btn{position:absolute;bottom:20px;left:24px;right:24px;margin:0!important;padding:10px 0 0!important;border:0;border-top:1px solid #ffffff38;border-radius:0;background:none!important;color:#eacb9b!important;text-align:left;font-size:13px;}
