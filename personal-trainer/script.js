@@ -256,12 +256,13 @@ const paginationButtons = galleryPhotos.map((photo, index) => {
   return button;
 });
 async function showPhoto(index) {
+  const direction = index < photoIndex ? -1 : 1;
   photoIndex = (index + galleryPhotos.length) % galleryPhotos.length;
   const selectedIndex = photoIndex;
   const photo = galleryPhotos[photoIndex];
   const request = ++photoRequest;
-  photoExpanded.hidden = true;
-  photoLoading.hidden = false;
+  // Keep the current image visible while the next one is decoded.
+  photoLoading.hidden = !photoExpanded.hidden;
   photoError.hidden = true;
   photoStage.setAttribute('aria-busy', 'true');
   photoCounter.textContent = `${String(photoIndex + 1).padStart(2, '0')} / ${galleryPhotos.length}`;
@@ -277,8 +278,30 @@ async function showPhoto(index) {
     loaded.src = photo.src;
     await loaded.decode();
     if (request !== photoRequest || !photoDialog.open) return;
+    photoStage.querySelectorAll('.photo-outgoing').forEach(el => el.remove());
+    photoExpanded.getAnimations().forEach(animation => animation.cancel());
+    const hasPrevious = !photoExpanded.hidden && photoExpanded.getAttribute('src') !== photo.src;
+    if (!reducedMotion.matches && hasPrevious) {
+      const outgoing = photoExpanded.cloneNode();
+      outgoing.removeAttribute('id');
+      outgoing.className = 'photo-outgoing';
+      outgoing.alt = '';
+      outgoing.setAttribute('aria-hidden', 'true');
+      photoStage.prepend(outgoing);
+      const exit = outgoing.animate([
+        {opacity:1, transform:'translateX(0) scale(1)'},
+        {opacity:0, transform:`translateX(${-direction * 45}px) scale(1.025)`}
+      ], {duration:650, easing:'cubic-bezier(.22,1,.36,1)', fill:'forwards'});
+      exit.finished.then(() => outgoing.remove()).catch(() => outgoing.remove());
+    }
     photoExpanded.src = photo.src;
     photoExpanded.alt = photo.alt;
+    if (!reducedMotion.matches) {
+      photoExpanded.animate([
+        {opacity:0, transform:`translateX(${direction * 45}px) scale(1.035)`},
+        {opacity:1, transform:'translateX(0) scale(1)'}
+      ], {duration:750, easing:'cubic-bezier(.22,1,.36,1)'});
+    }
     photoExpanded.hidden = false;
     photoLoading.hidden = true;
     photoStage.setAttribute('aria-busy', 'false');
@@ -297,6 +320,7 @@ async function showPhoto(index) {
 function openGallery(index, trigger) {
   photoTrigger = trigger;
   previousBodyOverflow = document.body.style.overflow;
+  photoExpanded.hidden = true;
   photoDialog.showModal();
   document.body.style.overflow = 'hidden';
   showPhoto(index);
@@ -324,6 +348,8 @@ photoDialog.addEventListener('click', event => {
 });
 photoDialog.addEventListener('close', () => {
   photoRequest++;
+  photoStage.querySelectorAll('.photo-outgoing').forEach(el => el.remove());
+  photoExpanded.getAnimations().forEach(animation => animation.cancel());
   document.body.style.overflow = previousBodyOverflow;
   photoTrigger?.focus();
 });
