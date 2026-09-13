@@ -222,17 +222,108 @@ document.querySelector('#download-message').addEventListener('click', () => {
 document.querySelector('#newsletter-form').addEventListener('submit', e => { e.preventDefault(); document.querySelector('#newsletter-status').textContent = 'Demonstração concluída. Seu e-mail não foi cadastrado nem armazenado.'; e.target.reset(); });
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-// Native image modal: keyboard dismissal, backdrop dismissal, and focus restoration.
+// Paginated native gallery. Assets are loaded on demand; the page keeps three previews.
 const photoDialog = document.querySelector('#photo-dialog');
+const photoExpanded = document.querySelector('#photo-expanded');
+const photoStage = photoDialog.querySelector('.photo-stage');
+const photoCaption = document.querySelector('#photo-caption');
+const photoCounter = document.querySelector('#photo-counter');
+const photoPagination = document.querySelector('#photo-pagination');
+const photoLoading = photoDialog.querySelector('.photo-loading');
+const photoError = photoDialog.querySelector('.photo-error');
+const photoPreviews = [...document.querySelectorAll('[data-photo]')];
+const galleryPhotos = [
+  ...photoPreviews.map(button => ({src:button.dataset.photo, caption:button.dataset.caption, alt:button.querySelector('img').alt})),
+  {src:'assets/marina-agachamento.webp', caption:'Força e controle — agachamento com halter', alt:'Marina realizando agachamento com um halter junto ao peito'},
+  {src:'assets/marina-aluna-halteres.webp', caption:'Atenção a cada movimento — orientação com halteres', alt:'Marina orientando uma aluna adulta durante um exercício com halteres'},
+  {src:'assets/marina-aluno-remada.webp', caption:'Técnica em primeiro lugar — acompanhamento na remada', alt:'Marina orientando um aluno adulto na remada sentada na máquina'},
+  {src:'assets/marina-bike.webp', caption:'Condicionamento com propósito — treino na bicicleta', alt:'Marina treinando em uma bicicleta ergométrica na academia'},
+  {src:'assets/marina-aluna-agachamento.webp', caption:'Evolução lado a lado — orientação de agachamento', alt:'Marina acompanhando uma aluna adulta em um agachamento sem carga'},
+  {src:'assets/marina-aluno-mobilidade.webp', caption:'Mobilidade com atenção — exercício com faixa elástica', alt:'Marina demonstrando um exercício de mobilidade ao lado de um aluno adulto'},
+  {src:'assets/marina-prancha.webp', caption:'Estabilidade e presença — prancha no solo', alt:'Marina realizando prancha sobre os antebraços em um colchonete'}
+];
+let photoIndex = 0;
 let photoTrigger;
-document.querySelectorAll('[data-photo]').forEach(button => button.addEventListener('click', () => {
-  photoTrigger = button;
-  document.querySelector('#photo-expanded').src = button.dataset.photo;
-  document.querySelector('#photo-expanded').alt = button.querySelector('img').alt;
-  document.querySelector('#photo-caption').textContent = button.dataset.caption;
+let photoRequest = 0;
+let previousBodyOverflow = '';
+const paginationButtons = galleryPhotos.map((photo, index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = String(index + 1).padStart(2, '0');
+  button.setAttribute('aria-label', `Foto ${index + 1}: ${photo.caption}`);
+  button.addEventListener('click', () => showPhoto(index));
+  photoPagination.append(button);
+  return button;
+});
+async function showPhoto(index) {
+  photoIndex = (index + galleryPhotos.length) % galleryPhotos.length;
+  const selectedIndex = photoIndex;
+  const photo = galleryPhotos[photoIndex];
+  const request = ++photoRequest;
+  photoExpanded.hidden = true;
+  photoLoading.hidden = false;
+  photoError.hidden = true;
+  photoStage.setAttribute('aria-busy', 'true');
+  photoCounter.textContent = `${String(photoIndex + 1).padStart(2, '0')} / ${galleryPhotos.length}`;
+  photoCounter.setAttribute('aria-label', `Foto ${photoIndex + 1} de ${galleryPhotos.length}`);
+  photoCaption.textContent = photo.caption;
+  paginationButtons.forEach((button, i) => {
+    button.classList.toggle('active', i === photoIndex);
+    if (i === photoIndex) button.setAttribute('aria-current', 'true');
+    else button.removeAttribute('aria-current');
+  });
+  try {
+    const loaded = new Image();
+    loaded.src = photo.src;
+    await loaded.decode();
+    if (request !== photoRequest || !photoDialog.open) return;
+    photoExpanded.src = photo.src;
+    photoExpanded.alt = photo.alt;
+    photoExpanded.hidden = false;
+    photoLoading.hidden = true;
+    photoStage.setAttribute('aria-busy', 'false');
+    // Warm only the adjacent images; don't download all ten on the initial page view.
+    [-1, 1].forEach(direction => {
+      const neighbor = new Image();
+      neighbor.src = galleryPhotos[(selectedIndex + direction + galleryPhotos.length) % galleryPhotos.length].src;
+    });
+  } catch {
+    if (request !== photoRequest || !photoDialog.open) return;
+    photoLoading.hidden = true;
+    photoError.hidden = false;
+    photoStage.setAttribute('aria-busy', 'false');
+  }
+}
+function openGallery(index, trigger) {
+  photoTrigger = trigger;
+  previousBodyOverflow = document.body.style.overflow;
   photoDialog.showModal();
   document.body.style.overflow = 'hidden';
-}));
+  showPhoto(index);
+  photoDialog.querySelector('.photo-close').focus();
+}
+photoPreviews.forEach((button, i) => button.addEventListener('click', () => openGallery(i, button)));
+document.querySelector('#gallery-more').addEventListener('click', event => openGallery(0, event.currentTarget));
 photoDialog.querySelector('.photo-close').addEventListener('click', () => photoDialog.close());
-photoDialog.addEventListener('click', event => { if (event.target === photoDialog) { const bounds = photoDialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) photoDialog.close(); } });
-photoDialog.addEventListener('close', () => { document.body.style.overflow = ''; photoTrigger?.focus(); });
+photoDialog.querySelector('.photo-prev').addEventListener('click', () => showPhoto(photoIndex - 1));
+photoDialog.querySelector('.photo-next').addEventListener('click', () => showPhoto(photoIndex + 1));
+document.querySelector('#photo-retry').addEventListener('click', () => showPhoto(photoIndex));
+photoDialog.addEventListener('keydown', event => {
+  if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+  event.preventDefault();
+  event.stopPropagation();
+  if (event.key === 'Home') showPhoto(0);
+  else if (event.key === 'End') showPhoto(galleryPhotos.length - 1);
+  else showPhoto(photoIndex + (event.key === 'ArrowRight' ? 1 : -1));
+});
+bindSwipe(photoStage, direction => showPhoto(photoIndex + direction));
+photoDialog.addEventListener('click', event => {
+  if (event.target !== photoDialog) return;
+  const bounds = photoDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) photoDialog.close();
+});
+photoDialog.addEventListener('close', () => {
+  photoRequest++;
+  document.body.style.overflow = previousBodyOverflow;
+  photoTrigger?.focus();
+});

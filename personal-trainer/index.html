@@ -121,6 +121,7 @@
           <button class="training-photo reveal" data-photo="assets/marina-dumbbell-row.webp" data-caption="Força em cada repetição — treino com halteres" aria-label="Ampliar foto: treino com halteres"><img src="assets/marina-dumbbell-row.webp" alt="Marina realizando remada com halter" loading="lazy" width="800" height="1000"><span><small>02 / FORÇA</small><strong>Presença em cada repetição.</strong><b aria-hidden="true">↗</b></span></button>
           <button class="training-photo reveal" data-photo="assets/marina-hero.webp" data-caption="Marina Costa — personal trainer e performance" aria-label="Ampliar retrato da personal"><img src="assets/marina-hero.webp" alt="Retrato da personal trainer fictícia Marina Costa" loading="lazy" width="800" height="1000"><span><small>03 / PROPÓSITO</small><strong>O movimento é parte de mim.</strong><b aria-hidden="true">↗</b></span></button>
         </div>
+        <div class="gallery-more"><button class="button" id="gallery-more" type="button" aria-haspopup="dialog" aria-controls="photo-dialog">Ver mais fotos <span class="gallery-total">10 fotos</span><span aria-hidden="true">↗</span></button></div>
         <p class="demo-note">Imagens ilustrativas geradas por IA para a personagem Marina Costa.</p>
       </div>
     </section>
@@ -167,7 +168,13 @@
     </div>
     <div class="container footer-bottom"><span>© <span id="year">2026</span> Marina Costa · Projeto conceitual</span><span>Profissional fictícia · Imagens ilustrativas</span></div>
   </footer>
-  <dialog id="photo-dialog" aria-labelledby="photo-caption"><button class="photo-close" aria-label="Fechar foto">×</button><img id="photo-expanded" alt=""><p id="photo-caption"></p></dialog>
+  <dialog id="photo-dialog" aria-labelledby="gallery-title" aria-describedby="photo-caption">
+    <div class="photo-toolbar"><div><span class="eyebrow">MARINA COSTA / GALERIA</span><h2 id="gallery-title">Dentro do treino</h2></div><span id="photo-counter" aria-label="Foto 1 de 10">01 / 10</span><button class="photo-close" type="button" aria-label="Fechar galeria">×</button></div>
+    <div class="photo-stage" aria-busy="false"><img id="photo-expanded" alt="" hidden><p class="photo-loading" role="status" hidden>Carregando foto…</p><div class="photo-error" hidden><p>Não foi possível carregar esta foto.</p><button type="button" class="button outline" id="photo-retry">Tentar novamente</button></div><button class="photo-prev" type="button" aria-label="Foto anterior">‹</button><button class="photo-next" type="button" aria-label="Próxima foto">›</button></div>
+    <p id="photo-caption" aria-live="polite" aria-atomic="true"></p>
+    <nav id="photo-pagination" aria-label="Escolher foto da galeria"></nav>
+    <p class="photo-help">Use as setas ou deslize para navegar. Esc para fechar.</p>
+  </dialog>
   <a class="back-to-top" href="#intro" aria-label="Voltar ao topo">↑</a>
 </body>
 </html>

@@ -13,3 +13,7 @@
 As imagens de banco não representam alunos reais nem endosso à marca. Verificar licenças e autorizações pertinentes antes de substituir o conceito por uma oferta comercial real.
 
 - `marina-battle-ropes.webp` e `marina-dumbbell-row.webp`: duas novas imagens geradas por IA usando a imagem original como referência da personagem. Treino com cordas e remada com halter, em academia com iluminação laranja. PNGs originais preservados na pasta de visualizações da tarefa.
+
+## Ampliação da galeria — 10 fotos
+
+Sete novas cenas geradas por IA usando a imagem da Marina já existente como referência visual: `marina-agachamento.webp`, `marina-aluna-halteres.webp`, `marina-aluno-remada.webp`, `marina-bike.webp`, `marina-aluna-agachamento.webp`, `marina-aluno-mobilidade.webp` e `marina-prancha.webp`. Personagens adultos fictícios em treinamento individual e orientação profissional. Originais PNG preservados na pasta de imagens geradas da tarefa. Versões WebP otimizadas para carregamento sob demanda no lightbox.
