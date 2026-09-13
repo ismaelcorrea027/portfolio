@@ -1167,6 +1167,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .project-lightbox-view img{grid-area:1/1;display:block;width:100%;height:100dvh;object-fit:contain;cursor:zoom-in;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 91%,transparent);mask-composite:intersect;}
 .project-lightbox-view.is-zoomed{display:block;padding:90px 0 110px;}
 .project-lightbox-view.is-zoomed img{width:100%;height:auto;max-height:none;cursor:zoom-out;mask-image:none;}
+.project-lightbox:has(.is-zoomed)::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(3,5,9,.9),rgba(3,5,9,.35) 4%,transparent 12%,transparent 88%,rgba(3,5,9,.35) 96%,rgba(3,5,9,.9));}
 .project-lightbox-nav{position:absolute;inset:0;pointer-events:none;z-index:4;}
 .project-lightbox-nav button{position:absolute;top:50%;margin-top:-26px;}
 .project-lightbox-nav [data-gallery-prev]{left:28px;}
@@ -2273,12 +2274,14 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
       const old=picture.cloneNode();old.className='gallery-outgoing';old.alt='';old.setAttribute('aria-hidden','true');viewer.prepend(old);
       old.animate([{opacity:1,transform:'translateX(0) scale(1)'},{opacity:0,transform:`translateX(${-direction*45}px) scale(1.025)`}],{duration:650,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'}).finished.then(()=>old.remove(),()=>old.remove());
     }
-    viewer.classList.remove('is-zoomed');viewer.scrollTop=0;
+    viewer.classList.toggle('is-zoomed',loaded.naturalHeight/loaded.naturalWidth>1.5);viewer.scrollTop=0;
+    updateHint();
     picture.src=src;picture.alt=thumb.alt;picture.hidden=false;
     if(!reduced.matches)picture.animate([{opacity:0,transform:`translateX(${direction*45}px) scale(1.035)`},{opacity:1,transform:'translateX(0) scale(1)'}],{duration:750,easing:'cubic-bezier(.22,1,.36,1)'});
     viewer.setAttribute('aria-busy','false');
   }
-  function zoom(){viewer.classList.toggle('is-zoomed');viewer.scrollTop=0;}
+  function updateHint(){dialog.querySelector('.project-gallery-hint').textContent=viewer.classList.contains('is-zoomed')?'Role para explorar · Clique para ver inteira · Esc para fechar':'Clique na imagem para ampliar · Esc para fechar';}
+  function zoom(){viewer.classList.toggle('is-zoomed');viewer.scrollTop=0;updateHint();}
   picture.addEventListener('click',zoom);
   viewer.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();zoom();}});
   let touchX=0,touchY=0;
