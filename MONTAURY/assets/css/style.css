@@ -165,7 +165,7 @@ input[type="text"], input#date {
 }
 
 select.form-select {
-    font-size: 14px;
+    font-size:15px;
     width: auto;
 }
 .controles .btn {
@@ -195,12 +195,12 @@ select.form-select {
 }
 a.nav-link:hover {color: #fff!important;text-decoration: none;}
 a.nav-link {
-    font-size: 14px!important;
+    font-size:15px!important;
     color: #535353!important;
     /* border: 1px solid #000; */
     position: relative;
     padding: 10px 20px!important;
-    font-size: 11px;
+    font-size:15px;
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 20px;
@@ -287,13 +287,13 @@ table.equipe-a .equipe td {
     background: #f7f1e6;
     position: sticky;
     top: 30px;
-    font-size: 13px;
+    font-size:15px;
     z-index: 10;
     font-weight: 200;
 }
 table.equipe-a td:last-child {
     background: #f2f2f2;
-    font-size: 13px;
+    font-size:15px;
 }
 .equipe-a thead tr th {
     color: #fff;
@@ -491,7 +491,7 @@ tr.totais:hover td {
     /* border-right: 2px solid #f2f2f2!important; */
 }
  .tabela-mista tr td:nth-child(1) {text-align:left}
- .tabela-mista tr td:nth-child(1), .tabela-mista tr td:nth-child(2) {border: 2px solid #fff;background: #f2f2f2;font-size: 13px;}
+ .tabela-mista tr td:nth-child(1), .tabela-mista tr td:nth-child(2) {border: 2px solid #fff;background: #f2f2f2;font-size:15px;}
 
 
 td input[type=radio]{
@@ -931,7 +931,7 @@ section#testimonials {
     transform: rotate(180deg);
 }
 
-/* ---------- ESCALAS: botões e destaque de linha ---------- */
+/* ---------- ESCALAS: botÃµes e destaque de linha ---------- */
 .btn-montaury-outline {
     color: #8a6d3b;
     background: transparent;
@@ -983,7 +983,7 @@ section#testimonials {
     color: #d8b878;
     text-transform: uppercase;
     letter-spacing: .12em;
-    font-size: 14px;
+    font-size:15px;
     font-weight: 600;
     margin-bottom: 14px;
 }
@@ -1039,7 +1039,7 @@ section#testimonials {
     z-index: 2;
     background: #8a6d3b;
     color: #fff;
-    font-size: 12px;
+    font-size:15px;
     font-weight: 600;
     letter-spacing: .05em;
     padding: 4px 10px;
@@ -1194,3 +1194,5 @@ section#testimonials {
 #myFooter a:focus {
     color: #d8b878;
 }
+/* Minimum readable type across the intranet pages. */
+body,button,input,select,textarea,small,label,td,th,.btn,.nav-link{font-size:max(15px,1em);}
