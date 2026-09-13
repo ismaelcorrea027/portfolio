@@ -2,5 +2,6 @@
 
 .news-grid>*{min-width:0}.book-art span{min-width:0;overflow-wrap:anywhere}.news-list button>div{min-width:0}.news-list img{flex-shrink:0}
 
-/* Full-width page and fluid section content. */
-main{max-width:none;width:100%;}.container{width:92%;max-width:none;}
+/* Full-width section backgrounds with centered content. */
+main{max-width:none;width:100%;}.container{width:min(1120px,88%);margin-inline:auto;}
+@media(max-width:1000px){.container{width:92%;}}
