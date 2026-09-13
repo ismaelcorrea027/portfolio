@@ -1168,6 +1168,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
 .project-lightbox-view.is-zoomed{display:block;padding:90px 0 110px;}
 .project-lightbox-view.is-zoomed img{width:100%;height:auto;max-height:none;cursor:zoom-out;mask-image:none;}
 .project-lightbox:has(.is-zoomed)::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(to right,rgba(3,5,9,.9),rgba(3,5,9,.35) 4%,transparent 12%,transparent 88%,rgba(3,5,9,.35) 96%,rgba(3,5,9,.9));}
+.project-lightbox.is-standalone .project-lightbox-nav{display:none;}
 .project-lightbox-nav{position:absolute;inset:0;pointer-events:none;z-index:4;}
 .project-lightbox-nav button{position:absolute;top:50%;margin-top:-26px;}
 .project-lightbox-nav [data-gallery-prev]{left:28px;}
@@ -2279,14 +2280,14 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   viewer.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();zoom();}});
   let touchX=0,touchY=0;
   viewer.addEventListener('touchstart',event=>{touchX=event.changedTouches[0].clientX;touchY=event.changedTouches[0].clientY;},{passive:true});
-  viewer.addEventListener('touchend',event=>{const dx=event.changedTouches[0].clientX-touchX,dy=event.changedTouches[0].clientY-touchY;if(!viewer.classList.contains('is-zoomed')&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)show(current+(dx<0?1:-1));},{passive:true});
+  viewer.addEventListener('touchend',event=>{const dx=event.changedTouches[0].clientX-touchX,dy=event.changedTouches[0].clientY-touchY;if(links.length>1&&!viewer.classList.contains('is-zoomed')&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)show(current+(dx<0?1:-1));},{passive:true});
   groups.forEach(group=>group.forEach((link,index)=>{link.removeAttribute('target');link.setAttribute('aria-haspopup','dialog');link.addEventListener('click',event=>{
-    event.preventDefault();links=group;trigger=link;picture.hidden=true;show(index);previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('[data-gallery-close]').focus();
+    event.preventDefault();const standalone=!!link.closest('.section-behance-latest');links=standalone?[link]:group;dialog.classList.toggle('is-standalone',standalone);trigger=link;picture.hidden=true;show(standalone?0:index);previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('[data-gallery-close]').focus();
   });}));
   dialog.querySelector('[data-gallery-close]').onclick=()=>dialog.close();
   dialog.querySelector('[data-gallery-prev]').onclick=()=>show(current-1);
   dialog.querySelector('[data-gallery-next]').onclick=()=>show(current+1);
-  dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();show(current+(event.key==='ArrowRight'?1:-1));}});
+  dialog.addEventListener('keydown',event=>{if(links.length>1&&(event.key==='ArrowLeft'||event.key==='ArrowRight')){event.preventDefault();show(current+(event.key==='ArrowRight'?1:-1));}});
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
   dialog.addEventListener('close',()=>{request++;viewer.querySelectorAll('.gallery-outgoing').forEach(el=>el.remove());picture.getAnimations().forEach(animation=>animation.cancel());document.body.style.overflow=previousOverflow;if(trigger)trigger.focus({preventScroll:true});});
 })();
