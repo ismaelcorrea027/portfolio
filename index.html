@@ -1703,7 +1703,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
         <div class="compact-body"><p class="compact-title">Gestão de Documentos</p><p class="compact-sub">Sistema interno</p></div>
       </a>
 
-      <a class="compact-card" href="layouts/InfoGlobo.png" target="_blank" rel="noopener">
+      <a class="compact-card" data-gallery-standalone href="layouts/InfoGlobo.png" target="_blank" rel="noopener">
         <div class="compact-thumb"><img src="thumbs/infoglobo.jpg" alt="InfoGlobo"></div>
         <div class="compact-body"><p class="compact-title">InfoGlobo</p><p class="compact-sub">Intranet · proposta visual</p></div>
       </a>
@@ -2282,7 +2282,7 @@ a.card-scroll.is-card-visible:hover{transform:translate3d(0,-4px,0) scale(1);}
   viewer.addEventListener('touchstart',event=>{touchX=event.changedTouches[0].clientX;touchY=event.changedTouches[0].clientY;},{passive:true});
   viewer.addEventListener('touchend',event=>{const dx=event.changedTouches[0].clientX-touchX,dy=event.changedTouches[0].clientY-touchY;if(links.length>1&&!viewer.classList.contains('is-zoomed')&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)show(current+(dx<0?1:-1));},{passive:true});
   groups.forEach(group=>group.forEach((link,index)=>{link.removeAttribute('target');link.setAttribute('aria-haspopup','dialog');link.addEventListener('click',event=>{
-    event.preventDefault();const standalone=!!link.closest('.section-behance-latest');links=standalone?[link]:group;dialog.classList.toggle('is-standalone',standalone);trigger=link;picture.hidden=true;show(standalone?0:index);previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('[data-gallery-close]').focus();
+    event.preventDefault();const standalone=!!link.closest('.section-behance-latest')||link.hasAttribute('data-gallery-standalone');links=standalone?[link]:group;dialog.classList.toggle('is-standalone',standalone);trigger=link;picture.hidden=true;show(standalone?0:index);previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();dialog.querySelector('[data-gallery-close]').focus();
   });}));
   dialog.querySelector('[data-gallery-close]').onclick=()=>dialog.close();
   dialog.querySelector('[data-gallery-prev]').onclick=()=>show(current-1);
