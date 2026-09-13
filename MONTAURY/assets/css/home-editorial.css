@@ -59,3 +59,11 @@
 .montaury-home section.wave{background:#fff!important;padding-top:0;padding-bottom:65px;}
 .montaury-home .wave::before,.montaury-home .wave::after{display:none;}
 @media(max-width:575px){.montaury-home .stat-band{padding-bottom:95px;}.montaury-home .stat-band::after{height:85px;}.montaury-home section.wave{padding-bottom:30px;}}
+
+/* Decorative balance: a gently rocking beam and a clearer bronze silhouette. */
+.montaury-home .stat-band-art-scale{width:490px;height:490px;right:-45px;top:45%;opacity:.28;filter:drop-shadow(0 0 18px #d5b27b18);animation:balance-float 7s ease-in-out infinite;}
+.scale-beam{transform-origin:300px 168px;animation:balance-rock 4.8s ease-in-out infinite;}
+@keyframes balance-rock{0%,100%{transform:rotate(-9deg);}50%{transform:rotate(9deg);}}
+@keyframes balance-float{0%,100%{transform:translateY(-50%);}50%{transform:translateY(calc(-50% - 18px));}}
+@media(max-width:900px){.montaury-home .stat-band-art-scale{width:360px;height:360px;right:-110px;opacity:.2;}}
+@media(prefers-reduced-motion:reduce){.montaury-home .stat-band-art-scale{transform:translateY(-50%);}.scale-beam{animation:none;}}

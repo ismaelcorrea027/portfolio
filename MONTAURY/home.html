@@ -131,17 +131,21 @@
 <section id="diferenciais" class="section-bg stat-band">
 
       <svg class="stat-band-art stat-band-art-scale" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <circle cx="300" cy="300" r="270" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/>
-        <circle cx="300" cy="300" r="210" fill="none" stroke="currentColor" stroke-width="2" opacity=".3"/>
-        <line x1="300" y1="90" x2="300" y2="470" stroke="currentColor" stroke-width="5"/>
-        <circle cx="300" cy="90" r="14" fill="none" stroke="currentColor" stroke-width="5"/>
-        <line x1="150" y1="160" x2="450" y2="160" stroke="currentColor" stroke-width="5"/>
-        <line x1="150" y1="160" x2="150" y2="240" stroke="currentColor" stroke-width="3"/>
-        <line x1="450" y1="160" x2="450" y2="240" stroke="currentColor" stroke-width="3"/>
-        <path d="M95 240 A55 55 0 0 0 205 240 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M395 240 A55 55 0 0 0 505 240 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/>
-        <rect x="230" y="470" width="140" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="5"/>
-        <rect x="270" y="440" width="60" height="34" fill="none" stroke="currentColor" stroke-width="5"/>
+        <defs><linearGradient id="scale-bronze" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#f3d9a4"/><stop offset=".5" stop-color="#c39a5d"/><stop offset="1" stop-color="#98703d"/></linearGradient></defs>
+        <g fill="none" stroke="url(#scale-bronze)" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="300" cy="300" r="252" stroke-width="1" opacity=".3"/>
+          <circle cx="300" cy="300" r="230" stroke-width="1" stroke-dasharray="2 14" opacity=".4"/>
+          <path d="M300 135V441 M283 441H317 M269 460H331 M241 483H359" stroke-width="6"/>
+          <path d="M264 482Q270 456 284 442 M336 482Q330 456 316 442" stroke-width="3"/>
+          <circle cx="300" cy="119" r="15" stroke-width="4"/>
+          <g class="scale-beam">
+            <path d="M135 184Q216 144 300 168Q384 144 465 184" stroke-width="5"/>
+            <path d="M166 175L112 304H220L166 175 M434 175L380 304H488L434 175" stroke-width="3"/>
+            <path d="M110 304Q166 384 222 304Z M378 304Q434 384 490 304Z" stroke-width="4" fill="#c39a5d" fill-opacity=".12"/>
+            <circle cx="166" cy="175" r="5" stroke-width="3"/><circle cx="434" cy="175" r="5" stroke-width="3"/>
+          </g>
+          <circle cx="300" cy="168" r="8" stroke-width="4" fill="#392a1d"/>
+        </g>
       </svg>
 
       <svg class="stat-band-art stat-band-art-shield" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
