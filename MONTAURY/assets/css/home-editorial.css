@@ -51,3 +51,11 @@
 .montaury-home .feature-box:is(:hover,:focus-within) :is(h4,p,i,.btn){color:#fff!important;}
 .montaury-home .feature-box:is(:hover,:focus-within) .btn{background:transparent;border:1px solid #d5b27b;}
 .montaury-home .feature-box .btn:focus-visible{outline:2px solid #fff;outline-offset:4px;}
+
+/* Continuous bronze-to-white transition beneath the statistics. */
+.montaury-home .stat-tile::before{opacity:.22;filter:blur(12px);}
+.montaury-home .stat-band{padding-bottom:clamp(200px,21vw,360px);}
+.montaury-home .stat-band::after{content:"";position:absolute;inset:auto 0 0;height:clamp(190px,24vw,410px);pointer-events:none;background:linear-gradient(to bottom,transparent 80%,#fff 100%),url('../img/editorial/brown-white-waves.webp') center bottom/100% 100% no-repeat;mask-image:linear-gradient(to bottom,transparent,#000 28%);}
+.montaury-home section.wave{background:#fff!important;padding-top:0;padding-bottom:65px;}
+.montaury-home .wave::before,.montaury-home .wave::after{display:none;}
+@media(max-width:575px){.montaury-home .stat-band{padding-bottom:170px;}.montaury-home .stat-band::after{height:180px;background-size:auto,auto 100%;}.montaury-home section.wave{padding-bottom:30px;}}
