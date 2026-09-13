@@ -4,10 +4,6 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}:root{--red:#b40832;--navy:#
 .hero .photo:after{background:linear-gradient(0deg,#03142cf5,transparent 85%);}
 .hero .photo .brand-shape{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(135deg,#d01949e8,#a3002bd4);transition:transform .9s cubic-bezier(.22,1,.36,1);}
 .hero .primary .brand-shape{clip-path:polygon(0 0,72% 0,0 58%);}
-.hero .office .brand-shape{clip-path:polygon(0 0,18% 0,10% 100%,0 100%);opacity:.9;}
-.hero .alternate .brand-shape{clip-path:ellipse(47% 80% at 105% 0%);}
-.hero .documents .brand-shape{clip-path:polygon(70% 0,86% 0,100% 30%,100% 58%);}
-.hero .celebration .brand-shape{clip-path:polygon(0 0,100% 0,100% 9%,36% 9%,26% 29%,0 29%);}
 .hero .photo:hover .brand-shape{transform:scale(1.045);}
-.hero .office .eyebrow{padding-left:18px;}
+
 .hero .photo .eyebrow{text-shadow:0 1px 6px #000b;}
