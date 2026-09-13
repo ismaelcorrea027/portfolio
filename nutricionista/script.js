@@ -45,7 +45,7 @@ navLinks.forEach(a => a.addEventListener('click', () => closeMenu()));
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && navigation.classList.contains('open')) closeMenu(true); });
 document.addEventListener('click', e => { if (!header.contains(e.target)) closeMenu(); });
 header.addEventListener('focusout', () => { setTimeout(() => { if (!header.contains(document.activeElement)) closeMenu(); }, 0); });
-window.matchMedia('(min-width: 992px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+window.matchMedia('(min-width: 1200px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
 const sections = [...document.querySelectorAll('main > section[id]')];
 let scrollQueued = false;
 function updateScroll() {
