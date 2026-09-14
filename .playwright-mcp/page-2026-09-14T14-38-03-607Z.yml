@@ -1,0 +1,152 @@
+- generic [active] [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Ferreira e Associados — início" [ref=e5] [cursor=pointer]:
+        - /url: "#inicio"
+      - navigation "Navegação principal" [ref=e7]:
+        - link "Início" [ref=e8] [cursor=pointer]:
+          - /url: "#inicio"
+        - link "Sobre nós" [ref=e9] [cursor=pointer]:
+          - /url: "#sobre"
+        - link "Áreas de atuação" [ref=e10] [cursor=pointer]:
+          - /url: "#areas"
+        - link "Equipe" [ref=e11] [cursor=pointer]:
+          - /url: "#equipe"
+        - link "Blog" [ref=e12] [cursor=pointer]:
+          - /url: "#blog"
+        - link "Contato" [ref=e13] [cursor=pointer]:
+          - /url: "#contato"
+      - button [ref=e14] [cursor=pointer]
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - img "Escritório com estátua da Justiça e livros" [ref=e20]
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Experiência. Estratégia. Resultados.
+        - heading [level=1] [ref=e23]:
+          - text: Soluções jurídicasinteligentes para
+          - emphasis [ref=e24]: questões reais.
+        - paragraph [ref=e25]: Atuação jurídica estratégica e personalizada para proteger seus direitos e garantir tranquilidade em todas as etapas.
+        - generic [ref=e26]:
+          - button [ref=e27] [cursor=pointer]
+          - link "Conheça o escritório" [ref=e31] [cursor=pointer]:
+            - /url: "#sobre"
+            - generic [aria-hidden] [ref=e32]: ▶
+            - text: Conheça o escritório
+      - generic "Controles das imagens de fundo" [ref=e33]:
+        - button "Mostrar Escritório com estátua da Justiça e livros" [ref=e34] [cursor=pointer]
+        - button "Mostrar Recepção Ferreira e Associados com balcão em mármore" [ref=e35] [cursor=pointer]
+        - button "Pausar imagens automáticas" [ref=e36] [cursor=pointer]: Ⅱ
+    - region "Áreas de atuação" [ref=e37]:
+      - generic [ref=e38]:
+        - button [ref=e39] [cursor=pointer]:
+          - generic [ref=e43]:
+            - heading "Direito Empresarial" [level=3] [ref=e44]
+            - paragraph [ref=e45]: Consultoria e assessoria jurídica para empresas.
+        - button [ref=e46] [cursor=pointer]:
+          - generic [ref=e50]:
+            - heading "Direito Cível" [level=3] [ref=e51]
+            - paragraph [ref=e52]: Soluções completas para questões do dia a dia.
+        - button [ref=e53] [cursor=pointer]:
+          - generic [ref=e57]:
+            - heading "Direito Trabalhista" [level=3] [ref=e58]
+            - paragraph [ref=e59]: Defesa dos direitos de empresas e trabalhadores.
+        - button [ref=e60] [cursor=pointer]:
+          - generic [ref=e64]:
+            - heading "Direito de Família e Sucessões" [level=3] [ref=e65]
+            - paragraph [ref=e66]: Soluções jurídicas para proteger o que mais importa.
+        - button [ref=e67] [cursor=pointer]:
+          - generic [ref=e71]:
+            - heading "Direito Previdenciário" [level=3] [ref=e72]
+            - paragraph [ref=e73]: Benefícios e aposentadorias com segurança jurídica.
+        - button [ref=e74] [cursor=pointer]:
+          - generic [ref=e78]:
+            - heading "Direito Contratual" [level=3] [ref=e79]
+            - paragraph [ref=e80]: Elaboração e análise de contratos com segurança.
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - paragraph [ref=e84]: Sobre nós
+        - heading [level=2] [ref=e86]:
+          - text: Excelência jurídicaque gera
+          - emphasis [ref=e87]: confiança.
+        - paragraph [ref=e88]: Nosso compromisso é oferecer soluções jurídicas eficazes, com ética, transparência e foco nas reais necessidades de cada cliente.
+        - button "Saiba mais sobre nós" [ref=e89] [cursor=pointer]:
+          - text: Saiba mais sobre nós
+          - generic [aria-hidden] [ref=e90]: →
+      - img "Recepção Ferreira e Associados, com balcão em mármore escuro e iluminação acolhedora" [ref=e91]
+      - generic [ref=e92]:
+        - article [ref=e93]:
+          - generic [ref=e97]:
+            - heading "Atendimento personalizado" [level=3] [ref=e98]
+            - paragraph [ref=e99]: Focado nas necessidadesde cada cliente.
+        - article [ref=e100]:
+          - generic [ref=e104]:
+            - heading "Estratégias eficientes" [level=3] [ref=e105]
+            - paragraph [ref=e106]: Planejamento jurídico paramelhores resultados.
+        - article [ref=e107]:
+          - generic [ref=e111]:
+            - heading "Transparência e ética" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Compromisso com clarezae confiança.
+    - generic [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - paragraph [ref=e118]: Nossa forma de trabalhar
+          - heading [level=2] [ref=e119]:
+            - text: Conhecimento e proximidade.
+            - emphasis [ref=e120]: Em cada etapa.
+        - paragraph [ref=e121]: Uma atuação integrada, com escuta atenta, planejamento e comunicação clara.
+      - generic [ref=e122]:
+        - article [ref=e123]:
+          - text: "01"
+          - heading "Entender o seu contexto" [level=3] [ref=e124]
+          - paragraph [ref=e125]: O primeiro encontro é dedicado à sua história, às suas dúvidas e às suas prioridades.
+        - article [ref=e126]:
+          - text: "02"
+          - heading "Construir uma estratégia" [level=3] [ref=e127]
+          - paragraph [ref=e128]: Organização das informações e definição dos próximos passos com transparência.
+        - article [ref=e129]:
+          - text: "03"
+          - heading "Acompanhar de perto" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Uma relação de confiança, com atenção aos detalhes e diálogo durante o atendimento.
+    - generic [ref=e133]:
+      - paragraph [ref=e134]: Conteúdo & perspectivas
+      - heading [level=2] [ref=e135]:
+        - text: Informação para uma
+        - emphasis [ref=e136]: conversa mais clara.
+      - generic [ref=e137]:
+        - article [ref=e138]:
+          - text: Atendimento
+          - heading "Como funciona a primeira conversa" [level=3] [ref=e142]
+          - paragraph [ref=e143]: Escuta e contexto antes de definir os próximos passos.
+          - button "Ler artigo" [ref=e144] [cursor=pointer]:
+            - text: Ler artigo
+            - generic [aria-hidden] [ref=e145]: →
+        - article [ref=e146]:
+          - text: Organização
+          - heading "Clareza em cada etapa" [level=3] [ref=e150]
+          - paragraph [ref=e151]: Informações organizadas para um diálogo mais próximo.
+          - button "Ler artigo" [ref=e152] [cursor=pointer]:
+            - text: Ler artigo
+            - generic [aria-hidden] [ref=e153]: →
+        - article [ref=e154]:
+          - text: Nosso escritório
+          - heading "Uma relação de confiança" [level=3] [ref=e158]
+          - paragraph [ref=e159]: Proximidade, transparência e atenção individual.
+          - button "Ler artigo" [ref=e160] [cursor=pointer]:
+            - text: Ler artigo
+            - generic [aria-hidden] [ref=e161]: →
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - paragraph [ref=e165]: Vamos conversar
+        - heading "Cada questão merece uma atenção particular." [level=2] [ref=e166]: Cada questão mereceuma atenção particular.
+        - paragraph [ref=e167]: Escolha a área de interesse e conheça nosso fluxo de atendimento.
+      - button [ref=e168] [cursor=pointer]
+  - contentinfo [ref=e172]:
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - img "Ferreira & Associados — Advocacia e Consultoria Jurídica" [ref=e175]
+        - paragraph [ref=e176]: Experiência. Estratégia. Resultados.
+      - link "Voltar ao portfólio ↗" [ref=e177] [cursor=pointer]:
+        - /url: ../index.html
+      - generic [ref=e178]: Projeto conceitual de portfólio. Conteúdo e agendamentos demonstrativos, sem envio de dados.

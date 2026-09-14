@@ -1,0 +1,177 @@
+- generic [active] [ref=f7e1]:
+  - link "Pular para o conteúdo" [ref=f7e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=f7e3]:
+    - generic [ref=f7e4]:
+      - link "Ferreira e Associados — início" [ref=f7e5] [cursor=pointer]:
+        - /url: "#inicio"
+      - navigation "Navegação principal" [ref=f7e7]:
+        - link "Início" [ref=f7e8] [cursor=pointer]:
+          - /url: "#inicio"
+        - link "Sobre nós" [ref=f7e9] [cursor=pointer]:
+          - /url: "#sobre"
+        - link "Áreas de atuação" [ref=f7e10] [cursor=pointer]:
+          - /url: "#areas"
+        - link "Quem somos" [ref=f7e11] [cursor=pointer]:
+          - /url: "#equipe"
+        - link "Blog" [ref=f7e12] [cursor=pointer]:
+          - /url: "#blog"
+        - link "Contato" [ref=f7e13] [cursor=pointer]:
+          - /url: "#contato"
+      - button [ref=f7e14] [cursor=pointer]
+  - main [ref=f7e18]:
+    - generic [ref=f7e19]:
+      - img "Escritório com estátua da Justiça e livros" [ref=f7e20]
+      - generic [ref=f7e21]:
+        - paragraph [ref=f7e22]: Experiência. Estratégia. Resultados.
+        - heading [level=1] [ref=f7e23]:
+          - text: Soluções jurídicasinteligentes para
+          - emphasis [ref=f7e24]: questões reais.
+        - paragraph [ref=f7e25]: Atuação jurídica estratégica e personalizada para proteger seus direitos e garantir tranquilidade em todas as etapas.
+        - generic [ref=f7e26]:
+          - button [ref=f7e27] [cursor=pointer]
+          - link "Conheça o escritório" [ref=f7e31] [cursor=pointer]:
+            - /url: "#sobre"
+            - generic [aria-hidden] [ref=f7e32]: ▶
+            - text: Conheça o escritório
+    - region "Áreas de atuação" [ref=f7e33]:
+      - generic [ref=f7e34]:
+        - button [ref=f7e35] [cursor=pointer]:
+          - generic [ref=f7e39]:
+            - heading "Direito Empresarial" [level=3] [ref=f7e40]
+            - paragraph [ref=f7e41]: Consultoria e assessoria jurídica para empresas.
+        - button [ref=f7e42] [cursor=pointer]:
+          - generic [ref=f7e46]:
+            - heading "Direito Cível" [level=3] [ref=f7e47]
+            - paragraph [ref=f7e48]: Soluções completas para questões do dia a dia.
+        - button [ref=f7e49] [cursor=pointer]:
+          - generic [ref=f7e53]:
+            - heading "Direito Trabalhista" [level=3] [ref=f7e54]
+            - paragraph [ref=f7e55]: Defesa dos direitos de empresas e trabalhadores.
+        - button [ref=f7e56] [cursor=pointer]:
+          - generic [ref=f7e60]:
+            - heading "Direito de Família e Sucessões" [level=3] [ref=f7e61]
+            - paragraph [ref=f7e62]: Soluções jurídicas para proteger o que mais importa.
+        - button [ref=f7e63] [cursor=pointer]:
+          - generic [ref=f7e67]:
+            - heading "Direito Previdenciário" [level=3] [ref=f7e68]
+            - paragraph [ref=f7e69]: Benefícios e aposentadorias com segurança jurídica.
+        - button [ref=f7e70] [cursor=pointer]:
+          - generic [ref=f7e74]:
+            - heading "Direito Contratual" [level=3] [ref=f7e75]
+            - paragraph [ref=f7e76]: Elaboração e análise de contratos com segurança.
+    - generic [ref=f7e78]:
+      - generic [ref=f7e79]:
+        - paragraph [ref=f7e80]: Sobre nós
+        - heading [level=2] [ref=f7e82]:
+          - text: Excelência jurídicaque gera
+          - emphasis [ref=f7e83]: confiança.
+        - paragraph [ref=f7e84]: Nosso compromisso é oferecer soluções jurídicas eficazes, com ética, transparência e foco nas reais necessidades de cada cliente.
+        - button "Saiba mais sobre nós" [ref=f7e85] [cursor=pointer]:
+          - text: Saiba mais sobre nós
+          - generic [aria-hidden] [ref=f7e86]: →
+      - img "Recepção Ferreira e Associados, com balcão em mármore escuro e iluminação acolhedora" [ref=f7e87]
+      - generic [ref=f7e88]:
+        - article [ref=f7e89]:
+          - generic [ref=f7e93]:
+            - heading "Atendimento personalizado" [level=3] [ref=f7e94]
+            - paragraph [ref=f7e95]: Focado nas necessidadesde cada cliente.
+        - article [ref=f7e96]:
+          - generic [ref=f7e100]:
+            - heading "Estratégias eficientes" [level=3] [ref=f7e101]
+            - paragraph [ref=f7e102]: Planejamento jurídico paramelhores resultados.
+        - article [ref=f7e103]:
+          - generic [ref=f7e107]:
+            - heading "Transparência e ética" [level=3] [ref=f7e108]
+            - paragraph [ref=f7e109]: Compromisso com clarezae confiança.
+    - region [ref=f7e110]:
+      - generic [ref=f7e111]:
+        - generic [ref=f7e112]:
+          - generic [ref=f7e113]:
+            - paragraph [ref=f7e114]: Quem somos
+            - heading [level=2] [ref=f7e115]:
+              - text: Três trajetórias.
+              - emphasis [ref=f7e116]: Um mesmo compromisso.
+          - paragraph [ref=f7e117]: Conhecimento técnico, proximidade e uma visão integrada para cuidar de cada questão com atenção.
+        - generic [ref=f7e118]:
+          - article [ref=f7e119]:
+            - img "Retrato de Rafael Ferreira, sócio fictício de terno cinza" [ref=f7e120]
+            - generic [ref=f7e121]:
+              - generic [ref=f7e122]: Sócio fundador
+              - heading "Rafael Ferreira" [level=3] [ref=f7e123]
+              - paragraph [ref=f7e124]: Direito Empresarial & Contratual
+              - paragraph [ref=f7e125]: Bacharel em Direito, com especialização em Direito Empresarial. Sua trajetória reúne consultoria a empresas, estruturação de contratos e planejamento de relações comerciais.
+              - generic [ref=f7e126]:
+                - generic [ref=f7e127]: Consultoria empresarial
+                - generic [ref=f7e128]: Contratos
+              - button "Agendar uma conversa" [ref=f7e129] [cursor=pointer]:
+                - text: Agendar uma conversa
+                - generic [aria-hidden] [ref=f7e130]: →
+          - article [ref=f7e131]:
+            - img "Retrato de Mariana Almeida, sócia fictícia com blazer vinho" [ref=f7e132]
+            - generic [ref=f7e133]:
+              - generic [ref=f7e134]: Sócia
+              - heading "Mariana Almeida" [level=3] [ref=f7e135]
+              - paragraph [ref=f7e136]: Direito de Família & Sucessões
+              - paragraph [ref=f7e137]: Bacharela em Direito, com especialização em Direito de Família e Sucessões. Dedica-se ao atendimento de famílias, à mediação de conflitos e ao planejamento sucessório.
+              - generic [ref=f7e138]:
+                - generic [ref=f7e139]: Mediação
+                - generic [ref=f7e140]: Planejamento sucessório
+              - button "Agendar uma conversa" [ref=f7e141] [cursor=pointer]:
+                - text: Agendar uma conversa
+                - generic [aria-hidden] [ref=f7e142]: →
+          - article [ref=f7e143]:
+            - img "Retrato de Henrique Costa, sócio fictício de terno azul" [ref=f7e144]
+            - generic [ref=f7e145]:
+              - generic [ref=f7e146]: Sócio
+              - heading "Henrique Costa" [level=3] [ref=f7e147]
+              - paragraph [ref=f7e148]: Direito Cível & Trabalhista
+              - paragraph [ref=f7e149]: Bacharel em Direito, com especialização em Processo Civil. Sua atuação reúne acompanhamento de conflitos cíveis, relações de trabalho e construção de soluções negociadas.
+              - generic [ref=f7e150]:
+                - generic [ref=f7e151]: Relações de trabalho
+                - generic [ref=f7e152]: Resolução de conflitos
+              - button "Agendar uma conversa" [ref=f7e153] [cursor=pointer]:
+                - text: Agendar uma conversa
+                - generic [aria-hidden] [ref=f7e154]: →
+        - paragraph [ref=f7e155]: Perfis e currículos fictícios, criados para este projeto conceitual de portfólio.
+    - generic [ref=f7e157]:
+      - paragraph [ref=f7e158]: Conteúdo & perspectivas
+      - heading [level=2] [ref=f7e159]:
+        - text: Informação para uma
+        - emphasis [ref=f7e160]: conversa mais clara.
+      - generic [ref=f7e161]:
+        - article [ref=f7e162]:
+          - text: Atendimento
+          - heading "Como funciona a primeira conversa" [level=3] [ref=f7e166]
+          - paragraph [ref=f7e167]: Escuta e contexto antes de definir os próximos passos.
+          - button "Ler artigo" [ref=f7e168] [cursor=pointer]:
+            - text: Ler artigo
+            - generic [aria-hidden] [ref=f7e169]: →
+        - article [ref=f7e170]:
+          - text: Organização
+          - heading "Clareza em cada etapa" [level=3] [ref=f7e174]
+          - paragraph [ref=f7e175]: Informações organizadas para um diálogo mais próximo.
+          - button "Ler artigo" [ref=f7e176] [cursor=pointer]:
+            - text: Ler artigo
+            - generic [aria-hidden] [ref=f7e177]: →
+        - article [ref=f7e178]:
+          - text: Nosso escritório
+          - heading "Uma relação de confiança" [level=3] [ref=f7e182]
+          - paragraph [ref=f7e183]: Proximidade, transparência e atenção individual.
+          - button "Ler artigo" [ref=f7e184] [cursor=pointer]:
+            - text: Ler artigo
+            - generic [aria-hidden] [ref=f7e185]: →
+    - generic [ref=f7e187]:
+      - generic [ref=f7e188]:
+        - paragraph [ref=f7e189]: Vamos conversar
+        - heading "Cada questão merece uma atenção particular." [level=2] [ref=f7e190]: Cada questão mereceuma atenção particular.
+        - paragraph [ref=f7e191]: Escolha a área de interesse e conheça nosso fluxo de atendimento.
+      - button [ref=f7e192] [cursor=pointer]
+  - contentinfo [ref=f7e196]:
+    - generic [ref=f7e197]:
+      - generic [ref=f7e198]:
+        - img "Ferreira & Associados — Advocacia e Consultoria Jurídica" [ref=f7e199]
+        - paragraph [ref=f7e200]: Experiência. Estratégia. Resultados.
+      - link "Voltar ao portfólio ↗" [ref=f7e201] [cursor=pointer]:
+        - /url: ../index.html
+      - generic [ref=f7e202]: Projeto conceitual de portfólio. Conteúdo e agendamentos demonstrativos, sem envio de dados.

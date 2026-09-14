@@ -1,0 +1,80 @@
+[   18969ms] [LOG] %c 
+             '.-:://///::-'
+          '.:/++++++++oooo++:.
+        '-//////////++++oooooo/-'
+     '.--/////////////+++oooooo+oy/'
+   '/+-////////////////+++ooooooosds.
+  .oo.-/////////////////+++ooooooosds.
+ '+y://///////////////////++ooosso+sd+
+ -yo///////////////////////++oosssoody-
+'oh//////////////////+//////+ossysoshd+'
+:yo////++++++++++++ooossssssossyhyssydo
++ho+++ydhhhhhhs++ooyhhhhdddmdyyyhhysydo
+-yoooosyhhyoyyysooshhshshhddhyssyhyshh+
+.ys+++oosshysoy++osyo+hyyysoo+oosysshd:
+-ds+////++++o++//+++++++++++++++ossshd.
+.dh+//////++++////++++++///////+osssdy'
+ :yoo+++++oossssoossssoo+++++++osyssh:
+  '+ssssshhyhydddddhhhhdhhyssssyhyyys
+   -syyydddhdhhhhhdhhhdddmNmdhhhdhyyo'
+    ossydhdd///++o++++ooyddmdhydhhyhs-
+    /yoso//oo++////+++oos++syyhddhhds/
+    :shso++ssooossssyyhhsooyyyddhddds+'
+    -:yhyss+/oyhhddyysyhyyyhhdddddmdy+.
+    ''-hhhys-.-/:::/--:hhhddddddmmdy+/.
+    .''-ydhhs--h+--ho-:ydddmmmmdy+:-:-'
+    '....:odh//hy//hh++ydmmmmds:-::-'
+      -'':+so+oshyyhmhhdhsdd+--::-'
+      .:+o.'  ''-:/+ssyd:'./:/+.'
+      :sy:..''''''''  ''-..-oy+
+        ':::---/o+''''.-:++++o/
+         '/:/o+:-''.-:/+oohdy++.
+         '--..-:////++sss:odyo+/
+          ./++oo//+ssyys- :dhso+.
+          '-///oyhhyyhy+  .dhso++.
+            'shyyyy+s+.   .yhyoooo'
+             /++ooy.      'ydysooy-
+             :+//oys'     'ydysooyo
+          '::oss+ohmo     -ddhysssh-
+        ./sosyhdmmNNy'    sdyosyyhmy.
+    '-:+oosyyhdmmNNNd.   'yhyosyyhhmy'
+  '/++osyhhdddmmNNNNd.   'shhyyhhdddm/
+ -syyhhhdddmmmNNNNNd+     /dhyyyyyhddh.
+ +dddddddmmmNNNd+-.       .dhysosyyhhdh'
+ .sdmmNNNNNdho-'          .dhhyyyhhhdmm+
+    '.....'               'ymmdddddmmNNh
+                            ./oyhdmmmdy+ font-family:monospace @ https://assets.tumblr.com/pop/js/modern/main-d78d8325.js:84
+[   18969ms] [LOG] Olá, desenvolvedores! Boas-vindas ao Tumblr. Na janela de propriedades abaixo, adicionamos algumas dicas que esperamos serem úteis ao escrever as extensões. @ https://assets.tumblr.com/pop/js/modern/main-d78d8325.js:84
+[   18969ms] [LOG] Obs: Estamos contratando! https://www.tumblr.com/jobs @ https://assets.tumblr.com/pop/js/modern/main-d78d8325.js:84
+[   18969ms] [LOG] window.tumblr = {getCssMap: , apiFetch: , languageData: Object, navigate: , on: } @ https://assets.tumblr.com/pop/js/modern/main-d78d8325.js:84
+[   20000ms] [LOG] %craven%c Raven v1.23.2-gdopgn background-color:#000;margin-left:1px;padding:1px 3px;font-size:0.75em;color:#ffffff; font-size:0.9em; @ https://assets.tumblr.com/pop/js/modern/error-reporter-5f2b7fa9.js:474
+[   20140ms] [WARNING] [GPT] Global Placement ID (GPID) appears to be dynamically generated. A GPID must be a stable identifier for an ad placement.
+https://goo.gle/gpt-message#190 @ https://assets.tumblr.com/pop/js/modern/error-reporter-5f2b7fa9.js:474
+[   21199ms] [WARNING] [GPT] Slot.updateTargetingFromMap is deprecated, use Slot.setConfig({targeting: ...}) instead.
+https://goo.gle/gpt-message#171 @ https://assets.tumblr.com/pop/js/modern/error-reporter-5f2b7fa9.js:474
+[   23624ms] [WARNING] The resource https://www.googletagservices.com/tag/js/gpt.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.tumblr.com/:0
+[   23653ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/464246.gif?partner_uid=30959c41-2dd6-4af9-9f82-6f93073795f2:0
+[   23737ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/420486.gif?partner_uid=95B13E17-5D99-44C6-A0E4-3EFCA216DBF8:0
+[   23925ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://usermatch.krxd.net/um/v2?partner=tapad:0
+[   24297ms] [ERROR] Refused to display 'https://tracookiepixel.xyz/' in a frame because it set 'X-Frame-Options' to 'deny'. @ chrome-error://chromewebdata/:0
+[   23737ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/420486.gif?partner_uid=95B13E17-5D99-44C6-A0E4-3EFCA216DBF8:0
+[   23653ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/464246.gif?partner_uid=30959c41-2dd6-4af9-9f82-6f93073795f2:0
+[   23737ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/420486.gif?partner_uid=95B13E17-5D99-44C6-A0E4-3EFCA216DBF8:0
+[   24709ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/709996.gif:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   24825ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://id.rlcdn.com/713074.gif?:0
+[   24844ms] [ERROR] Failed to load resource: the server responded with a status of 451 () @ https://idsync.rlcdn.com/713113.gif?partner_uid=ID5-3-9b765701-6910-4abd-a2bc-d7d40b1241cb:0
+[   30529ms] [ERROR] Failed to load resource: net::ERR_TOO_MANY_REDIRECTS @ https://uipglob.semasio.net/dbm/1/info?sType=sync&sExtCookieId=CAESEMyILQFBuB18Of_8mkrNSpk&sInitiator=internal&google_cver=1&gdpr=0&gdpr_consent=&google_cver=1:0

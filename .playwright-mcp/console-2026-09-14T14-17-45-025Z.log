@@ -1,0 +1,1 @@
+[  121709ms] [ERROR] Pattern attribute value [0-9 ()+\-]{8,20} is not a valid regular expression: Uncaught SyntaxError: Invalid regular expression: /[0-9 ()+\-]{8,20}/v: Invalid character in character class @ http://127.0.0.1:8765/vetcare/index.html#servicos:0
