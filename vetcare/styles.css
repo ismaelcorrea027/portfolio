@@ -6,3 +6,97 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media(min-width:1001px){h1{font-size:clamp(38px,3.65vw,56px);white-space:nowrap;letter-spacing:-1.6px}.hero-grid{min-height:470px}.hero-copy{padding-top:40px}.about-copy{padding-right:24px}.about-copy h2{font-size:22px}.services{padding-top:25px;padding-bottom:25px}}
 @media(max-width:380px){.actions{flex-direction:column;align-items:stretch}.actions .button{width:100%}.hero-copy h1{font-size:32px}.service{gap:7px;padding:5px 6px}.service svg{width:25px}.benefits article{gap:6px}.benefits article>span{width:32px;height:32px}.benefits h3{font-size:10px}}
+
+/* Polished interactive feedback, without changing content or layout. */
+.button{position:relative;isolation:isolate;overflow:hidden;transition:background .25s,transform .25s,box-shadow .25s}
+.button::after{content:'';position:absolute;top:-50%;bottom:-50%;left:-65%;width:35%;background:linear-gradient(90deg,transparent,#ffffff35,transparent);transform:skewX(-20deg);pointer-events:none}
+.button svg,.service svg,.benefits svg,.info-card svg,.text-link{transition:transform .3s,color .3s}
+.button:active{transform:scale(.98)}
+nav a::before{content:'';position:absolute;bottom:4px;left:0;width:100%;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav a:hover::before,nav a:focus-visible::before{transform:scaleX(1)}
+.service{border-radius:12px;transition:background .3s,box-shadow .3s}
+.info-card,.article-card{position:relative;isolation:isolate;overflow:hidden;transition:box-shadow .35s,border-color .35s,background .35s}
+.info-card::before,.article-card::before{content:'';position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(300px circle at var(--glow-x,50%) var(--glow-y,30%),#d2e5ffb3,transparent 75%);transition:opacity .4s;pointer-events:none}
+.article-card::after{content:'';position:absolute;top:0;left:22px;right:22px;height:3px;border-radius:3px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.benefits article>span{transition:box-shadow .3s,background .3s}
+.clinic-photo{transition:filter .4s,box-shadow .4s}
+input,select{transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #075de510}
+.text-link:focus-visible{transform:translateX(4px)}
+@media(prefers-reduced-motion:no-preference){
+.vet-reveal{opacity:0;translate:0 20px;transition:opacity .65s ease,translate .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
+.vet-reveal.is-visible,.vet-reveal:focus-within{opacity:1;translate:0 0}
+.hero-copy>.eyebrow{animation:vet-enter .7s both}
+.hero-copy>h1{animation:vet-enter .8s .1s both}
+.hero-copy>.intro{animation:vet-enter .8s .2s both}
+.hero-copy>.actions{animation:vet-enter .8s .3s both}
+.hero-copy>.rule{transform-origin:left;animation:vet-line .8s .15s both}
+.hero-photo{translate:var(--photo-x,0px) var(--photo-y,0px);transition:translate .55s ease-out}
+nav.open{animation:vet-enter .25s both}
+dialog[open]{animation:vet-dialog .28s ease-out}
+dialog[open]::backdrop{animation:vet-fade .25s both}
+}
+@media(hover:hover) and (pointer:fine){
+.button:hover{box-shadow:0 9px 24px #075de52b;transform:translateY(-3px)}
+.button:hover::after{animation:vet-shine .7s ease-out}
+.button:hover svg{transform:rotate(-6deg) scale(1.08)}
+.service:hover{background:#eaf3ff;box-shadow:0 7px 18px #075de50c}
+.service:hover svg{transform:translateY(-4px) rotate(-5deg)}
+.benefits article:hover>span{background:#d5e7ff;box-shadow:0 0 0 6px #075de508}
+.benefits article:hover svg{transform:scale(1.12) rotate(-5deg)}
+.info-card:hover,.article-card:hover{box-shadow:0 15px 35px #164f9414;border-color:#adcdf5}
+.info-card:hover::before,.article-card:hover::before{opacity:1}
+.info-card:hover svg{transform:translateY(-4px) rotate(-5deg)}
+.article-card:hover::after{transform:scaleX(1)}
+.text-link:hover{transform:translateX(5px)}
+.clinic-photo:hover{filter:brightness(1.06);box-shadow:0 14px 28px #10274820}
+}
+@keyframes vet-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes vet-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes vet-shine{to{left:140%}}
+@keyframes vet-dialog{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes vet-fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.vet-reveal{opacity:1;translate:none}.hero-photo{translate:none!important}.button:hover,.button:active,.button:hover svg,.service:hover svg,.benefits article:hover svg,.info-card:hover svg,.text-link:hover,.text-link:focus-visible{transform:none}}
+
+/* Comfortable small-text sizing throughout the site. */
+body{font-size:16px}
+nav a{font-size:14px}
+.eyebrow{font-size:13px;line-height:1.5}
+.button,.small,.header-book{font-size:13px;line-height:1.4}
+.benefits h3{font-size:14px;line-height:1.45}
+.benefits p{font-size:14px;line-height:1.6}
+.service h3{font-size:14px;line-height:1.4}
+.service p{font-size:14px;line-height:1.6}
+.about-copy p:not(.eyebrow){font-size:15px;line-height:1.7}
+.specialties ul,.specialties li{font-size:14px;line-height:1.6}
+.article-card .tag{font-size:13px;line-height:1.5}
+.info-card p,.article-card p,.section-intro,.contact-inner p{font-size:16px;line-height:1.7}
+.text-link{font-size:14px}
+footer p,footer a:last-child{font-size:14px;line-height:1.6}
+footer small{font-size:13px;line-height:1.6}
+label{font-size:14px}
+input,select{font-size:16px}
+dialog p,#booking-result{font-size:16px;line-height:1.65}
+.services{gap:10px}
+.service{padding:14px 12px;display:grid;grid-template-columns:36px minmax(0,1fr);align-items:start;gap:12px}
+.service>div{min-width:0}
+.service svg{width:36px;height:36px}
+@media(min-width:1001px) and (max-width:1450px){nav{gap:16px}nav a{font-size:13px}.header-inner{gap:16px}.header-book{padding:11px 15px}.brand{width:190px}.services{grid-template-columns:repeat(3,minmax(0,1fr))}.service:nth-child(4):before{display:none}.specialties{padding-left:18px;white-space:normal}.specialties li{font-size:14px}}
+@media(min-width:1001px){.hero-grid{grid-template-columns:40% 38% 22%}.hero-copy{padding-left:24px}.actions{gap:12px}.actions .button{font-size:13px;padding:11px 16px}.benefits{padding-left:12px}.benefits article{gap:10px}.benefits article>span{width:46px;height:46px}.benefits svg{width:30px;height:30px}.specialties{white-space:normal}}
+@media(max-width:1000px){nav a{font-size:15px}.header-book{font-size:13px}.benefits{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.benefits h3,.benefits p{font-size:14px}.service h3,.service p{font-size:14px}.actions{flex-wrap:wrap;gap:12px}.actions .button{font-size:13px;padding:11px 16px}.specialties li{font-size:14px}}
+@media(max-width:600px){.eyebrow{font-size:13px}.intro{font-size:16px}.actions{flex-direction:column;align-items:stretch}.actions .button{font-size:14px;min-height:48px}.benefits article{flex-direction:column;gap:10px}.benefits h3,.benefits p{font-size:14px}.service{display:flex;flex-direction:column;gap:10px;padding:12px 10px}.service h3,.service p{font-size:14px}.service svg{width:32px;height:32px}.about-copy p:not(.eyebrow){font-size:16px}.specialties li{font-size:14px;max-width:none}.pets-photo{grid-row:4;width:75%;max-width:320px;margin-right:0}.specialties{grid-row:3}.button,.small{font-size:14px}.services{gap:10px}}
+
+/* Service descriptions span the full card width below icon and heading. */
+.services .service{display:grid;grid-template-columns:36px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:12px;row-gap:12px;align-items:start}
+.services .service>span{grid-column:1;grid-row:1}
+.services .service h3{grid-column:2;grid-row:1;align-self:center;min-width:0;margin:0;overflow-wrap:anywhere}
+.services .service p{grid-column:1/-1;grid-row:2;margin:0;width:100%;min-width:0}
+@media(max-width:600px){.services .service{grid-template-columns:32px minmax(0,1fr);column-gap:9px}}
+
+/* Low-opacity pet print behind the blog, with solid readable cards. */
+.blog-section{position:relative;isolation:isolate;background:#f5f9ff}
+.blog-section::before{content:'';position:absolute;inset:0;z-index:-1;background:url('assets/pet-pattern.svg') 20px 15px/520px 360px repeat;opacity:.12;pointer-events:none}
+@media(max-width:600px){.blog-section::before{background-size:390px 270px;opacity:.10}}
+
+/* Soft blue gradient beneath the pet print. */
+.blog-section{background:linear-gradient(180deg,#f3f9ff 0%,#dcecff 45%,#b8d7ff 100%)}

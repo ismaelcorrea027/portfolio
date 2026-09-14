@@ -3,7 +3,7 @@ const paths={calendar:'M5 6h26v26H5z M5 13h26 M11 3v6 M25 3v6 M11 19h2 M18 19h2 
 function icon(name){return `<svg viewBox="0 0 36 36" aria-hidden="true"><path d="${paths[name]||paths.paw}"/></svg>`;}
 const services=[['Consultas','Atendimento completo para cães e gatos','stethoscope','Um atendimento atento à história, à rotina e às necessidades do seu pet. A consulta é o primeiro passo para definir os próximos cuidados.'],['Vacinas','Protocolos personalizados para cada fase da vida','vaccine','Converse com a equipe sobre o acompanhamento preventivo e o calendário individual de vacinação do seu pet.'],['Exames','Laboratoriais e de imagem com resultados rápidos','paw','Avaliações laboratoriais e de imagem ajudam a equipe a investigar e acompanhar a saúde do seu pet.'],['Cirurgias','Procedimentos seguros com anestesia monitorada','heart','Cada procedimento começa com uma avaliação individual e um planejamento cuidadoso, incluindo acompanhamento antes e depois da cirurgia.'],['Odontologia','Saúde bucal para mais qualidade de vida','tooth','Avaliação da saúde bucal e orientação de cuidados para o conforto e bem-estar do seu melhor amigo.'],['Pet Care','Banho, tosa e cuidados com muito amor','care','Higiene e cuidados com respeito ao tempo, à sensibilidade e às características de cada animal.']];
 const articles=[['Bem-estar','Uma rotina com mais qualidade de vida','Pequenos hábitos, grandes momentos juntos.','Observar o comportamento, oferecer um ambiente acolhedor e reservar tempo para brincar são formas de estar mais próximo do seu pet. Leve suas dúvidas sobre a rotina para uma avaliação individual com a equipe.'],['Prevenção','Cuidado em todas as fases da vida','Do primeiro encontro aos anos de companhia.','Cada fase traz novas necessidades. Nas consultas, compartilhe as mudanças percebidas na rotina do seu pet para que a equipe possa orientar o acompanhamento.'],['Medicina felina','Um olhar especial para os gatos','Respeito, tranquilidade e acolhimento.','Uma experiência acolhedora começa antes da consulta. Converse com a equipe sobre o transporte e conte como seu gato costuma reagir a ambientes novos.']];
-document.querySelector('#service-list').innerHTML=services.map((s,i)=>`<button class="service" data-service="${i}"><span>${icon(s[2])}</span><div><h3>${s[0]}</h3><p>${s[1]}</p></div></button>`).join('');
+document.querySelector('#service-list').innerHTML=services.map((s,i)=>`<button class="service" data-service="${i}"><span>${icon(s[2])}</span><h3>${s[0]}</h3><p>${s[1]}</p></button>`).join('');
 document.querySelector('#booking-service').innerHTML=services.map(s=>`<option>${s[0]}</option>`).join('');
 document.querySelector('#articles').innerHTML=articles.map((a,i)=>`<article class="article-card"><span class="tag">${a[0]}</span><h3>${a[1]}</h3><p>${a[2]}</p><button class="text-link" data-article="${i}">Ler mais <span aria-hidden="true">→</span></button></article>`).join('');
 document.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));
@@ -28,3 +28,28 @@ const now=new Date(),dateField=form.elements.date;dateField.min=`${now.getFullYe
 form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const data=new FormData(form);const date=new Date(`${data.get('date')}T12:00:00`).toLocaleDateString('pt-BR');result.textContent=`Simulação concluída, ${data.get('name')}! Solicitação de ${data.get('service').toLowerCase()} para ${data.get('pet')}, em ${date}. Este é um protótipo: nenhuma consulta foi marcada e nenhum dado foi enviado ou armazenado.`;form.hidden=true;result.hidden=false;});
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){nav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.hash===`#${entry.target.id}`));}});},{rootMargin:'-10% 0px -55% 0px',threshold:0});
 ['inicio','sobre','servicos','especialidades','equipe','blog','contato'].forEach(id=>observer.observe(document.getElementById(id)));
+
+// Scroll reveals and pointer feedback are progressive enhancements.
+const vetReduced=matchMedia('(prefers-reduced-motion: reduce)');
+const vetPointer=matchMedia('(hover: hover) and (pointer: fine)');
+const vetTargets=document.querySelectorAll('.service,.benefits article,.about-copy,.clinic-photo,.specialties,.info-card,.article-card,.contact-inner');
+let vetObserver;
+function setupVetMotion(){
+  vetObserver?.disconnect();
+  if(vetReduced.matches){vetTargets.forEach(el=>el.classList.add('is-visible'));return;}
+  vetObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');vetObserver.unobserve(entry.target);}}),{threshold:.08});
+  vetTargets.forEach(el=>{el.classList.add('vet-reveal');el.style.setProperty('--reveal-delay',`${([...el.parentElement.children].indexOf(el)%3)*75}ms`);vetObserver.observe(el);});
+}
+const vetHero=document.querySelector('.hero'),vetPhoto=document.querySelector('.hero-photo');
+let vetFrame=0;
+function resetVetPointer(){cancelAnimationFrame(vetFrame);vetPhoto.style.removeProperty('--photo-x');vetPhoto.style.removeProperty('--photo-y');}
+vetHero.addEventListener('pointermove',event=>{
+  if(vetReduced.matches||!vetPointer.matches||event.pointerType!=='mouse'||innerWidth<1001)return;
+  cancelAnimationFrame(vetFrame);vetFrame=requestAnimationFrame(()=>{const r=vetHero.getBoundingClientRect();vetPhoto.style.setProperty('--photo-x',`${((event.clientX-r.left)/r.width-.5)*6}px`);vetPhoto.style.setProperty('--photo-y',`${((event.clientY-r.top)/r.height-.5)*4}px`);});
+},{passive:true});
+vetHero.addEventListener('pointerleave',resetVetPointer);
+document.querySelectorAll('.info-card,.article-card').forEach(card=>{let frame=0;card.addEventListener('pointermove',event=>{if(vetReduced.matches||!vetPointer.matches||event.pointerType!=='mouse')return;cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{const r=card.getBoundingClientRect();card.style.setProperty('--glow-x',`${event.clientX-r.left}px`);card.style.setProperty('--glow-y',`${event.clientY-r.top}px`);});},{passive:true});card.addEventListener('pointerleave',()=>cancelAnimationFrame(frame));});
+vetReduced.addEventListener('change',()=>{resetVetPointer();setupVetMotion();});
+vetPointer.addEventListener('change',resetVetPointer);
+window.addEventListener('resize',resetVetPointer,{passive:true});
+setupVetMotion();

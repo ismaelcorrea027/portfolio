@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="360" viewBox="0 0 520 360" fill="none" stroke="#075de5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<g id="paw"><ellipse cx="-11" cy="-8" rx="4" ry="6" transform="rotate(-25 -11 -8)"/><ellipse cx="0" cy="-14" rx="4" ry="6"/><ellipse cx="11" cy="-8" rx="4" ry="6" transform="rotate(25 11 -8)"/><path d="M-13 11C-18 3-7-2 0-2S18 3 13 11C10 16 4 11 0 11S-10 16-13 11Z"/></g>
+<g id="bone"><path d="M-12-5C-23-17-31-1-22 3C-27 14-13 17-10 8L12 8C18 19 30 10 24 3C33-5 21-16 13-5Z"/></g>
+<g id="cat"><path d="M-15-5-17-20-5-11Q0-13 5-11L17-20 15-5C24 16-24 16-15-5Z"/><path d="M-7-2h1M6-2h1M-2 4l2 2 2-2M0 6v3M-13 4l-9-2M-13 8l-9 2M13 4l9-2M13 8l9 2"/></g>
+<g id="bowl"><path d="M-17-4H17L22 13H-22Z M-17-4Q0 3 17-4"/><path d="M0-11C-17-18-7-28 0-20C7-28 17-18 0-11Z"/></g>
+<g id="ball"><circle r="16"/><path d="M-12-10Q3-5-12 10M12-10Q-3-5 12 10"/></g>
+<g id="heart"><path d="M0 15C-35-7-10-25 0-10C10-25 35-7 0 15Z"/></g>
+</defs>
+<use href="#paw" transform="translate(48 49) rotate(-22)"/>
+<use href="#bone" transform="translate(187 91) rotate(-30)"/>
+<use href="#cat" transform="translate(332 48) rotate(12)"/>
+<use href="#ball" transform="translate(467 120) rotate(30)"/>
+<use href="#bowl" transform="translate(77 210) rotate(12)"/>
+<use href="#paw" transform="translate(270 194) rotate(28) scale(.8)"/>
+<use href="#heart" transform="translate(401 266) rotate(-12)"/>
+<use href="#bone" transform="translate(166 307) rotate(22) scale(.8)"/>
+<use href="#paw" transform="translate(492 326) rotate(-15) scale(.75)"/>
+<circle cx="113" cy="106" r="3"/><circle cx="365" cy="163" r="3"/><circle cx="301" cy="308" r="2"/>
+</svg>

@@ -151,3 +151,10 @@ h2{font-weight:400;letter-spacing:-.8px;line-height:1.18}
 @media(max-width:1050px){h1{font-size:46px}}
 @media(max-width:700px){h1{font-size:clamp(35px,7.3vw,48px);line-height:1.14;letter-spacing:-1px}}
 @media(max-width:390px){.hero-copy h1{font-size:33px}}
+
+/* Soft architectural background, with opaque content above it. */
+.blog-section{position:relative;isolation:isolate;background:#f4f0ed}
+.blog-section::before{content:'';position:absolute;inset:0;z-index:-1;background:url('assets/recepcao-hd.png') center/cover no-repeat;filter:sepia(.35) saturate(.55);opacity:.18;pointer-events:none}
+.blog-section::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#f4f0ed99,#f4f0ed22,#f4f0ed77);pointer-events:none}
+@media(max-width:360px){.hero-copy h1{font-size:30px}.partner-copy .text-button{white-space:normal;text-align:left}.areas-grid .area h3{min-width:0;overflow-wrap:anywhere}}
+.brand-art{width:100%;max-width:100%}
