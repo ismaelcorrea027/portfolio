@@ -1,0 +1,197 @@
+- generic [active] [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - generic "Barra ilustrativa do Microsoft 365" [ref=e3]:
+    - generic [aria-hidden] [ref=e4]: ⠿
+    - strong [ref=e5]: SharePoint
+    - generic [ref=e6]: ⌕ Pesquisar neste site
+    - generic [aria-hidden] [ref=e7]: ⚙ ? ◯
+  - banner [ref=e8]:
+    - link [ref=e9] [cursor=pointer]:
+      - /url: "#conteudo"
+      - img "Salomão, Kaiuca & Abrahão — Sociedade de Advogados" [ref=e10]
+    - navigation "Principal" [ref=e11]:
+      - link "Página inicial" [ref=e12] [cursor=pointer]:
+        - /url: "#conteudo"
+      - link "Documentos" [ref=e13] [cursor=pointer]:
+        - /url: "#documentos"
+      - link "Pessoas" [ref=e14] [cursor=pointer]:
+        - /url: "#pessoas"
+      - link "Calendário" [ref=e15] [cursor=pointer]:
+        - /url: "#calendario"
+      - link "Links" [ref=e16] [cursor=pointer]:
+        - /url: "#links"
+  - generic [ref=e17]:
+    - generic [ref=e18]: ⌂ Intranet / Página inicial
+    - generic [ref=e19]: ♡ Não seguindo ↗ Compartilhar
+  - main [ref=e20]:
+    - region "Destaques da intranet" [ref=e21]:
+      - link "Excelência construída em conjunto Nosso escritório Trajetórias, valores e pessoas que nos movem. Conheça nossa história ↗" [ref=e22] [cursor=pointer]:
+        - /url: "#escritorio"
+        - paragraph: Excelência construídaem conjunto
+        - generic [ref=e23]:
+          - heading "Nosso escritório" [level=2] [ref=e24]
+          - paragraph [ref=e25]: Trajetórias, valores e pessoas que nos movem.
+          - generic [ref=e26]:
+            - text: Conheça nossa história
+            - generic [ref=e27]: ↗
+      - generic [ref=e28]:
+        - link [ref=e29] [cursor=pointer]:
+          - /url: "#calendario"
+          - paragraph: Organização e conexão
+          - heading "Agenda & salas ↗" [level=2] [ref=e30]:
+            - text: Agenda & salas
+            - generic [ref=e31]: ↗
+        - link [ref=e32] [cursor=pointer]:
+          - /url: "#pessoas"
+          - paragraph: Talentos que somam
+          - heading "Nossa equipe ↗" [level=2] [ref=e33]:
+            - text: Nossa equipe
+            - generic [ref=e34]: ↗
+        - link [ref=e35] [cursor=pointer]:
+          - /url: "#documentos"
+          - paragraph: Informação ao seu alcance
+          - heading "Biblioteca ↗" [level=2] [ref=e36]:
+            - text: Biblioteca
+            - generic [ref=e37]: ↗
+        - link [ref=e38] [cursor=pointer]:
+          - /url: "#links"
+          - paragraph: Conte com a gente
+          - heading "Serviços internos ↗" [level=2] [ref=e39]:
+            - text: Serviços internos
+            - generic [ref=e40]: ↗
+    - region [ref=e41]:
+      - generic [ref=e42]:
+        - text: ACONTECE NA SKAA
+        - heading "Em destaque" [level=2] [ref=e43]
+        - paragraph [ref=e44]: As novidades que aproximam nosso time.
+        - generic [ref=e45]:
+          - button "Notícia anterior" [ref=e46] [cursor=pointer]: ←
+          - generic [ref=e47]: 01 / 03
+          - button "Próxima notícia" [ref=e48] [cursor=pointer]: →
+      - button "NOSSA CULTURA Um escritório. Muitas conexões. Conheça as iniciativas que fortalecem o nosso jeito de trabalhar. Leia o comunicado ↗" [ref=e49] [cursor=pointer]:
+        - text: NOSSA CULTURA
+        - heading "Um escritório. Muitas conexões." [level=3] [ref=e50]: Um escritório.Muitas conexões.
+        - paragraph [ref=e51]: Conheça as iniciativas que fortalecem o nosso jeito de trabalhar.
+        - generic [ref=e52]: Leia o comunicado ↗
+    - generic [ref=e53]:
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - heading "Calendário corporativo" [level=2] [ref=e56]
+          - button "Ver agenda ↗" [ref=e57] [cursor=pointer]
+        - generic [ref=e58]:
+          - button "▦ Planeje sua semana Encontros e compromissos em um só lugar. Explorar calendário ↗" [ref=e59] [cursor=pointer]:
+            - generic [ref=e60]: ▦
+            - heading "Planeje sua semana" [level=3] [ref=e61]
+            - paragraph [ref=e62]: Encontros e compromissos em um só lugar.
+            - text: Explorar calendário ↗
+          - button "OUT 01 Encontro de equipes 09h30 · Auditório Integração e alinhamento" [ref=e63] [cursor=pointer]:
+            - time [ref=e64]:
+              - generic [ref=e65]: OUT
+              - text: "01"
+            - heading "Encontro de equipes" [level=3] [ref=e66]
+            - paragraph [ref=e67]: 09h30 · Auditório
+            - text: Integração e alinhamento
+          - button "OUT 08 Conhecimento em pauta 14h00 · Online Troca de experiências" [ref=e68] [cursor=pointer]:
+            - time [ref=e69]:
+              - generic [ref=e70]: OUT
+              - text: "08"
+            - heading "Conhecimento em pauta" [level=3] [ref=e71]
+            - paragraph [ref=e72]: 14h00 · Online
+            - text: Troca de experiências
+      - complementary [ref=e73]:
+        - heading "Notícias" [level=2] [ref=e75]
+        - button "Biblioteca atualizada Materiais para o seu dia a dia." [ref=e76] [cursor=pointer]:
+          - generic [ref=e77]:
+            - text: Biblioteca atualizada
+            - generic [ref=e78]: Materiais para o seu dia a dia.
+        - button "Boas-vindas ao time Novas pessoas, novas perspectivas." [ref=e79] [cursor=pointer]:
+          - generic [ref=e80]:
+            - text: Boas-vindas ao time
+            - generic [ref=e81]: Novas pessoas, novas perspectivas.
+        - button "Momentos para celebrar Conquistas que compartilhamos." [ref=e82] [cursor=pointer]:
+          - generic [ref=e83]:
+            - text: Momentos para celebrar
+            - generic [ref=e84]: Conquistas que compartilhamos.
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - text: ENCONTRE SEU ESPAÇO
+        - heading "Calendário de salas" [level=2] [ref=e87]
+      - button "▦ Sala de reuniões 01 8 pessoas · Videoconferência ↗" [ref=e88] [cursor=pointer]:
+        - generic [ref=e89]: ▦
+        - generic [ref=e90]:
+          - text: Sala de reuniões 01
+          - generic [ref=e91]: 8 pessoas · Videoconferência
+        - generic [ref=e92]: ↗
+      - button "▦ Sala de reuniões 02 12 pessoas · Apresentações ↗" [ref=e93] [cursor=pointer]:
+        - generic [ref=e94]: ▦
+        - generic [ref=e95]:
+          - text: Sala de reuniões 02
+          - generic [ref=e96]: 12 pessoas · Apresentações
+        - generic [ref=e97]: ↗
+      - button "▦ Auditório Encontros e treinamentos ↗" [ref=e98] [cursor=pointer]:
+        - generic [ref=e99]: ▦
+        - generic [ref=e100]:
+          - text: Auditório
+          - generic [ref=e101]: Encontros e treinamentos
+        - generic [ref=e102]: ↗
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - heading "Seu dia a dia, mais simples" [level=2] [ref=e105]
+        - generic [ref=e106]: ACESSO RÁPIDO
+      - generic [ref=e107]:
+        - button "▤ Documentos e modelos Referências sempre à mão. ↗" [ref=e108] [cursor=pointer]:
+          - text: ▤
+          - heading "Documentos e modelos" [level=3] [ref=e109]
+          - paragraph [ref=e110]: Referências sempre à mão.
+          - generic [ref=e111]: ↗
+        - button "♧ Recursos Humanos Benefícios e orientações. ↗" [ref=e112] [cursor=pointer]:
+          - text: ♧
+          - heading "Recursos Humanos" [level=3] [ref=e113]
+          - paragraph [ref=e114]: Benefícios e orientações.
+          - generic [ref=e115]: ↗
+        - button "⌘ Suporte de TI Apoio para o seu trabalho. ↗" [ref=e116] [cursor=pointer]:
+          - text: ⌘
+          - heading "Suporte de TI" [level=3] [ref=e117]
+          - paragraph [ref=e118]: Apoio para o seu trabalho.
+          - generic [ref=e119]: ↗
+        - button "◇ Políticas internas Confiança em cada ação. ↗" [ref=e120] [cursor=pointer]:
+          - text: ◇
+          - heading "Políticas internas" [level=3] [ref=e121]
+          - paragraph [ref=e122]: Confiança em cada ação.
+          - generic [ref=e123]: ↗
+    - generic [ref=e124]:
+      - generic [ref=e125]: QUEM FAZ PARTE DA NOSSA HISTÓRIA
+      - generic [ref=e126]:
+        - heading "Aniversariantes do mês" [level=2] [ref=e127]
+        - button "Ver equipe ↗" [ref=e128] [cursor=pointer]
+      - generic [ref=e129]:
+        - article [ref=e130]:
+          - generic [ref=e131]: ♧ 02/10
+          - img "Retrato fictício de Ana Martins, gerado por IA" [ref=e133]
+          - heading "Ana Martins" [level=3] [ref=e134]
+          - paragraph [ref=e135]: Jurídico
+        - article [ref=e136]:
+          - generic [ref=e137]: ♧ 06/10
+          - img "Retrato fictício de Rafael Costa, gerado por IA" [ref=e139]
+          - heading "Rafael Costa" [level=3] [ref=e140]
+          - paragraph [ref=e141]: Administrativo
+        - article [ref=e142]:
+          - generic [ref=e143]: ♧ 12/10
+          - img "Retrato fictício de Beatriz Lima, gerado por IA" [ref=e145]
+          - heading "Beatriz Lima" [level=3] [ref=e146]
+          - paragraph [ref=e147]: Jurídico
+        - article [ref=e148]:
+          - generic [ref=e149]: ♧ 18/10
+          - img "Retrato fictício de Pedro Santos, gerado por IA" [ref=e151]
+          - heading "Pedro Santos" [level=3] [ref=e152]
+          - paragraph [ref=e153]: Tecnologia
+        - article [ref=e154]:
+          - generic [ref=e155]: ♧ 24/10
+          - img "Retrato fictício de Clara Ferreira, gerado por IA" [ref=e157]
+          - heading "Clara Ferreira" [level=3] [ref=e158]
+          - paragraph [ref=e159]: Recursos Humanos
+  - contentinfo [ref=e160]:
+    - img "SKAA Advogados" [ref=e161]
+    - paragraph [ref=e162]: Intranet · Conexões que fortalecem nosso trabalho.
+    - paragraph [ref=e163]: Mockup visual · Conteúdos, pessoas e agenda ilustrativos. Retratos gerados por IA.

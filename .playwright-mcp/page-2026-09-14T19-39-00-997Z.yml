@@ -1,0 +1,151 @@
+- generic [active] [ref=e1]:
+  - link "Pular para o conteúdo" [ref=e2] [cursor=pointer]:
+    - /url: "#conteudo"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "VetCare — início" [ref=e5] [cursor=pointer]:
+        - /url: "#inicio"
+      - navigation "Navegação principal" [ref=e7]:
+        - link "Início" [ref=e8] [cursor=pointer]:
+          - /url: "#inicio"
+        - link "Sobre nós" [ref=e9] [cursor=pointer]:
+          - /url: "#sobre"
+        - link "Serviços" [ref=e10] [cursor=pointer]:
+          - /url: "#servicos"
+        - link "Especialidades" [ref=e11] [cursor=pointer]:
+          - /url: "#especialidades"
+        - link "Equipe" [ref=e12] [cursor=pointer]:
+          - /url: "#equipe"
+        - link "Blog" [ref=e13] [cursor=pointer]:
+          - /url: "#blog"
+        - link "Contato" [ref=e14] [cursor=pointer]:
+          - /url: "#contato"
+      - button [ref=e15] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Cuidado que transforma vidas
+        - heading [level=1] [ref=e27]:
+          - text: Seu pet mereceo melhor cuidado.
+          - emphasis [ref=e28]: Sempre.
+        - paragraph [ref=e29]: Atendimento veterinário completo com amor, tecnologia e profissionais especializados para todas as fases da vida do seu pet.
+        - generic [ref=e30]:
+          - button [ref=e31] [cursor=pointer]
+          - link "▶ Conheça a clínica" [ref=e35] [cursor=pointer]:
+            - /url: "#sobre"
+            - generic [ref=e36]: ▶
+            - text: Conheça a clínica
+      - img "Veterinária de uniforme azul abraçando um golden retriever" [ref=e37]
+      - complementary "Nosso cuidado" [ref=e38]:
+        - article [ref=e39]:
+          - generic [ref=e43]:
+            - heading "Atendimento humanizado" [level=3] [ref=e44]: Atendimentohumanizado
+            - paragraph [ref=e45]: Tratamos seu pet com amor e respeito em cada detalhe.
+        - article [ref=e46]:
+          - generic [ref=e50]:
+            - heading "Estrutura moderna e segura" [level=3] [ref=e51]: Estrutura modernae segura
+            - paragraph [ref=e52]: Ambiente equipado com tecnologia de ponta.
+        - article [ref=e53]:
+          - generic [ref=e57]:
+            - heading "Equipe especializada" [level=3] [ref=e58]: Equipeespecializada
+            - paragraph [ref=e59]: Veterinários experientes em constante atualização.
+        - article [ref=e60]:
+          - generic [ref=e64]:
+            - heading "Saúde e bem-estar" [level=3] [ref=e65]
+            - paragraph [ref=e66]: Cuidado completo para uma vida longa e feliz.
+    - region "Serviços veterinários" [ref=e67]:
+      - generic [ref=e68]:
+        - button [ref=e69] [cursor=pointer]:
+          - generic [ref=e73]:
+            - heading "Consultas" [level=3] [ref=e74]
+            - paragraph [ref=e75]: Atendimento completo para cães e gatos
+        - button [ref=e76] [cursor=pointer]:
+          - generic [ref=e80]:
+            - heading "Vacinas" [level=3] [ref=e81]
+            - paragraph [ref=e82]: Protocolos personalizados para cada fase da vida
+        - button [ref=e83] [cursor=pointer]:
+          - generic [ref=e87]:
+            - heading "Exames" [level=3] [ref=e88]
+            - paragraph [ref=e89]: Laboratoriais e de imagem com resultados rápidos
+        - button [ref=e90] [cursor=pointer]:
+          - generic [ref=e94]:
+            - heading "Cirurgias" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Procedimentos seguros com anestesia monitorada
+        - button [ref=e97] [cursor=pointer]:
+          - generic [ref=e101]:
+            - heading "Odontologia" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Saúde bucal para mais qualidade de vida
+        - button [ref=e104] [cursor=pointer]:
+          - generic [ref=e108]:
+            - heading "Pet Care" [level=3] [ref=e109]
+            - paragraph [ref=e110]: Banho, tosa e cuidados com muito amor
+    - generic [ref=e112]:
+      - generic [ref=e113]:
+        - paragraph [ref=e114]: Sobre nós
+        - heading [level=2] [ref=e115]:
+          - text: Muito mais que uma clínica,
+          - emphasis [ref=e116]: somos família!
+        - paragraph [ref=e118]: Nosso propósito é oferecer o melhor em medicina veterinária, promovendo saúde, bem-estar e qualidade de vida para o seu pet com ética, carinho e dedicação.
+        - button "Saiba mais sobre nós" [ref=e119] [cursor=pointer]:
+          - text: Saiba mais sobre nós
+          - generic [aria-hidden] [ref=e120]: →
+      - img "Recepção VetCare com poltronas azuis e ambiente acolhedor" [ref=e121]
+      - generic [ref=e122]:
+        - paragraph [ref=e123]: Especialidades
+        - list [ref=e125]:
+          - listitem [ref=e126]: ✓ Clínica Geral
+          - listitem [ref=e127]: ✓ Cardiologia Veterinária
+          - listitem [ref=e128]: ✓ Dermatologia
+          - listitem [ref=e129]: ✓ Ortopedia
+          - listitem [ref=e130]: ✓ Oftalmologia
+          - listitem [ref=e131]: ✓ Medicina Felina
+          - listitem [ref=e132]: ✓ Medicina Preventiva
+          - listitem [ref=e133]: ✓ Nutrição Animal
+      - img "Gato e cachorro border collie juntos" [ref=e134]
+    - generic [ref=e136]:
+      - paragraph [ref=e137]: Equipe especializada
+      - heading "Carinho em cada atendimento." [level=2] [ref=e138]
+      - paragraph [ref=e139]: Um olhar atento para cada fase da vida do seu melhor amigo.
+      - generic [ref=e140]:
+        - article [ref=e141]:
+          - heading "Uma escuta acolhedora" [level=3] [ref=e145]
+          - paragraph [ref=e146]: Tempo para conhecer a rotina do seu pet e entender suas necessidades.
+        - article [ref=e147]:
+          - heading "Cuidado integrado" [level=3] [ref=e151]
+          - paragraph [ref=e152]: Clínica geral e especialidades trabalhando juntas pelo bem-estar animal.
+        - article [ref=e153]:
+          - heading "Acompanhamento próximo" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Orientação para que o cuidado continue também em casa.
+    - generic [ref=e160]:
+      - paragraph [ref=e161]: Blog VetCare
+      - heading "Para cuidar ainda melhor." [level=2] [ref=e162]
+      - generic [ref=e163]:
+        - article [ref=e164]:
+          - text: Bem-estar
+          - heading "Uma rotina com mais qualidade de vida" [level=3] [ref=e165]
+          - paragraph [ref=e166]: Pequenos hábitos, grandes momentos juntos.
+          - button "Ler mais" [ref=e167] [cursor=pointer]: Ler mais →
+        - article [ref=e168]:
+          - text: Prevenção
+          - heading "Cuidado em todas as fases da vida" [level=3] [ref=e169]
+          - paragraph [ref=e170]: Do primeiro encontro aos anos de companhia.
+          - button "Ler mais" [ref=e171] [cursor=pointer]: Ler mais →
+        - article [ref=e172]:
+          - text: Medicina felina
+          - heading "Um olhar especial para os gatos" [level=3] [ref=e173]
+          - paragraph [ref=e174]: Respeito, tranquilidade e acolhimento.
+          - button "Ler mais" [ref=e175] [cursor=pointer]: Ler mais →
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - paragraph [ref=e179]: Vamos cuidar de quem você ama
+        - heading "O próximo passo é uma boa conversa." [level=2] [ref=e180]
+        - paragraph [ref=e181]: Escolha o serviço e simule sua solicitação de consulta.
+      - button [ref=e182] [cursor=pointer]
+  - contentinfo [ref=e186]:
+    - generic [ref=e187]:
+      - link "VetCare" [ref=e188] [cursor=pointer]:
+        - /url: "#inicio"
+      - paragraph [ref=e189]: Clínica veterinária · Cuidado que transforma vidas.
+      - generic [ref=e190]: Projeto conceitual de portfólio. Agendamentos demonstrativos, sem envio de dados.
+      - link "Voltar ao portfólio ↗" [ref=e191] [cursor=pointer]:
+        - /url: ../index.html
