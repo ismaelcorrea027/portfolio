@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/admin.css">
   
 
-<link rel="stylesheet" href="css/admin-responsive.css"></head>
+<link rel="stylesheet" href="css/admin-responsive.css?v=compact-6"></head>
 <body class="admin-app">
 <div class="flex column center w-100-p">
   
@@ -31,7 +31,7 @@
     <div class="tab-content mt-4" id="adminTabsContent">
       <div class="tab-pane fade show active" id="agendamentos" role="tabpanel">
         <!-- Subabas dentro de Agendamentos -->
-        <ul class="nav nav-pills mb-3" id="subabas-agendamento" role="tablist">
+        <div class="appointment-toolbar"><ul class="nav nav-pills mb-3" id="subabas-agendamento" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="lista-tab" data-bs-toggle="pill" data-bs-target="#lista-agendamentos" type="button" role="tab">
 				<i class="bi bi-list-task"></i>
@@ -44,7 +44,9 @@
 				Calendário
 			</button>
           </li>
-        </ul>
+        </ul><div class="admin-actions"><button id="addAgendamento" class="btn btn-plus w-100">
+					  <i class="bi bi-plus me-2"></i> Novo Agendamento
+					</button></div></div>
 
         <div class="tab-content" id="subabas-agendamento-content">
           <!-- Conteúdo da subaba Lista -->
@@ -56,9 +58,7 @@
 			<i class="bi bi-funnel-fill me-1"></i> Filtros
 		  </button>
 
-		  <div class="admin-actions"><button id="addAgendamento" class="btn btn-plus w-100">
-					  <i class="bi bi-plus me-2"></i> Novo Agendamento
-					</button></div><div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block">
+		  <div id="filtrosAccordion" class="desktop-flex space-between collapse d-md-block">
 				<div class="row w-100-p">
 				  <div class="col-12 col-md-3">
 					<label for="filtroEmpresa" class="form-label">Empresa</label>
@@ -616,4 +616,5 @@
 
 
 
+<script src="../shared/portfolio-return.js" data-color="#17334b" defer></script>
 </body></html>

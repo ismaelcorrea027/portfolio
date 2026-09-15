@@ -2,3 +2,36 @@
 @media(max-width:1000px){.admin-app [id^=filtros]>.row{grid-template-columns:1fr 1fr}.admin-app .calendar-layout{grid-template-columns:1fr}.admin-app .admin-panel{padding:22px}.admin-app .table{min-width:760px}}
 @media(max-width:767px){.admin-top{padding:24px 20px 56px}.admin-brand{gap:16px}.admin-brand img{width:130px}.admin-brand>span{font-size:9px;letter-spacing:1px;padding-left:16px;max-width:140px}.admin-heading{align-items:flex-start;flex-direction:column;gap:18px}.admin-heading>div>span{display:block;line-height:1.6}.admin-profile{padding:7px 12px}.admin-app .admin-panel{width:calc(100% - 24px);padding:16px;border-radius:12px}.admin-app .nav-tabs{gap:0;display:grid;grid-template-columns:1fr 1fr}.admin-app .nav-tabs .nav-link{width:100%;padding:14px 8px;font-size:15px}.admin-actions .btn{width:100%!important}.admin-app [id^=filtros]>.row{grid-template-columns:minmax(0,1fr);gap:14px}.admin-app .filtro-container>.btn-filter{margin:0 0 12px}.admin-app .table-responsive:has(>table.d-none){display:none}.admin-app .card-body{padding:18px}.admin-app .card .btn{min-width:44px}.admin-app .calendar-layout{gap:16px}.admin-app #calendar,.admin-app .agendamentos-dia{padding:12px}.calendar-days{gap:2px}.calendar-days button{height:40px}.admin-app .modal-dialog{margin:12px}.admin-app .modal-body{padding:18px}.admin-app .modal-footer{padding:14px 18px}.admin-app .modal-body .row>*{width:100%}.admin-app .modal-title{font-size:18px}.admin-app h2{font-size:22px!important}}
 @media(prefers-reduced-motion:reduce){.admin-app *{transition:none!important;scroll-behavior:auto!important}}
+/* Cabeçalho compacto e ações junto às abas principais. */
+.admin-top{display:flex;align-items:center;gap:28px;padding-top:20px;padding-bottom:40px}
+.admin-brand{flex:0 0 auto;gap:14px;padding:0 26px 0 0;border-bottom:0;border-right:1px solid #ffffff30}
+.admin-brand img{width:112px}.admin-brand>span{max-width:140px;padding-left:0;border:0;letter-spacing:1.2px;line-height:1.5}
+.admin-heading{flex:1;min-width:0;padding:0;gap:18px;text-align:left}.admin-heading>div{text-align:left}.admin-heading p{margin:0 0 4px;text-align:left}.admin-heading h1{font-size:28px;margin:0 0 5px;letter-spacing:-.6px}.admin-profile{padding:7px 12px}.admin-heading>div>span{line-height:1.5;display:block}
+.admin-app .admin-panel{padding:20px 28px}.admin-app #adminTabs{padding-right:230px;min-height:55px}.admin-app #adminTabsContent{margin-top:18px!important}
+.admin-actions{position:absolute;right:28px;top:22px;margin:0}.admin-actions .btn{padding:9px 16px}.admin-app [id^=filtros].desktop-flex{padding:14px 18px;margin-bottom:18px}
+@media(max-width:1100px){.admin-brand>span{display:none}.admin-heading h1{font-size:25px}.admin-top{gap:22px}.admin-brand{padding-right:22px}}
+@media(max-width:767px){.admin-top{padding:18px 20px 36px;display:grid;grid-template-columns:1fr auto;gap:14px}.admin-brand{padding:0;border:0}.admin-brand img{width:100px}.admin-heading{display:contents}.admin-heading>div{grid-column:1/-1;grid-row:2}.admin-heading h1{font-size:24px}.admin-heading p{display:none}.admin-profile{grid-row:1;grid-column:2;font-size:13px!important}.admin-app .admin-panel{padding:16px}.admin-app #adminTabs{padding-right:0}.admin-actions{position:static;margin:0 0 14px;justify-content:flex-end}.admin-actions .btn{width:auto!important}.admin-app #adminTabsContent{margin-top:14px!important}}
+/* Ações da tabela mais compactas. */
+.admin-app .table button.btn{width:36px;height:36px;min-width:36px;min-height:36px;padding:6px;margin:2px;line-height:1;border-radius:6px!important;display:inline-flex;align-items:center;justify-content:center}
+.admin-app .table button.btn i{font-size:14px;line-height:1}
+/* Botões de criação compactos na barra superior. */
+.admin-app .admin-actions button.btn{min-height:36px;height:36px;padding:6px 12px;font-size:14px;line-height:1.2;display:inline-flex;align-items:center;justify-content:center;border-radius:6px!important}
+/* Organização das ações no mobile. */
+@media(max-width:767px){
+.admin-app #lista-agendamentos .filtro-container{display:flex;flex-direction:column}
+.admin-app #lista-agendamentos .filtro-container>.admin-actions{order:-1;align-self:flex-end;margin:0 0 10px}
+.admin-app #usuarios.active{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:start}
+.admin-app #usuarios>*{grid-column:1/-1;min-width:0}
+.admin-app #usuarios>.btn-filter{grid-column:1;grid-row:1;margin:0 0 14px!important;min-height:36px;height:36px;padding:6px 12px;font-size:14px}
+.admin-app #usuarios>.admin-actions{grid-column:2;grid-row:1;margin:0 0 14px}
+.admin-app .card .btn-editar-agendamento,.admin-app .card .btn-editar-usuario{display:block;width:100%;margin-left:0;margin-right:0;min-height:44px}
+}
+@media(max-width:767px){
+.admin-app .appointment-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+.admin-app .appointment-toolbar .nav-pills{margin:0!important;flex-wrap:nowrap;gap:5px}
+.admin-app .appointment-toolbar>.admin-actions{margin:0;flex-shrink:0}
+.admin-app .appointment-toolbar .nav-link{padding:8px 9px;font-size:13px;min-height:36px}
+.admin-app .appointment-toolbar #addAgendamento{padding:6px 9px;font-size:13px;white-space:nowrap}
+}
+@media(max-width:370px){.admin-app .appointment-toolbar{gap:4px}.admin-app .appointment-toolbar .nav-link{padding:8px 6px;font-size:12px}.admin-app .appointment-toolbar #addAgendamento{font-size:12px;padding:6px}.admin-app .appointment-toolbar #addAgendamento i{margin-right:3px!important}}
+@media(max-width:767px){.admin-app .appointment-toolbar .nav-link{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;height:36px;line-height:1.2}.admin-app .appointment-toolbar .nav-pills{flex-shrink:0}}

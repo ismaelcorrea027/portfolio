@@ -1,0 +1,3 @@
+[      37ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8765/favicon.ico:0
+[  812441ms] [ERROR] Pattern attribute value [0-9 ()+\-]{8,20} is not a valid regular expression: Uncaught SyntaxError: Invalid regular expression: /[0-9 ()+\-]{8,20}/v: Invalid character in character class @ http://127.0.0.1:8765/medicina-esportiva/index.html:0
+[ 1106452ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:8765/favicon.ico:0

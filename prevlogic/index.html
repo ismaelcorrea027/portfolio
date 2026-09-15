@@ -134,6 +134,7 @@ menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{clos
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&button.getAttribute('aria-expanded')==='true'){closeMenu();button.focus()}});
 mobile.addEventListener('change',()=>{const active=document.activeElement;if(mobile.matches&&menu.contains(active))button.focus();if(!mobile.matches&&active===button)menu.querySelector('a').focus();closeMenu()});
 })();
-</script></body></html>
+</script><script src="../shared/portfolio-return.js" data-color="#17334b" defer></script>
+</body></html>
 
 
